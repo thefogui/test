@@ -9,18 +9,20 @@ public class Connect {
     private ObjectInputStream ois;
     private Socket socket;
     private Date date;
+    private String userName;
 
-    public Connect() {
-
+    public Connect(Int port, String userName) {
+        this.userName = userName;
+        socket = new Socket(3000);
     }
 
     private openSocket(){
         try {
-            socket = new Socket(argv[0].trim(), 3000);
+
             oos = new ObjectOutputStream(socket.getOutputStream());
             ois = new ObjectInputStream(socket.getInputStream());
         } catch(Exception e){
-            
+
         }
     }
 }
