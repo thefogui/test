@@ -11,7 +11,7 @@ public class Protocol {
     private BlackJack blackJack;
     private String message;
 
-    public Protocol(String server, int port,String username) throws IOException {
+    public Protocol(String server, int port, int username) throws IOException {
         this.serverAddress = InetAddress.getByName(server);
         this.socket = new Socket(this.serverAddress, port);
         this.comUtils = new ComUtils(this.socket);
@@ -20,6 +20,7 @@ public class Protocol {
 
     public void start() throws IOException {
         //Start the game here and connect to server
+        this.message = "STRT " + this.blackJack.getPlayerID();
         this.comUtils.write_string("STRT");
         this.readSocket();
     }
@@ -31,19 +32,17 @@ public class Protocol {
             message = message.toUpperCase();
 
             switch (message) {
-                case "CASH":
+                case "INIT":
+                    this.startTheGame();
+
                     break;
-                case "HITT":
+                case "IDCK":
+                    break;
+                case "CARD":
                     break;
                 case "SHOW":
                     break;
-                case "BETT":
-                    break;
-                case "SRND":
-                    break;
-                case "RPLY":
-                    break;
-                case "EXIT":
+                case "WINS":
                     break;
                 default:
                     System.err.println("It ins't a valid command. closing the game");
@@ -51,5 +50,9 @@ public class Protocol {
                     break;
             }
         }
+    }
+
+    private void startTheGame() {
+
     }
 }

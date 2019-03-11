@@ -8,15 +8,15 @@ public class BlackJack {
     private Hand playerHand;
     private int playerMoney;
     private int playerBet;
-    private String playerName;
+    private int playerName;
     private Boolean gameOver;
     private int roundCount;
 
-    public BlackJack(String playerName) {
+    public BlackJack(int playerName) {
         this.deck = new Deck();
         this.deck.shuffle(); //shuffle the deck
         this.playerName = playerName;
-        this.dealerHand = new Hand(this.playerName);
+        this.dealerHand = new Hand(String.valueOf(this.playerName));
         this.dealerHand = new Hand("Dealer");
         this.playerMoney = 10;
         this.gameOver = false;
@@ -27,6 +27,10 @@ public class BlackJack {
     public void startPlay() {
         this.askBet();
     }
+
+    public int getPlayerID() {
+    	return this.playerName;
+	}
 
     public boolean isRunning() {
     	return true;

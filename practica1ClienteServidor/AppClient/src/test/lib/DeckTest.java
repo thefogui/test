@@ -1,11 +1,14 @@
 package test.lib;
 
 import static org.junit.jupiter.api.Assertions.*;
+import lib.Deck;
 
 class DeckTest {
 
     @org.junit.jupiter.api.Test
     void getDeck() {
+        Deck deck = new Deck();
+
     }
 
     @org.junit.jupiter.api.Test

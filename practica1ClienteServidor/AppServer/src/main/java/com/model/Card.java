@@ -1,4 +1,4 @@
-package lib;
+package main.java.com.model;
 
 public class Card {
     private int value;

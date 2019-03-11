@@ -16,7 +16,7 @@ public class Client {
         String input = null;
         String server = null;
         int numPort = 0;
-        String username = null;
+        int username = 0;
 
         while(option != EXIT) {
             System.out.println("1. Connect to server");
@@ -59,7 +59,7 @@ public class Client {
                         System.out.println("Insert the server Port");
                         numPort = scanner.nextInt();
                         System.out.println("Insert your username");
-                        username = scanner.next();
+                        username = scanner.nextInt();
 
                         try {
                             Protocol protocol = new Protocol(server, numPort, username);
