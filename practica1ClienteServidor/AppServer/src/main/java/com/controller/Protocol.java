@@ -27,6 +27,34 @@ public class Protocol {
 
             switch (command) {
                 //Do the switch case for each message in the protocol.
+                case "STRT":
+                    System.out.println("aqui");
+                    break;
+                case "CASH":
+
+                    break;
+                case "HITT":
+
+                    break;
+                case "SHOW":
+
+                    break;
+                case "BETT":
+
+                    break;
+                case "SRND":
+
+                    break;
+                case "RPLY":
+
+                    break;
+                case "EXIT":
+
+                    break;
+                default:
+                    System.err.println("It ins't a valid command. closing the game");
+                    //set running to false
+                    break;
             }
         }
     }

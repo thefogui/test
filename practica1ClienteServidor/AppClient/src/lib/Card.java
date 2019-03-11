@@ -5,7 +5,7 @@ public class Card {
     private String cardNaipe;
     private String rank;
 
-    public Card(String cardnNaipe, String rank) {
+    public Card(String cardNaipe, String rank) {
         this.cardNaipe = cardNaipe;
         this.rank = rank;
 

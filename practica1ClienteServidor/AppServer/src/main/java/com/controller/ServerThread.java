@@ -21,6 +21,7 @@ public class ServerThread implements Runnable {
 
         try {
             Protocol protocol = new Protocol(this.socket, this.comutils);
+
         } catch (IOException exception) {
             System.err.println("Error starting the protocol: " +
                                 exception.getMessage());

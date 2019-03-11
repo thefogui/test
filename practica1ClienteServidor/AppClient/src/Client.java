@@ -4,11 +4,10 @@ import java.util.InputMismatchException;
 import Controller.*;
 
 public class Client {
-
-    private static final int EXIT = 4;
+    private static final int CONNECT_TO_SERVER = 1;
     private static final int AUTOMATIC_CLIENT = 2;
     private static final int MANUAL_CLIENT = 3;
-    private static final int CONNECT_TO_SERVER = 1;
+    private static final int EXIT = 4;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -17,6 +16,7 @@ public class Client {
         String input = null;
         String server = null;
         int numPort = 0;
+        String username = null;
 
         while(option != EXIT) {
             System.out.println("1. Connect to server");
@@ -58,22 +58,24 @@ public class Client {
                         server = scanner.next();
                         System.out.println("Insert the server Port");
                         numPort = scanner.nextInt();
+                        System.out.println("Insert your username");
+                        username = scanner.next();
 
                         try {
-                            Protocol protocol = new Protocol(server, numPort);
+                            Protocol protocol = new Protocol(server, numPort, username);
                             protocol.start();
                         }catch (IOException e) {
                             System.err.println("Can't start the protocol " + e.getMessage());
                         }
 
                     case AUTOMATIC_CLIENT:
-                        System.out.println("Has seleccionado la opcion 1");
-                        break;
-                    case MANUAL_CLIENT:
                         System.out.println("Has seleccionado la opcion 2");
                         break;
-                    case EXIT:
+                    case MANUAL_CLIENT:
                         System.out.println("Has seleccionado la opcion 3");
+                        break;
+                    case EXIT:
+                        System.out.println("Has seleccionado la opcion 4");
                         break;
                     default:
                         System.err.println("Not a valid number!");

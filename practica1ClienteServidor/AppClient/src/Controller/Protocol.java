@@ -11,18 +11,20 @@ public class Protocol {
     private BlackJack blackJack;
     private String message;
 
-    public Protocol(String server, int port) throws IOException {
+    public Protocol(String server, int port,String username) throws IOException {
         this.serverAddress = InetAddress.getByName(server);
         this.socket = new Socket(this.serverAddress, port);
         this.comUtils = new ComUtils(this.socket);
+        this.blackJack = new BlackJack(username);
     }
 
     public void start() throws IOException {
         //Start the game here and connect to server
         this.comUtils.write_string("STRT");
+        this.readSocket();
     }
 
-    public void readSocket() throws Exception {
+    public void readSocket() throws IOException {
         String message = null;
         while(this.blackJack.isRunning()) {
             message = this.comUtils.read_string(); //read socket
