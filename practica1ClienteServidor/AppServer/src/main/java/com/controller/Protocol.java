@@ -2,6 +2,8 @@ package main.java.com.controller;
 
 import java.io.IOException;
 import java.net.Socket;
+
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import main.java.com.model.BlackJack;
 
 public class Protocol {
@@ -9,13 +11,14 @@ public class Protocol {
     private BlackJack blackJack;
     private ComUtils comutils;
     private String menssage;
+    private int user;
 
     public Protocol(Socket socket, ComUtils comutils) throws IOException {
         this.socket = socket;
         this.comutils =  comutils;
 
-        this.blackJack = new BlackJack();
-        this.readSocket();
+
+
     }
 
     private void readSocket() throws IOException {
@@ -31,9 +34,6 @@ public class Protocol {
             System.out.println(command);
             switch (command) {
                 //Do the switch case for each message in the protocol.
-                case "STRT":
-                    this.sendInit(message);
-                    break;
                 case "CASH":
 
                     break;
@@ -53,22 +53,26 @@ public class Protocol {
 
                     break;
                 case "EXIT":
-
+                    //send the exit message and close the rptotocol.
                     break;
                 default:
                     System.err.println("It ins't a valid command. closing the game");
                     //set running to false
+                    
                     break;
             }
         }
     }
 
-    private void sendInit(String message) {
-        if (this.blackJack.getPlayerMoney() > 0) {
+    public int getUser() throws IOException {
+        String command = this.comutils.read_string();
+        return Integer.parseInt(command.substring(6, command.length()));
+    }
 
-        }else {
-            //cant start the game not enough money.
-        }
-
+    public void sendInit(int chips) throws IOException {
+        String message = "INIT ";
+        this.comutils.write_string(message);
+        this.comutils.write_int32(chips);
+        this.readSocket();
     }
 }
