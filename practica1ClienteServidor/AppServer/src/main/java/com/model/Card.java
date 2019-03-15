@@ -2,10 +2,10 @@ package main.java.com.model;
 
 public class Card {
     private int value;
-    private String cardNaipe;
-    private String rank;
+    private char cardNaipe;
+    private char rank;
 
-    public Card(String cardNaipe, String rank) {
+    public Card(char cardNaipe, char rank) {
         this.cardNaipe = cardNaipe;
         this.rank = rank;
 
@@ -20,19 +20,19 @@ public class Card {
         this.value = value;
     }
 
-    public String getCardNaipe() {
+    public char getCardNaipe() {
         return cardNaipe;
     }
 
-    public void setCardNaipe(String cardNaipe) {
+    public void setCardNaipe(char cardNaipe) {
         this.cardNaipe = cardNaipe;
     }
 
-    public String getRank() {
+    public char getRank() {
         return rank;
     }
 
-    public void setRank(String rank) {
+    public void setRank(char rank) {
         this.rank = rank;
     }
 
@@ -41,16 +41,16 @@ public class Card {
     * return the integer value of the card
     * */
     private int calculateValue() {
-        if (this.rank.equals("A"))
+        if (this.rank == 'A')
             return 1; //This will be specified 1 or 11 in Hand.java
-        else if (this.rank.equals("K") || this.rank.equals("J") || this.rank.equals("Q"))
+        else if (this.rank == 'K' || this.rank == 'J' || this.rank == 'Q')
             return 10;
 
-        return Integer.parseInt(this.rank); //Integer.valueOf(rank).intValue()
+        return Character.getNumericValue(this.rank); //Integer.valueOf(rank).intValue()
     }
 
     @Override
     public String toString() {
-        return this.getCardNaipe() + this.getValue();
+        return Character.toString(this.getCardNaipe()) + Character.toString(this.rank);
     }
 }

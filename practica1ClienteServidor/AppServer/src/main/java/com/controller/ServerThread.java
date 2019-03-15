@@ -1,28 +1,25 @@
 package main.java.com.controller;
 
-import com.sun.tools.javac.util.ArrayUtils;
 import main.java.com.model.BlackJack;
-
 import java.net.Socket;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.stream.IntStream;
+import java.util.Iterator;
 
 public class ServerThread implements Runnable {
-
     private Socket socket;
     private ComUtils comutils;
     private ArrayList<BlackJack> users;
     private int userIndex;
+    private Protocol protocol;
+    private int userID;
 
     public ServerThread(Socket socket) throws IOException {
         this.socket = socket;
         this.comutils = new ComUtils(this.socket);
-
         this.users = new ArrayList<>();
-
         this.userIndex = Integer.MAX_VALUE;
+        this.protocol =  new Protocol(this.socket, this.comutils);
     }
 
     @Override
@@ -32,25 +29,24 @@ public class ServerThread implements Runnable {
         // close all streams and sockets
 
         try {
-            Protocol protocol = new Protocol(this.socket, this.comutils);
             //check if the user is playing if is the case check his coins
             //otherwise put it in the users list
-            int userID = protocol.getUser();
+            this.userID = this.protocol.getUser();
 
-            if (checkUser(userID)) {
+            if (checkUser(this.userID)) {
+
                 //get the user actual money
                 if (this.users.get(this.userIndex).getPlayerMoney() > 0) {
-                    protocol.sendInit(this.users.get(this.userIndex).getPlayerMoney());
-                } else {
+                    this.protocol.sendInit(this.users.get(this.userIndex).getPlayerMoney());
+
+                } else
                     throw new Exception("This user has no money available");
-                }
             } else {
                 //create the new user.
-                BlackJack blackJack = new BlackJack(userID);
+                BlackJack blackJack = new BlackJack(this.userID);
                 this.users.add(blackJack);
-                protocol.sendInit(20);
+                this.protocol.sendInit(500);
             }
-
         } catch (IOException exception) {
             System.err.println("Error starting the protocol: " +
                                 exception.getMessage());
@@ -61,7 +57,11 @@ public class ServerThread implements Runnable {
 
     private boolean checkUser(int userID) {
 
-        for(BlackJack user: this.users) {
+        Iterator iter = this.users.iterator();
+
+        while(iter.hasNext()) {
+            BlackJack user = (BlackJack) iter.next();
+
             if (user.getPlayerName() == userID) {
                 this.userIndex = this.users.indexOf(user);
                 return true;

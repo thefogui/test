@@ -1,5 +1,7 @@
 package main.java.com.controller;
 
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -152,6 +154,52 @@ public class ComUtils {
         dataOutputStream.write(bHeader, 0, size);
         // Enviem l'string writeBytes de DataOutputStrem no envia el byte més alt dels chars.
         dataOutputStream.writeBytes(str);
+    }
+
+    public void write_SP() throws IOException {
+        char SP = ' ';
+        dataOutputStream.write((byte) SP);
+    }
+
+    public void writeLen(int len) throws IOException {
+        this.dataOutputStream.write((byte) len);
+    }
+
+    public void writeCard(char rank, byte suit) throws IOException {
+        this.dataOutputStream.write((byte) rank);
+        this.dataOutputStream.write(suit);
+    }
+
+    public void writeCommand(String command) throws IOException {
+        byte byteCommand[] = new byte[4];
+        int lenCommand = command.length();
+        assert lenCommand == 4;
+
+        for (int i = 0; i < lenCommand; i++) {
+            byteCommand[i] = (byte) command.charAt(i);
+        }
+        this.dataOutputStream.write(byteCommand, 0, 4);
+    }
+
+    public String read_Char() throws IOException {
+        return this.read_string_variable(1);
+    }
+
+    public int readLen() throws IOException {
+        return (int) this.dataInputStream.readByte();
+    }
+
+    public String readCommand() throws IOException {
+        return read_string_variable(4);
+    }
+
+    public void writeErrorMessage(String message) throws IOException {
+        this.write_string_variable(99, message); //maximum size of
+        //the string is 99 characters
+    }
+
+    public String readErrorMessage() throws IOException {
+        return this.read_string_variable(99);
     }
 
     public enum Endianness {

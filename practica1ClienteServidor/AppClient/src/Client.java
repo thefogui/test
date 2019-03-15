@@ -59,7 +59,11 @@ public class Client {
                         System.out.println("Insert the server Port");
                         numPort = scanner.nextInt();
                         System.out.println("Insert your username");
-                        username = scanner.nextInt();
+                        try {
+                            username = scanner.nextInt();
+                        } catch (Exception e) {
+                            System.err.println("Not a valid number!");
+                        }
 
                         try {
                             Protocol protocol = new Protocol(server, numPort, username);

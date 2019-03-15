@@ -1,7 +1,5 @@
 package main.java.com.model;
 
-import java.util.Scanner;
-
 public class BlackJack {
     private Deck deck;
     private Hand dealerHand;
@@ -11,6 +9,8 @@ public class BlackJack {
     private int playerName;
     private Boolean gameOver;
     private int roundCount;
+    private boolean isRunning;
+    public static final int MAX_BET = 100;
 
     public BlackJack(int playerName) {
         this.deck = new Deck();
@@ -18,10 +18,11 @@ public class BlackJack {
         this.playerName = playerName;
         this.playerHand = new Hand(String.valueOf(this.playerName));
         this.dealerHand = new Hand("Dealer");
-        this.playerMoney = 10;
+        this.playerMoney = 500;
         this.gameOver = false;
         this.playerBet = 1;
         this.roundCount = 0;
+        this.isRunning = true;
     }
 
     public Deck getDeck() {
@@ -88,95 +89,40 @@ public class BlackJack {
         this.roundCount = roundCount;
     }
 
-    public void startPlay() {
-        this.askBet();
-    }
-
     public int getPlayerID() {
         return this.playerName;
     }
 
-    public boolean isRunning() {
-        return true;
+    public boolean getIsRunning() {
+        return this.isRunning;
     }
 
-    public void askPlayer(Scanner input) {
-        System.out.println();
-        //ask for more cards
-        String choice = input.nextLine();
-        if (choice.toUpperCase().equals("Y") ){
-            roundCount += 1;
-            this.deck.deal(playerHand, true);
-            if (playerHand.getActualValue() > 21){
-                System.out.println("Your hand went over 21!");
-                dealerWins();
-            } else{
-                reveal();
-            }
-        } else if (choice.toUpperCase().equals("N")){
-            while(!gameOver){
-                dealerDraws();
-            }
-        } else {
-            System.out.println("Pick either Y or N !");
-        }
+    public Card dealPlayerCard() {
+        return this.deck.deal(this.getPlayerHand());
     }
 
-    public void askBet() throws NumberFormatException {
-        //read the input
-
-        playerBet = Integer.valueOf(this.playerBet).intValue();
+    public void doubleBet() {
 
     }
 
-    public void dealerDraws() {
-        if (dealerHand.getActualValue() > 21){
-            System.out.println("Dealer's hand went over 21!");
-            playerWins();
-        } else if (dealerHand.getActualValue() <= 16){
-            this.deck.deal(dealerHand, true);
-        } else {
-            System.out.println("Dealer stands.");
+    public int getWinner() {
+        if (dealerHand.getActualValue() > 21)
+            return 0;
+        else {
             if (playerHand.getActualValue() < dealerHand.getActualValue()) {
-                dealerWins();
+                return 1;
             } else if (playerHand.getActualValue() > dealerHand.getActualValue()){
-                playerWins();
+                return 0;
             } else {
-                playerWins();
-                System.out.println("It's a tie!");
+                return 2;
             }
         }
     }
 
-    public void reveal() {
-        System.out.println();
-        System.out.println("ROUND " + Integer.toString(roundCount) + ":");
-        //dealerHand.hiddenDisplay();
-        //playerHand.display();
+    public void dealerAskCard() {
+       if(this.getDealerHand().getActualValue() < 17) {
+           Card card = this.deck.deal(this.getDealerHand());
+
+       }
     }
-
-    public void endReveal() {
-        System.out.println();
-        System.out.println("RESULTS:");
-        //dealerHand.display();
-        //playerHand.display();
-    }
-
-    public void dealerWins() {
-        endReveal();
-        System.out.println();
-        System.out.println("Dealer wins!");
-        playerMoney -= playerBet;
-        gameOver=true;
-    }
-
-    public void playerWins() {
-        endReveal();
-        System.out.println();
-        System.out.println(this.playerHand.getPlayer() + ", you win!");
-        playerMoney += playerBet;
-        gameOver=true;
-    }
-
-
 }

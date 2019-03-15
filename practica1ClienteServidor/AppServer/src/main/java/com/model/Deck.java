@@ -5,21 +5,21 @@ import java.util.Collections;
 
 public class Deck {
     private ArrayList<Card> deckCards;
-    private String[] suits; //Clubs, Diamonds, Hearts, Spades
-    private String[] ranks;
+    private char[] suits; //Clubs, Diamonds, Hearts, Spades
+    private char[] ranks;
     private int count;
 
     public Deck() {
-        String[] suits = {"C", "D", "H", "S"};
-        String[] ranks = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+        char[] suits = {'C', 'D', 'C', 'S'};
+        char[] ranks = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'J', 'Q', 'k'};
 
         this.setSuits(suits);
         this.setRanks(ranks);
 
         //Creates the entire dack
         this.deckCards = new ArrayList<Card>();
-        for (String suit : this.suits) {
-            for (String rank : this.ranks) {
+        for (char suit : this.suits) {
+            for (char rank : this.ranks) {
                 deckCards.add(new Card(suit, rank));
             }
         }
@@ -35,19 +35,19 @@ public class Deck {
         this.deckCards = deckContents;
     }
 
-    public String[] getSuits() {
+    public char[] getSuits() {
         return suits;
     }
 
-    public void setSuits(String[] suits) {
+    public void setSuits(char[] suits) {
         this.suits = suits;
     }
 
-    public String[] getRanks() {
+    public char[] getRanks() {
         return ranks;
     }
 
-    public void setRanks(String[] ranks) {
+    public void setRanks(char[] ranks) {
         this.ranks = ranks;
     }
 
@@ -62,11 +62,12 @@ public class Deck {
     /*
     * Function that deal the cards for the player
     * */
-    public void deal(Hand playerHand, boolean show) {
+    public Card deal(Hand playerHand) {
         Card dealtCard = this.deckCards.get(0);
         this.deckCards.remove(0);
-        playerHand.take(dealtCard, show);
+        playerHand.take(dealtCard);
         this.setCount(this.deckCards.size());
+        return dealtCard;
     }
 
     /*

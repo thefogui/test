@@ -42,13 +42,13 @@ public class Hand {
     }
 
     /*
-    * This function return the actual value of the card
-    * */
+     * This function return the actual value of the card
+     * */
     private int getActualValueByCard(Card card) {
         //if the player has 10 or less scored the value of the card A is equal to 11
         //otherwise the value of the card A is 1
         // for others cards we only call the function of the class card
-        if (card.getCardNaipe().equals('A')) {
+        if (card.getCardNaipe() == 'A') {
             if (actualValue <= 10)
                 return 11;
             else
@@ -58,18 +58,13 @@ public class Hand {
     }
 
     /*
-    * Function that allows the player take a card
-    * @param Card the actual card
-    * @param show boolean that indicates if we show the card or not
-    * */
-    public void take(Card card, boolean show) {
+     * Function that allows the player take a card
+     * @param Card the actual card
+     * @param show boolean that indicates if we show the card or not
+     * */
+    public void take(Card card) {
         this.handCards.add(card);
         this.actualValue += getActualValueByCard(card);
 
-        if (show) {
-            System.out.println();
-            System.out.println(player + " takes a card: ");
-            System.out.println(card.toString());
-        }
     }
 }

@@ -20,18 +20,19 @@ public class Protocol {
 
     public void start() throws IOException {
         //Start the game here and connect to server
-        this.message = "STRT " + this.blackJack.getPlayerID();
-        this.comUtils.write_string("STRT");
+        this.message = "STRT";
+        this.comUtils.writeCommand(this.message);
+        this.comUtils.write_SP();
+        this.comUtils.write_int32(this.blackJack.getPlayerID());
         this.readSocket();
     }
 
     public void readSocket() throws IOException {
-        String message = null;
         while(this.blackJack.isRunning()) {
-            message = this.comUtils.read_string(); //read socket
-            message = message.toUpperCase();
+            this.message = this.comUtils.read_string(); //read socket
+            this.message = this.message.toUpperCase();
 
-            switch (message) {
+            switch (this.message) {
                 case "INIT":
                     this.startTheGame();
 
@@ -50,6 +51,47 @@ public class Protocol {
                     break;
             }
         }
+    }
+
+    public void sendCash(int chips) throws IOException {
+        this.message = "CASH";
+        this.comUtils.writeCommand(this.message);
+        this.comUtils.write_SP();
+        this.comUtils.write_int32(chips);
+    }
+
+    public void sendHitt() throws IOException {
+        this.message = "HITT";
+        this.comUtils.writeCommand(this.message);
+    }
+
+    public void sendShow() throws IOException {
+        int lenght = this.blackJack.getDealerHand().getHandCards().size();
+        this.message = "SHOW";
+        this.comUtils.writeCommand(this.message);
+        this.comUtils.write_SP();
+
+        this.comUtils.writeLen(lenght);
+
+        for(Card card : this.blackJack.getDealerHand().getHandCards()) {
+            this.comUtils.write_SP();
+            this.comUtils.writeCard(card.getRank(), (byte) card.getCardNaipe());
+        }
+    }
+
+    public void sendBet() throws IOException {
+        this.message = "BETT";
+        this.comUtils.writeCommand(this.message);
+    }
+
+    public void sendSurrender() throws IOException {
+        this.message = "SNRD";
+        this.comUtils.writeCommand(this.message);
+    }
+
+    public void sendReplay() throws IOException {
+        this.message = "RPLY";
+        this.comUtils.writeCommand(this.message);
     }
 
     private void startTheGame() {
