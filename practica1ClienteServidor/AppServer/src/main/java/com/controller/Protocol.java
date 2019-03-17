@@ -5,6 +5,7 @@ import java.net.Socket;
 import java.net.SocketException;
 import main.java.com.model.Card;
 import main.java.com.model.BlackJack;
+import main.java.com.model.Users;
 
 public class Protocol {
     private Socket socket;
@@ -16,47 +17,51 @@ public class Protocol {
     private String command;
     private String stringToSend;
     private int intToSend;
+    private Users users;
 
-    public Protocol(Socket socket, ComUtils comutils) throws IOException {
+    public Protocol(Socket socket, ComUtils comutils, Users users) {
         this.socket = socket;
         this.comutils =  comutils;
         this.command = null;
         this.stringToSend = null;
+        this.users = users;
+        this.blackJack = new BlackJack(1);
     }
 
-    private void readSocket() throws IOException {
+    public void readSocket() throws IOException {
         while (this.blackJack.getIsRunning())  {
             try {
-                String message = null;
+
                 this.command = this.comutils.readCommand();
                 this.command = this.command.toUpperCase();
-                this.command = this.command.substring(0, 4);
-
                 switch (this.command) {
                     //Do the switch case for each message in the protocol.
+                    case "STRT":
+                        this.startAGame();
+                        break;
                     case "CASH":
-                        this.setCash(message);
+                        this.setCash();
                         break;
                     case "HITT":
-                        this.askExtraCard(message);
+                        this.askExtraCard();
                         break;
                     case "SHOW":
-                        this.showCards(message);
+                        this.showCards();
 
                         this.solveWinner();
                         break;
                     case "BETT":
                         try {
-                            this.doubleBet(message);
+                            this.doubleBet();
                         } catch (Exception e) {
                             System.err.println("Error while double the bet");
                         }
                         break;
                     case "SRND":
-                        this.surrender(message);
+                        this.surrender();
                         break;
                     case "RPLY":
-                        this.startNewGame(message);
+                        this.startNewGame();
                         break;
                     case "EXIT":
                         //send the exit message and close the prtotocol.
@@ -82,6 +87,14 @@ public class Protocol {
                 throw ex;
             }
         }
+    }
+
+    private void startAGame() throws IOException{
+        String space = this.comutils.read_Char();
+        int userId = this.comutils.read_int32();
+
+        this.users.addNewUser(userId);
+        this.sendInit(100);
     }
 
     private void solveWinner() throws IOException {
@@ -139,12 +152,12 @@ public class Protocol {
         this.comutils.write_int32(this.blackJack.getRoundCount()); //get the amount of chips earned
     }
 
-    private void startNewGame(String message) throws IOException {
+    private void startNewGame() throws IOException {
         this.comutils.read_Char();
 
     }
 
-    private void surrender(String message) throws IOException {
+    private void surrender() throws IOException {
         if (this.blackJack.getPlayerMoney() <= 0) {
             this.message = "ERRO";
             this.comutils.writeCommand(this.message);
@@ -154,7 +167,7 @@ public class Protocol {
         }
     }
 
-    private void doubleBet(String message) throws Exception {
+    private void doubleBet() throws Exception {
         if (this.blackJack.getRoundCount() < this.blackJack.getPlayerHand().getActualValue()) {
             this.stringToSend = "ERRO";
             this.comutils.writeCommand(this.stringToSend);
@@ -164,7 +177,7 @@ public class Protocol {
         this.blackJack.doubleBet();
     }
 
-    private void showCards(String message) throws IOException {
+    private void showCards() throws IOException {
         int length;
         String rank;
         String suit;
@@ -180,11 +193,11 @@ public class Protocol {
         }
     }
 
-    private void askExtraCard(String message) throws IOException {
+    private void askExtraCard() throws IOException {
         this.sendCARD();
     }
 
-    private void setCash(String message) throws IOException {
+    private void setCash() throws IOException {
         int cash;
         this.comutils.read_Char();
         cash = this.comutils.read_int32();
@@ -199,17 +212,10 @@ public class Protocol {
         }
     }
 
-    public int getUser() throws IOException {
-        this.command = this.comutils.read_string();
-        int userId = this.comutils.read_int32();
-        return userId;
-    }
-
     public void sendInit(int chips) throws IOException {
         String message = "INIT";
         this.comutils.writeCommand(message);
         this.comutils.write_SP();
         this.comutils.write_int32(chips);
-        this.readSocket();
     }
 }

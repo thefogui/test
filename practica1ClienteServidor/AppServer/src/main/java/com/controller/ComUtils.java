@@ -1,7 +1,5 @@
 package main.java.com.controller;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-
 import java.io.*;
 import java.net.Socket;
 
@@ -113,18 +111,13 @@ public class ComUtils {
     public  String read_string_variable(int size) throws IOException {
         byte bHeader[] = new byte[size];
         char cHeader[] = new char[size];
-        int numBytes = 0;
+        int numBytes = size;
 
-        // Llegim els bytes que indiquen la mida de l'string
-        bHeader = read_bytes(size);
-        // La mida de l'string ve en format text, per tant creem un string i el parsejem
-        for(int i=0;i<size;i++){
-            cHeader[i]=(char)bHeader[i]; }
-        numBytes=Integer.parseInt(new String(cHeader));
+
 
         // Llegim l'string
-        byte bStr[]=new byte[numBytes];
-        char cStr[]=new char[numBytes];
+        byte bStr[]=new byte[size];
+        char cStr[]=new char[size];
         bStr = read_bytes(numBytes);
         for(int i=0;i<numBytes;i++)
             cStr[i]=(char)bStr[i];
@@ -190,7 +183,7 @@ public class ComUtils {
     }
 
     public String readCommand() throws IOException {
-        return read_string_variable(4);
+        return String.valueOf(read_bytes(4));
     }
 
     public void writeErrorMessage(String message) throws IOException {
