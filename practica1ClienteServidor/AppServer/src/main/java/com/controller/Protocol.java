@@ -2,6 +2,7 @@ package main.java.com.controller;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.net.SocketException;
 import main.java.com.model.Card;
 import main.java.com.model.BlackJack;
 
@@ -24,52 +25,73 @@ public class Protocol {
     }
 
     private void readSocket() throws IOException {
-        String message = null;
-
         while (this.blackJack.getIsRunning())  {
-            this.command = this.comutils.readCommand();
-            this.command = this.command.toUpperCase();
-            this.command = this.command.substring(0, 4);
+            try {
+                String message = null;
+                this.command = this.comutils.readCommand();
+                this.command = this.command.toUpperCase();
+                this.command = this.command.substring(0, 4);
 
-            switch (this.command) {
-                //Do the switch case for each message in the protocol.
-                case "CASH":
-                    this.setCash(message);
-                    break;
-                case "HITT":
-                    this.askExtraCard(message);
-                    break;
-                case "SHOW":
-                    this.showCards(message);
-                    break;
-                case "BETT":
-                    this.doubleBet(message);
-                    break;
-                case "SRND":
-                    this.surrender(message);
-                    break;
-                case "RPLY":
-                    this.startNewGame(message);
-                    break;
-                case "EXIT":
-                    //send the exit message and close the prtotocol.
-                    System.out.println("Closing the connection.");
-                    this.socket.close();
+                switch (this.command) {
+                    //Do the switch case for each message in the protocol.
+                    case "CASH":
+                        this.setCash(message);
+                        break;
+                    case "HITT":
+                        this.askExtraCard(message);
+                        break;
+                    case "SHOW":
+                        this.showCards(message);
+
+                        this.solveWinner();
+                        break;
+                    case "BETT":
+                        try {
+                            this.doubleBet(message);
+                        } catch (Exception e) {
+                            System.err.println("Error while double the bet");
+                        }
+                        break;
+                    case "SRND":
+                        this.surrender(message);
+                        break;
+                    case "RPLY":
+                        this.startNewGame(message);
+                        break;
+                    case "EXIT":
+                        //send the exit message and close the prtotocol.
+                        System.out.println("Closing the connection.");
+                        this.socket.close();
                     /*try {
                         this.finalize();
                     } catch (Throwable exception) {
                         exception.printStackTrace();
                     }*/
-                    break;
-                case "ERROR":
-                    System.err.println(this.handlerError());
-                    break;
-                default:
-                    System.err.println("It ins't a valid command. closing the game");
-                    //set running to false
-                    break;
+                        break;
+                    case "ERRO":
+                        System.err.println(this.handlerError());
+                        break;
+                    default:
+                        System.err.println("It ins't a valid command. closing the game");
+                        //set running to false
+                        break;
+                }
+            }catch (SocketException ex) {
+                System.err.println("La conexión con el cliente se ha interrumpido");
+            } catch (IOException ex){
+                throw ex;
             }
         }
+    }
+
+    private void solveWinner() throws IOException {
+        this.blackJack.dealerAskCard();
+        if (this.blackJack.getPlayerBet() == 1) {
+            this.sendWINS();
+        } else {
+            this.blackJack.dealPlayerCard();
+        }
+        this.sendSHOW();
     }
 
     public String handlerError() throws IOException {
@@ -123,10 +145,16 @@ public class Protocol {
     }
 
     private void surrender(String message) throws IOException {
-        this.sendWINS();
+        if (this.blackJack.getPlayerMoney() <= 0) {
+            this.message = "ERRO";
+            this.comutils.writeCommand(this.message);
+            this.comutils.writeErrorMessage("Not enough money!");
+        } else {
+            this.sendWINS();
+        }
     }
 
-    private void doubleBet(String message)throws IOException {
+    private void doubleBet(String message) throws Exception {
         if (this.blackJack.getRoundCount() < this.blackJack.getPlayerHand().getActualValue()) {
             this.stringToSend = "ERRO";
             this.comutils.writeCommand(this.stringToSend);
@@ -150,8 +178,6 @@ public class Protocol {
             suit = this.comutils.read_Char();
             this.blackJack.getPlayerHand().take(rank.charAt(0), suit.charAt(0));
         }
-
-        //handler winner
     }
 
     private void askExtraCard(String message) throws IOException {
@@ -167,8 +193,10 @@ public class Protocol {
             this.message = "ERRO";
             this.comutils.writeCommand(this.message);
             this.comutils.writeErrorMessage("The cash should be greater than 100");
+        } else {
+            this.blackJack.setPlayerMoney(cash);
+            this.sendIDCK();
         }
-        this.blackJack.setPlayerMoney(cash);
     }
 
     public int getUser() throws IOException {

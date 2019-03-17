@@ -3,6 +3,9 @@ package Controller;
 import java.io.*;
 import java.net.*;
 import lib.*;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
+import java.util.Scanner;
 
 public class Protocol {
     private ComUtils comUtils;
@@ -29,11 +32,12 @@ public class Protocol {
 
     public void readSocket() throws IOException {
         while(this.blackJack.isRunning()) {
-            this.message = this.comUtils.read_string(); //read socket
+            this.message = this.comUtils.readCommand(); //read socket
             this.message = this.message.toUpperCase();
-
+            System.out.println(this.message);
             switch (this.message) {
                 case "INIT":
+                    System.out.println("hERE");
                     this.startTheGame();
 
                     break;
@@ -95,6 +99,63 @@ public class Protocol {
     }
 
     private void startTheGame() {
+        this.message = "CASH";
+        this.action();
 
     }
+
+    private void action() {
+        Scanner sc = new Scanner (System.in);
+        switch (this.message) {
+            case "CASH":
+                this.actionCash(sc);
+                break;
+            case "HITT":
+
+                break;
+            case "SHOW":
+
+                break;
+            case "BETT":
+
+                break;
+            case "SRND":
+
+                break;
+            case "RPLY":
+
+            case "EXIT":
+
+            case "ERRO":
+                try {
+                    System.err.println(this.handlerError());
+                } catch (IOException ex) {
+                    System.err.println("Unable to read error message " + ex.getMessage());
+                }
+                break;
+            default:
+
+                break;
+        }
+    }
+
+    public String handlerError() throws IOException {
+        return this.comUtils.readErrorMessage();
+    }
+
+    private void actionCash(Scanner sc){
+        System.out.println("Entry the amount of cash you want to use, remember the bet is 100 chips");
+        int userInput = sc.nextInt(); //Invocamos un método sobre un objeto Scanner
+        while(userInput <= 100){
+            System.err.println("Need to be greater than 100!");
+            userInput = sc.nextInt();
+        }
+
+        try {
+            this.sendCash(userInput);
+        } catch (IOException ex) {
+            System.err.println("Unable to send cash " + ex.getMessage());
+        }
+    }
 }
+

@@ -101,8 +101,12 @@ public class BlackJack {
         return this.deck.deal(this.getPlayerHand());
     }
 
-    public void doubleBet() {
-
+    public void doubleBet() throws Exception {
+        int doubleBet = this.playerBet * 2;
+        if (this.playerMoney >= doubleBet)
+            this.playerBet = doubleBet;
+        else
+            throw new Exception("Player can't do this action");
     }
 
     public int getWinner() {
@@ -120,9 +124,9 @@ public class BlackJack {
     }
 
     public void dealerAskCard() {
-       if(this.getDealerHand().getActualValue() < 17) {
+       while (this.getDealerHand().getActualValue() < 17) {
            Card card = this.deck.deal(this.getDealerHand());
-
+           this.getDealerHand().take(card);
        }
     }
 }
