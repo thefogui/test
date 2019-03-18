@@ -10,7 +10,7 @@ public class Deck {
     private int count;
 
     public Deck() {
-        char[] suits = {'C', 'D', 'C', 'S'};
+        char[] suits = {'C', 'D', 'H', 'S'}; //Ascii code 03, 04, 03, 06
         char[] ranks = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'J', 'Q', 'k'};
 
         this.setSuits(suits);

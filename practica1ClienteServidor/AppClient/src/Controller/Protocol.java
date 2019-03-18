@@ -190,9 +190,21 @@ public class Protocol {
             Card card = new Card(naipe.charAt(0), rank.charAt(0));
             //switch to get the suit/naipe
             this.blackJack.getPlayerHand().take(card);
-            System.out.println(" Your card is: " + card.toString());
+            System.out.println("Your card is: " + card.toString());
         }
-        System.out.println(" Your amount is " + this.blackJack.getPlayerHand().getActualValue());
+        System.out.println("Your amount is " + this.blackJack.getPlayerHand().getActualValue());
+
+        System.out.println("--------------------------------");
+        System.out.println("Select a number:");
+        System.out.println("1. Ask for a new card");
+        System.out.println("2. Double the bet");
+        System.out.println("--------------------------------");
+
+        Scanner sc = new Scanner(System.in);
+        int opcio = sc.nextInt();
+
+
     }
+
 }
 
