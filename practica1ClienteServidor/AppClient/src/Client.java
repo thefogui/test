@@ -55,7 +55,9 @@ public class Client {
                         }
 
                         try {
-                            System.out.println("Username?");
+                            System.out.println("--------------------------------");
+                            System.out.println("Username:");
+                            System.out.println("--------------------------------");
                             username = scanner.nextInt();
                         } catch (Exception e) {
                             System.err.println("Not a valid number!");

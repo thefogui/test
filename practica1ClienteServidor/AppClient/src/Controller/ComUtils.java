@@ -159,9 +159,17 @@ public class ComUtils {
         this.dataOutputStream.write((byte) len);
     }
 
-    public void writeCard(char rank, byte suit) throws IOException {
+    public void writeCard(char rank, char suit) throws IOException {
         this.dataOutputStream.write((byte) rank);
-        this.dataOutputStream.write(suit);
+        int ascii = (int) suit;
+        this.dataOutputStream.write((byte) ascii);
+    }
+
+    public String readCard() throws IOException {
+        String card;
+        card = String.valueOf(this.dataInputStream.readByte());
+        card += String.valueOf(this.dataInputStream.readByte());
+        return card;
     }
 
     public void writeCommand(String command) throws IOException {
@@ -177,8 +185,10 @@ public class ComUtils {
     }
 
     public String read_Char() throws IOException {
-        return String.valueOf(this.dataInputStream.readByte());
+        byte[] bStr = new byte[1];
+        return String.valueOf(dataInputStream.read(bStr, 0, 1));
     }
+
 
     public int readLen() throws IOException {
         return (int) this.dataInputStream.readByte();

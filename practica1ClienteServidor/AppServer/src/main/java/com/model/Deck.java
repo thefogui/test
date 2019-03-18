@@ -24,7 +24,6 @@ public class Deck {
             }
         }
         count = this.deckCards.size();
-
     }
 
     public ArrayList<Card> getDeck() {

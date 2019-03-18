@@ -65,6 +65,5 @@ public class Hand {
     public void take(Card card) {
         this.handCards.add(card);
         this.actualValue += getActualValueByCard(card);
-
     }
 }

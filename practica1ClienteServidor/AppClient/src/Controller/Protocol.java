@@ -30,9 +30,11 @@ public class Protocol {
     }
 
     public void readSocket() throws IOException {
-        while(this.blackJack.isRunning()) {
+        while(this.blackJack.getIsRunning()) {
             this.message = this.comUtils.readCommand(); //read socket
+
             this.message = this.message.toUpperCase();
+
             System.out.println(this.message);
             switch (this.message) {
                 case "INIT":
@@ -76,7 +78,8 @@ public class Protocol {
         String suit = this.comUtils.read_Char();
         Card card = new Card(rank.charAt(0), suit.charAt(0));
         this.blackJack.getPlayerHand().take(card);
-        System.out.println("You got this card" + card.toString());
+        System.out.println("You got this card " + card.toString());
+        System.out.println("Your amount is " + this.blackJack.getPlayerHand().getActualValue());
     }
 
     public void sendCash(int chips) throws IOException {
@@ -101,7 +104,7 @@ public class Protocol {
 
         for(Card card : this.blackJack.getDealerHand().getHandCards()) {
             this.comUtils.write_SP();
-            this.comUtils.writeCard(card.getRank(), (byte) card.getCardNaipe());
+            this.comUtils.writeCard(card.getRank(), card.getCardNaipe());
         }
     }
 
@@ -190,7 +193,7 @@ public class Protocol {
             Card card = new Card(naipe.charAt(0), rank.charAt(0));
             //switch to get the suit/naipe
             this.blackJack.getPlayerHand().take(card);
-            System.out.println("Your card is: " + card.toString());
+            System.out.println("You got this card " + card.toString());
         }
         System.out.println("Your amount is " + this.blackJack.getPlayerHand().getActualValue());
 
@@ -203,7 +206,10 @@ public class Protocol {
         Scanner sc = new Scanner(System.in);
         int opcio = sc.nextInt();
 
-
+        if (opcio == 1)
+            this.sendHitt();
+        else
+            this.sendBet();
     }
 
 }

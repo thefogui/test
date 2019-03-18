@@ -127,6 +127,7 @@ public class Protocol {
                 this.comutils.writeCard(card.getRank(), '5');
             else
                 this.comutils.writeCard(card.getRank(), '6');
+            System.out.println(card.toString());
         }
     }
 
@@ -143,6 +144,7 @@ public class Protocol {
             this.comutils.writeCard(card.getRank(), '5');
         else
             this.comutils.writeCard(card.getRank(), '6');
+        System.out.println(card.toString());
     }
 
     public void sendSHOW() throws IOException {

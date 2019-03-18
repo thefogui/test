@@ -51,6 +51,15 @@ public class Card {
 
     @Override
     public String toString() {
-        return Character.toString(this.getCardNaipe()) + Character.toString(this.rank);
+        String suit = "";
+        if (this.getCardNaipe()=='H')
+            suit = "\u2665";
+        else if(this.getCardNaipe()=='D')
+            suit = "\u2666";
+        else if(this.getCardNaipe()=='C')
+            suit = "\u2663";
+        else if(this.getCardNaipe()=='S')
+            suit = "\u2660";
+        return Character.toString(this.rank) + suit;
     }
 }

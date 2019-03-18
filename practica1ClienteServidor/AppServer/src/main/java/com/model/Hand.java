@@ -72,6 +72,5 @@ public class Hand {
         Card card = new Card(suit, rank);
         this.handCards.add(card);
         this.actualValue += getActualValueByCard(card);
-
     }
 }
