@@ -28,12 +28,12 @@ public class ComUtils {
 
     public String read_string() throws IOException {
         String result;
-        byte[] bStr = new byte[STRSIZE];
-        char[] cStr = new char[STRSIZE];
+        byte[] bStr = new byte[4];
+        char[] cStr = new char[4];
 
-        bStr = read_bytes(STRSIZE);
+        bStr = read_bytes(4);
 
-        for(int i = 0; i < STRSIZE;i++)
+        for(int i = 0; i < 4;i++)
             cStr[i]= (char) bStr[i];
 
         result = String.valueOf(cStr);
@@ -43,22 +43,22 @@ public class ComUtils {
 
     public void write_string(String str) throws IOException {
         int numBytes, lenStr;
-        byte bStr[] = new byte[STRSIZE];
+        byte bStr[] = new byte[4];
 
         lenStr = str.length();
 
-        if (lenStr > STRSIZE)
-            numBytes = STRSIZE;
+        if (lenStr > 4)
+            numBytes = 4;
         else
             numBytes = lenStr;
 
         for(int i = 0; i < numBytes; i++)
             bStr[i] = (byte) str.charAt(i);
 
-        for(int i = numBytes; i < STRSIZE; i++)
+        for(int i = numBytes; i <4; i++)
             bStr[i] = (byte) ' ';
 
-        dataOutputStream.write(bStr, 0,STRSIZE);
+        dataOutputStream.write(bStr, 0, 4);
     }
 
     private byte[] int32ToBytes(int number, Endianness endianness) {
@@ -93,6 +93,7 @@ public class ComUtils {
         }
         return number;
     }
+
     //llegir bytes.
     private byte[] read_bytes(int numBytes) throws IOException {
         int len = 0;
@@ -111,18 +112,13 @@ public class ComUtils {
     public  String read_string_variable(int size) throws IOException {
         byte bHeader[] = new byte[size];
         char cHeader[] = new char[size];
-        int numBytes = 0;
+        int numBytes = size;
 
-        // Llegim els bytes que indiquen la mida de l'string
-        bHeader = read_bytes(size);
-        // La mida de l'string ve en format text, per tant creem un string i el parsejem
-        for(int i=0;i<size;i++){
-            cHeader[i]=(char)bHeader[i]; }
-        numBytes=Integer.parseInt(new String(cHeader));
+
 
         // Llegim l'string
-        byte bStr[]=new byte[numBytes];
-        char cStr[]=new char[numBytes];
+        byte bStr[]=new byte[size];
+        char cStr[]=new char[size];
         bStr = read_bytes(numBytes);
         for(int i=0;i<numBytes;i++)
             cStr[i]=(char)bStr[i];
@@ -159,16 +155,8 @@ public class ComUtils {
         dataOutputStream.write((byte) SP);
     }
 
-    public String read_Char() throws IOException {
-        return this.read_string_variable(1);
-    }
-
     public void writeLen(int len) throws IOException {
         this.dataOutputStream.write((byte) len);
-    }
-
-    public int readLen() throws IOException {
-       return (int) this.dataInputStream.readByte();
     }
 
     public void writeCard(char rank, byte suit) throws IOException {
@@ -184,11 +172,33 @@ public class ComUtils {
         for (int i = 0; i < lenCommand; i++) {
             byteCommand[i] = (byte) command.charAt(i);
         }
+
         this.dataOutputStream.write(byteCommand, 0, 4);
     }
 
+    public String read_Char() throws IOException {
+        return String.valueOf(this.dataInputStream.readByte());
+    }
+
+    public int readLen() throws IOException {
+        return (int) this.dataInputStream.readByte();
+    }
+
     public String readCommand() throws IOException {
-        return read_string_variable(4);
+        String command;
+        int size = 4;
+
+        byte[] bStr;
+        char[] cStr = new char[size];
+
+        bStr = read_bytes(size);
+
+        for (int i = 0; i < size; i++) {
+            cStr[i] = (char) bStr[i];
+        }
+
+        command = String.valueOf(cStr);
+        return command.trim();
     }
 
     public void writeErrorMessage(String message) throws IOException {

@@ -13,8 +13,6 @@ public class BlackJack {
     public static final int MAX_BET = 100;
 
     public BlackJack(int playerName) {
-        this.deck = new Deck();
-        this.deck.shuffle(); //shuffle the deck
         this.playerName = playerName;
         this.playerHand = new Hand(String.valueOf(this.playerName));
         this.dealerHand = new Hand("Dealer");
@@ -23,6 +21,20 @@ public class BlackJack {
         this.playerBet = 1;
         this.roundCount = 0;
         this.isRunning = true;
+        this.startGame();
+    }
+
+    public void startGame() {
+        this.deck = new Deck();
+        this.deck.shuffle(); //shuffle the deck
+        Card card = this.deck.deal(this.getPlayerHand());
+        card = this.deck.deal(this.getPlayerHand());
+        card = this.deck.deal(this.getDealerHand());
+        card = this.deck.deal(this.getDealerHand());
+    }
+
+    public void setRunning(boolean running){
+        this.isRunning = running;
     }
 
     public Deck getDeck() {

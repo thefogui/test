@@ -1,9 +1,7 @@
 package main.java.com.controller;
 
-import main.java.com.model.BlackJack;
 import java.net.Socket;
 import java.io.IOException;
-import java.util.ArrayList;
 import main.java.com.model.Users;
 
 public class ServerThread implements Runnable {

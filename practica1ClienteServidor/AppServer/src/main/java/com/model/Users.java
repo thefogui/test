@@ -17,7 +17,11 @@ public class Users {
                 if (blackJack == null) {
                     this.users.put(userId, new BlackJack(userId));
                 } else {
-                    //check user money
+                    if (blackJack.getPlayerHand().getActualValue() < 100) {
+                        System.out.println("Not enought money");
+                    } else {
+
+                    }
                 }
             }
         } catch (NullPointerException ex) {

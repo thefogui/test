@@ -3,7 +3,6 @@ package Controller;
 import java.io.*;
 import java.net.*;
 import lib.*;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import java.util.Scanner;
 
@@ -24,7 +23,7 @@ public class Protocol {
     public void start() throws IOException {
         //Start the game here and connect to server
         this.message = "STRT";
-        this.comUtils.writeCommand(this.message);
+        this.comUtils.write_string(this.message);
         this.comUtils.write_SP();
         this.comUtils.write_int32(this.blackJack.getPlayerID());
         this.readSocket();
@@ -37,24 +36,47 @@ public class Protocol {
             System.out.println(this.message);
             switch (this.message) {
                 case "INIT":
-                    System.out.println("hERE");
                     this.startTheGame();
-
                     break;
                 case "IDCK":
+                    this.takeaCard();
                     break;
                 case "CARD":
+                    this.takeAskedCard();
                     break;
                 case "SHOW":
                     break;
                 case "WINS":
+                    this.decideTheWinner();
                     break;
                 default:
                     System.err.println("It ins't a valid command. closing the game");
                     //set running to false
+
                     break;
             }
         }
+    }
+
+    private void decideTheWinner() {
+
+    }
+
+    private void takeAskedCard() throws IOException {
+        String space = this.comUtils.read_Char();
+        String rank = this.comUtils.read_Char();
+        if (rank.equals(String.valueOf('3')))
+            rank = "H";
+        else if (rank.equals(String.valueOf('4')))
+            rank = "D";
+        else if (rank.equals(String.valueOf('5')))
+            rank = "C";
+        else
+            rank = "S";
+        String suit = this.comUtils.read_Char();
+        Card card = new Card(rank.charAt(0), suit.charAt(0));
+        this.blackJack.getPlayerHand().take(card);
+        System.out.println("You got this card" + card.toString());
     }
 
     public void sendCash(int chips) throws IOException {
@@ -98,7 +120,8 @@ public class Protocol {
         this.comUtils.writeCommand(this.message);
     }
 
-    private void startTheGame() {
+    private void startTheGame() throws IOException{
+        String space = this.comUtils.read_Char();
         this.message = "CASH";
         this.action();
 
@@ -146,7 +169,7 @@ public class Protocol {
     private void actionCash(Scanner sc){
         System.out.println("Entry the amount of cash you want to use, remember the bet is 100 chips");
         int userInput = sc.nextInt(); //Invocamos un método sobre un objeto Scanner
-        while(userInput <= 100){
+        while(userInput < 100){
             System.err.println("Need to be greater than 100!");
             userInput = sc.nextInt();
         }
@@ -156,6 +179,20 @@ public class Protocol {
         } catch (IOException ex) {
             System.err.println("Unable to send cash " + ex.getMessage());
         }
+    }
+
+    private void takeaCard() throws IOException {
+        String naipe, rank;
+        for (int i = 0; i < 2; i++){
+            String space = this.comUtils.read_Char();
+            naipe = this.comUtils.read_Char();
+            rank = this.comUtils.read_Char();
+
+            //switch to get the suit/naipe
+
+            System.out.println(naipe + rank);
+        }
+
     }
 }
 

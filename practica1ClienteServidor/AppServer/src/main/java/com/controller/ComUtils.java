@@ -28,12 +28,12 @@ public class ComUtils {
 
     public String read_string() throws IOException {
         String result;
-        byte[] bStr = new byte[STRSIZE];
-        char[] cStr = new char[STRSIZE];
+        byte[] bStr = new byte[4];
+        char[] cStr = new char[4];
 
-        bStr = read_bytes(STRSIZE);
+        bStr = read_bytes(4);
 
-        for(int i = 0; i < STRSIZE;i++)
+        for(int i = 0; i < 4;i++)
             cStr[i]= (char) bStr[i];
 
         result = String.valueOf(cStr);
@@ -43,22 +43,22 @@ public class ComUtils {
 
     public void write_string(String str) throws IOException {
         int numBytes, lenStr;
-        byte bStr[] = new byte[STRSIZE];
+        byte bStr[] = new byte[4];
 
         lenStr = str.length();
 
-        if (lenStr > STRSIZE)
-            numBytes = STRSIZE;
+        if (lenStr > 4)
+            numBytes = 4;
         else
             numBytes = lenStr;
 
         for(int i = 0; i < numBytes; i++)
             bStr[i] = (byte) str.charAt(i);
 
-        for(int i = numBytes; i < STRSIZE; i++)
+        for(int i = numBytes; i < 4; i++)
             bStr[i] = (byte) ' ';
 
-        dataOutputStream.write(bStr, 0,STRSIZE);
+        dataOutputStream.write(bStr, 0,4);
     }
 
     private byte[] int32ToBytes(int number, Endianness endianness) {
@@ -113,8 +113,6 @@ public class ComUtils {
         char cHeader[] = new char[size];
         int numBytes = size;
 
-
-
         // Llegim l'string
         byte bStr[]=new byte[size];
         char cStr[]=new char[size];
@@ -158,24 +156,25 @@ public class ComUtils {
         this.dataOutputStream.write((byte) len);
     }
 
-    public void writeCard(char rank, byte suit) throws IOException {
+    public void writeCard(char rank, char suit) throws IOException {
         this.dataOutputStream.write((byte) rank);
-        this.dataOutputStream.write(suit);
+        int ascii = (int) suit;
+        this.dataOutputStream.write((byte) ascii);
+    }
+
+    public String readCard() throws IOException {
+        String card;
+        card = String.valueOf(this.dataInputStream.readByte());
+        card += String.valueOf(this.dataInputStream.readByte());
+        return card;
     }
 
     public void writeCommand(String command) throws IOException {
-        byte byteCommand[] = new byte[4];
-        int lenCommand = command.length();
-        assert lenCommand == 4;
-
-        for (int i = 0; i < lenCommand; i++) {
-            byteCommand[i] = (byte) command.charAt(i);
-        }
-        this.dataOutputStream.write(byteCommand, 0, 4);
+        this.write_string(command);
     }
 
     public String read_Char() throws IOException {
-        return this.read_string_variable(1);
+        return String.valueOf(this.dataInputStream.readByte());
     }
 
     public int readLen() throws IOException {

@@ -12,11 +12,8 @@ public class Protocol {
     private BlackJack blackJack;
     private ComUtils comutils;
     private String message;
-    private String lastCommandSent;
-    private int user;
     private String command;
     private String stringToSend;
-    private int intToSend;
     private Users users;
 
     public Protocol(Socket socket, ComUtils comutils, Users users) {
@@ -32,8 +29,9 @@ public class Protocol {
         while (this.blackJack.getIsRunning())  {
             try {
 
-                this.command = this.comutils.readCommand();
+                this.command = this.comutils.read_string();
                 this.command = this.command.toUpperCase();
+                System.out.println(command);
                 switch (this.command) {
                     //Do the switch case for each message in the protocol.
                     case "STRT":
@@ -55,6 +53,8 @@ public class Protocol {
                             this.doubleBet();
                         } catch (Exception e) {
                             System.err.println("Error while double the bet");
+                            this.blackJack.setRunning(false);
+
                         }
                         break;
                     case "SRND":
@@ -66,6 +66,7 @@ public class Protocol {
                     case "EXIT":
                         //send the exit message and close the prtotocol.
                         System.out.println("Closing the connection.");
+                        this.blackJack.setRunning(false);
                         this.socket.close();
                     /*try {
                         this.finalize();
@@ -75,14 +76,17 @@ public class Protocol {
                         break;
                     case "ERRO":
                         System.err.println(this.handlerError());
+                        this.blackJack.setRunning(false);
                         break;
                     default:
                         System.err.println("It ins't a valid command. closing the game");
                         //set running to false
+                        this.blackJack.setRunning(false);
                         break;
                 }
             }catch (SocketException ex) {
                 System.err.println("La conexión con el cliente se ha interrumpido");
+                this.blackJack.setRunning(false);
             } catch (IOException ex){
                 throw ex;
             }
@@ -92,8 +96,8 @@ public class Protocol {
     private void startAGame() throws IOException{
         String space = this.comutils.read_Char();
         int userId = this.comutils.read_int32();
-
-        this.users.addNewUser(userId);
+        System.out.println(userId);
+        this.users.addNewUser(userId); //retorna el blackjack
         this.sendInit(100);
     }
 
@@ -116,16 +120,30 @@ public class Protocol {
         this.comutils.writeCommand(this.stringToSend);
         for(Card card : this.blackJack.getPlayerHand().getHandCards()){
             this.comutils.write_SP();
-            this.comutils.writeCard(card.getRank(), (byte) card.getCardNaipe());
+            if (card.getCardNaipe() == 'C')
+                this.comutils.writeCard(card.getRank(), '3');
+            else if (card.getCardNaipe() == 'D')
+                this.comutils.writeCard(card.getRank(), '4');
+            else if (card.getCardNaipe() == 'H')
+                this.comutils.writeCard(card.getRank(), '5');
+            else
+                this.comutils.writeCard(card.getRank(), '6');
         }
     }
 
-    public void sendCARD()  throws IOException {
+    public void sendCARD() throws IOException {
         this.stringToSend = "CARD";
         this.comutils.writeCommand(this.stringToSend);
         this.comutils.write_SP();
         Card card = this.blackJack.dealPlayerCard();
-        this.comutils.writeCard(card.getRank(), (byte) card.getCardNaipe());
+        if (card.getCardNaipe() == 'C')
+            this.comutils.writeCard(card.getRank(), '3');
+        else if (card.getCardNaipe() == 'D')
+            this.comutils.writeCard(card.getRank(), '4');
+        else if (card.getCardNaipe() == 'H')
+            this.comutils.writeCard(card.getRank(), '5');
+        else
+            this.comutils.writeCard(card.getRank(), '6');
     }
 
     public void sendSHOW() throws IOException {
@@ -138,7 +156,14 @@ public class Protocol {
 
         for(Card card : this.blackJack.getDealerHand().getHandCards()) {
             this.comutils.write_SP();
-            this.comutils.writeCard(card.getRank(), (byte) card.getCardNaipe());
+            if (card.getCardNaipe() == 'C')
+                this.comutils.writeCard(card.getRank(), '3');
+            else if (card.getCardNaipe() == 'D')
+                this.comutils.writeCard(card.getRank(), '4');
+            else if (card.getCardNaipe() == 'H')
+                this.comutils.writeCard(card.getRank(), '5');
+            else
+                this.comutils.writeCard(card.getRank(), '6');
         }
     }
 
@@ -188,6 +213,14 @@ public class Protocol {
         for (int i = 0; i < length; i++) {
             this.comutils.read_Char();
             rank = this.comutils.read_Char();
+            if (rank.equals(String.valueOf('3')))
+                rank = "H";
+            else if (rank.equals(String.valueOf('4')))
+                rank = "D";
+            else if (rank.equals(String.valueOf('5')))
+                rank = "C";
+            else
+                rank = "S";
             suit = this.comutils.read_Char();
             this.blackJack.getPlayerHand().take(rank.charAt(0), suit.charAt(0));
         }
@@ -201,7 +234,7 @@ public class Protocol {
         int cash;
         this.comutils.read_Char();
         cash = this.comutils.read_int32();
-
+        System.out.println(cash);
         if (cash < this.blackJack.MAX_BET){
             this.message = "ERRO";
             this.comutils.writeCommand(this.message);

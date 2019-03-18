@@ -10,7 +10,6 @@ public class Mainthread {
     private ServerSocket socket;
     private Inet4Address inet4Address;
     private ServerThread clientHandler;
-    private Thread thread;
     private Users users;
 
     public Mainthread(int port) throws IOException {
@@ -24,7 +23,7 @@ public class Mainthread {
         while (true) {
             System.out.println("Waiting for clients...");
             this.clientHandler = new ServerThread(this.socket.accept(), this.users);
-            this.thread = new Thread(this.clientHandler);
+            Thread thread = new Thread(this.clientHandler);
             thread.start();
         }
     }
