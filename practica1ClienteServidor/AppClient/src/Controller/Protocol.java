@@ -187,12 +187,12 @@ public class Protocol {
             String space = this.comUtils.read_Char();
             naipe = this.comUtils.read_Char();
             rank = this.comUtils.read_Char();
-
+            Card card = new Card(naipe.charAt(0), rank.charAt(0));
             //switch to get the suit/naipe
-
-            System.out.println(naipe + rank);
+            this.blackJack.getPlayerHand().take(card);
+            System.out.println(" Your card is: " + card.toString());
         }
-
+        System.out.println(" Your amount is " + this.blackJack.getPlayerHand().getActualValue());
     }
 }
 
