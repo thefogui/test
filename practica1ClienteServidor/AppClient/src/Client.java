@@ -31,15 +31,15 @@ public class Client {
 
                 switch (option) {
                     case CONNECT_TO_SERVER:
-                        System.out.println("Connectiong to host...");
+                        System.out.println("Connecting to host...");
 
 
-                        /*if (args.length  < 1) {
+                        if (args.length  < 1) {
                             System.err.println("Invalid entry for the port");
                         }
 
                         if (args.length < 2) {
-                            System.out.println("Invalid entry for app ");
+                            System.err.println("Invalid entry for app ");
                             System.exit(1);
                         }
 
@@ -52,14 +52,10 @@ public class Client {
                                     numPort = Integer.parseInt(args[i+1]);
                                     break;
                             }
-                        }*/
+                        }
 
-                        System.out.println("Insert the server IP");
-                        server = scanner.next();
-                        System.out.println("Insert the server Port");
-                        numPort = scanner.nextInt();
-                        System.out.println("Insert your username");
                         try {
+                            System.out.println("Username?");
                             username = scanner.nextInt();
                         } catch (Exception e) {
                             System.err.println("Not a valid number!");

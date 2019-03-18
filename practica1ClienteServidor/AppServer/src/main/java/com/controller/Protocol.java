@@ -54,7 +54,6 @@ public class Protocol {
                         } catch (Exception e) {
                             System.err.println("Error while double the bet");
                             this.blackJack.setRunning(false);
-
                         }
                         break;
                     case "SRND":
