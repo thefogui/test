@@ -6,6 +6,15 @@ public class Card {
     private char rank;
 
     public Card(char cardNaipe, char rank) {
+        if (cardNaipe == '3')
+            cardNaipe = 'H';
+        else if (cardNaipe == '4')
+            cardNaipe = 'D';
+        else if (cardNaipe == '5')
+            cardNaipe = 'C';
+        else
+            cardNaipe = 'S';
+
         this.cardNaipe = cardNaipe;
         this.rank = rank;
 
@@ -13,7 +22,7 @@ public class Card {
     }
 
     public int getValue() {
-        return value;
+        return this.calculateValue();
     }
 
     public void setValue(int value) {
@@ -43,7 +52,7 @@ public class Card {
     private int calculateValue() {
         if (this.rank == 'A')
             return 1; //This will be specified 1 or 11 in Hand.java
-        else if (this.rank == 'K' || this.rank == 'J' || this.rank == 'Q')
+        else if (this.rank == 'K' || this.rank == 'J' || this.rank == 'Q' || this.rank ==  'K')
             return 10;
 
         return Character.getNumericValue(this.rank); //Integer.valueOf(rank).intValue()
@@ -52,6 +61,7 @@ public class Card {
     @Override
     public String toString() {
         String suit = "";
+        String rank = "";
         if (this.getCardNaipe()=='H')
             suit = "\u2665";
         else if(this.getCardNaipe()=='D')
@@ -60,6 +70,11 @@ public class Card {
             suit = "\u2663";
         else if(this.getCardNaipe()=='S')
             suit = "\u2660";
-        return Character.toString(this.rank) + suit;
+
+        if (this.rank == 'X')
+            rank = "10";
+        else
+            rank = Character.toString(this.rank);
+        return  rank + suit;
     }
 }

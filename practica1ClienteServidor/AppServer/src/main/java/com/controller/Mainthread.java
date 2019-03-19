@@ -3,7 +3,7 @@ package main.java.com.controller;
 
 import main.java.com.model.Users;
 import java.io.IOException;
-import java.net.Inet4Address;
+import java.net.*;
 
 public class Mainthread {
     private int port;
@@ -14,7 +14,7 @@ public class Mainthread {
 
     public Mainthread(int port) throws IOException {
         this.port = port;
-        ServerSocket serverSocket = new ServerSocket(inet4Address, this.port);
+        ServerSocket serverSocket = new ServerSocket(this.port);
         this.socket = serverSocket;
         this.users = new Users();
     }

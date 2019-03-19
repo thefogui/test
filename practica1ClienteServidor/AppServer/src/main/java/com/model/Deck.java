@@ -11,7 +11,7 @@ public class Deck {
 
     public Deck() {
         char[] suits = {'C', 'D', 'H', 'S'}; //Ascii code 03, 04, 03, 06
-        char[] ranks = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'J', 'Q', 'k'};
+        char[] ranks = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'X','J', 'Q', 'k'};
 
         this.setSuits(suits);
         this.setRanks(ranks);
@@ -24,6 +24,7 @@ public class Deck {
             }
         }
         count = this.deckCards.size();
+
     }
 
     public ArrayList<Card> getDeck() {
@@ -59,8 +60,8 @@ public class Deck {
     }
 
     /*
-    * Function that deal the cards for the player
-    * */
+     * Function that deal the cards for the player
+     * */
     public Card deal(Hand playerHand) {
         Card dealtCard = this.deckCards.get(0);
         this.deckCards.remove(0);
@@ -70,8 +71,8 @@ public class Deck {
     }
 
     /*
-    * Function to shuffle the deck
-    * */
+     * Function to shuffle the deck
+     * */
     public void shuffle() {
         Collections.shuffle(this.deckCards);
     }

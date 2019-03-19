@@ -14,11 +14,10 @@ public class ServerThread implements Runnable {
     private Users users;
 
     public ServerThread(Socket socket, Users users) throws IOException {
-        this.socket = socket;
-        this.comutils = new ComUtils(this.socket);
+
         this.users = users;
         this.userIndex = Integer.MAX_VALUE;
-        this.protocol =  new Protocol(this.socket, this.comutils, this.users);
+        this.protocol =  new Protocol(socket, this.users);
     }
 
     @Override

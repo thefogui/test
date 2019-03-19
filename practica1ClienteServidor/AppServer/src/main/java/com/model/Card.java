@@ -24,6 +24,19 @@ public class Card {
         return cardNaipe;
     }
 
+    public String getCardProtcolNaipe() {
+        String naipe = null;
+        if (getCardNaipe() == 'C')
+            naipe = "3";
+        else if (getCardNaipe() == 'D')
+            naipe = "4";
+        else if (getCardNaipe() == 'H')
+            naipe = "5";
+        else
+            naipe = "6";
+        return naipe;
+    }
+
     public void setCardNaipe(char cardNaipe) {
         this.cardNaipe = cardNaipe;
     }
@@ -43,7 +56,7 @@ public class Card {
     private int calculateValue() {
         if (this.rank == 'A')
             return 1; //This will be specified 1 or 11 in Hand.java
-        else if (this.rank == 'K' || this.rank == 'J' || this.rank == 'Q')
+        else if (this.rank == 'K' || this.rank == 'J' || this.rank == 'Q' || this.rank == 'X')
             return 10;
 
         return Character.getNumericValue(this.rank); //Integer.valueOf(rank).intValue()
@@ -52,6 +65,7 @@ public class Card {
     @Override
     public String toString() {
         String suit = "";
+        String rank = "";
         if (this.getCardNaipe()=='H')
             suit = "\u2665";
         else if(this.getCardNaipe()=='D')
@@ -60,6 +74,11 @@ public class Card {
             suit = "\u2663";
         else if(this.getCardNaipe()=='S')
             suit = "\u2660";
-        return Character.toString(this.rank) + suit;
+
+        if (this.rank == 'X')
+            rank = "10";
+        else
+            rank = Character.toString(this.rank);
+        return  rank + suit;
     }
 }

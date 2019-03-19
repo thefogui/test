@@ -114,8 +114,6 @@ public class ComUtils {
         char cHeader[] = new char[size];
         int numBytes = size;
 
-
-
         // Llegim l'string
         byte bStr[]=new byte[size];
         char cStr[]=new char[size];
@@ -152,7 +150,7 @@ public class ComUtils {
 
     public void write_SP() throws IOException {
         char SP = ' ';
-        dataOutputStream.write((byte) SP);
+        this.writeChar(SP);
     }
 
     public void writeLen(int len) throws IOException {
@@ -173,42 +171,33 @@ public class ComUtils {
     }
 
     public void writeCommand(String command) throws IOException {
-        byte byteCommand[] = new byte[4];
-        int lenCommand = command.length();
-        assert lenCommand == 4;
-
-        for (int i = 0; i < lenCommand; i++) {
-            byteCommand[i] = (byte) command.charAt(i);
-        }
-
-        this.dataOutputStream.write(byteCommand, 0, 4);
-    }
-
-    public String read_Char() throws IOException {
-        byte[] bStr = new byte[1];
-        return String.valueOf(dataInputStream.read(bStr, 0, 1));
-    }
-
-
-    public int readLen() throws IOException {
-        return (int) this.dataInputStream.readByte();
+        this.write_string(command);
     }
 
     public String readCommand() throws IOException {
-        String command;
-        int size = 4;
+        return this.read_string();
+    }
 
-        byte[] bStr;
-        char[] cStr = new char[size];
+    public String read_Char() throws IOException {
+        String str;
+        byte[] bStr = new byte[1];
+        char cStr;
 
-        bStr = read_bytes(size);
+        bStr = read_bytes(1);
+        cStr = (char) bStr[0];
 
-        for (int i = 0; i < size; i++) {
-            cStr[i] = (char) bStr[i];
-        }
+        str = String.valueOf(cStr);
+        return str;
+    }
 
-        command = String.valueOf(cStr);
-        return command.trim();
+    public void writeChar(char c) throws IOException{
+        byte[] bStr = new byte[1];
+        bStr[0] = (byte) c;
+        this.dataOutputStream.write(bStr, 0, 1);
+    }
+
+    public int readLen() throws IOException {
+        return (int) this.dataInputStream.readByte();
     }
 
     public void writeErrorMessage(String message) throws IOException {

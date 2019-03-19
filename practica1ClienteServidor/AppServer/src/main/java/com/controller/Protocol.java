@@ -1,11 +1,12 @@
 package main.java.com.controller;
 
 import java.io.IOException;
-import java.net.Socket;
+import java.net.*;
 import java.net.SocketException;
 import main.java.com.model.Card;
 import main.java.com.model.BlackJack;
 import main.java.com.model.Users;
+
 
 public class Protocol {
     private Socket socket;
@@ -16,20 +17,21 @@ public class Protocol {
     private String stringToSend;
     private Users users;
 
-    public Protocol(Socket socket, ComUtils comutils, Users users) {
-        this.socket = socket;
-        this.comutils =  comutils;
+    public Protocol(Socket socket, Users users) throws IOException {
         this.command = null;
         this.stringToSend = null;
         this.users = users;
         this.blackJack = new BlackJack(1);
+
+        this.socket = socket;
+        this.comutils = new ComUtils(this.socket);
     }
 
     public void readSocket() throws IOException {
         while (this.blackJack.getIsRunning())  {
             try {
 
-                this.command = this.comutils.read_string();
+                this.command = this.comutils.readCommand();
                 this.command = this.command.toUpperCase();
                 System.out.println(command);
                 switch (this.command) {
@@ -119,14 +121,8 @@ public class Protocol {
         this.comutils.writeCommand(this.stringToSend);
         for(Card card : this.blackJack.getPlayerHand().getHandCards()){
             this.comutils.write_SP();
-            if (card.getCardNaipe() == 'C')
-                this.comutils.writeCard(card.getRank(), '3');
-            else if (card.getCardNaipe() == 'D')
-                this.comutils.writeCard(card.getRank(), '4');
-            else if (card.getCardNaipe() == 'H')
-                this.comutils.writeCard(card.getRank(), '5');
-            else
-                this.comutils.writeCard(card.getRank(), '6');
+            this.comutils.writeChar(card.getRank());
+            this.comutils.writeChar(card.getCardProtcolNaipe().charAt(0));
             System.out.println(card.toString());
         }
     }
@@ -136,14 +132,9 @@ public class Protocol {
         this.comutils.writeCommand(this.stringToSend);
         this.comutils.write_SP();
         Card card = this.blackJack.dealPlayerCard();
-        if (card.getCardNaipe() == 'C')
-            this.comutils.writeCard(card.getRank(), '3');
-        else if (card.getCardNaipe() == 'D')
-            this.comutils.writeCard(card.getRank(), '4');
-        else if (card.getCardNaipe() == 'H')
-            this.comutils.writeCard(card.getRank(), '5');
-        else
-            this.comutils.writeCard(card.getRank(), '6');
+        this.comutils.write_SP();
+        this.comutils.writeChar(card.getRank());
+        this.comutils.writeChar(card.getCardProtcolNaipe().charAt(0));
         System.out.println(card.toString());
     }
 
@@ -157,14 +148,9 @@ public class Protocol {
 
         for(Card card : this.blackJack.getDealerHand().getHandCards()) {
             this.comutils.write_SP();
-            if (card.getCardNaipe() == 'C')
-                this.comutils.writeCard(card.getRank(), '3');
-            else if (card.getCardNaipe() == 'D')
-                this.comutils.writeCard(card.getRank(), '4');
-            else if (card.getCardNaipe() == 'H')
-                this.comutils.writeCard(card.getRank(), '5');
-            else
-                this.comutils.writeCard(card.getRank(), '6');
+            this.comutils.writeChar(card.getRank());
+            this.comutils.writeChar(card.getCardProtcolNaipe().charAt(0));
+            System.out.println(card.toString());
         }
     }
 
@@ -189,7 +175,7 @@ public class Protocol {
             this.comutils.writeCommand(this.message);
             this.comutils.writeErrorMessage("Not enough money!");
         } else {
-            this.sendWINS();
+
         }
     }
 

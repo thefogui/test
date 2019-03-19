@@ -14,7 +14,7 @@ class ComUtilsTest {
             System.out.println(1);
             ComUtils comUtils = new ComUtils(new Socket("localhost", 1312));
             System.out.println(2);
-            String readString = comUtils.readCommand();
+            String readString = comUtils.read_string();
             System.out.println(readString);
         } catch (IOException ex) {
             System.err.println("Error with the socket");

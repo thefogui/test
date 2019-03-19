@@ -11,7 +11,7 @@ public class Deck {
 
     public Deck() {
         char[] suits = {'C', 'D', 'H', 'S'}; //Ascii code 03, 04, 03, 06
-        char[] ranks = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'J', 'Q', 'k'};
+        char[] ranks = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'X','J', 'Q', 'k'};
 
         this.setSuits(suits);
         this.setRanks(ranks);
