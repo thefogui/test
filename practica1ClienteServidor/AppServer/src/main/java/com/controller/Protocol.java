@@ -166,7 +166,6 @@ public class Protocol {
 
     private void startNewGame() throws IOException {
         this.comutils.read_Char();
-
     }
 
     private void surrender() throws IOException {
@@ -175,7 +174,12 @@ public class Protocol {
             this.comutils.writeCommand(this.message);
             this.comutils.writeErrorMessage("Not enough money!");
         } else {
-
+            this.message = "WINS";
+            this.comutils.writeCommand(this.message);
+            this.comutils.write_SP();
+            this.comutils.writeChar('2');
+            this.comutils.write_SP();
+            this.comutils.write_int32(100);
         }
     }
 
@@ -229,7 +233,18 @@ public class Protocol {
         } else {
             this.blackJack.setPlayerMoney(cash);
             this.sendIDCK();
+            this.sendOneCard();
         }
+    }
+
+    private void sendOneCard() throws IOException {
+        this.message = "SHOW";
+        this.comutils.writeCommand(this.message);
+        this.comutils.write_SP();
+        this.comutils.writeLen(1);
+        this.comutils.write_SP();
+        Card card = this.blackJack.getDealerHand().getHandCards().get(0);
+        this.comutils.writeCard(card.getRank(), card.getCardNaipe());
     }
 
     public void sendInit(int chips) throws IOException {

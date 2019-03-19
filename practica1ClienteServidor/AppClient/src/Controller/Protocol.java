@@ -2,6 +2,8 @@ package Controller;
 
 import java.io.*;
 import java.net.*;
+
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import lib.*;
 
 public class Protocol {
@@ -88,6 +90,17 @@ public class Protocol {
         naipe = this.comUtils.read_Char();;
         Card card = new Card(naipe.charAt(0), rank.charAt(0));
         this.blackJack.getPlayerHand().take(card);
+        return card.toString();
+    }
+
+    public String takeDealerCard() throws IOException {
+        String space = this.read_sp();
+        int length = this.comUtils.readLen();
+        space = this.read_sp();
+        String naipe, rank;
+        rank = this.comUtils.read_Char();
+        naipe = this.comUtils.read_Char();
+        Card card = new Card(naipe.charAt(0), rank.charAt(0));
         return card.toString();
     }
 

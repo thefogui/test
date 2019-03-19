@@ -1,7 +1,6 @@
 package View;
 
 import Controller.Protocol;
-import sun.jvm.hotspot.memory.Space;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
@@ -14,6 +13,7 @@ public class Menu {
     private int numPort;
     private int option;
     private String message;
+    private boolean firstShow;
     private static final int CONNECT_TO_SERVER = 1;
     private static final int AUTOMATIC_CLIENT = 2;
     private static final int MANUAL_CLIENT = 3;
@@ -25,6 +25,7 @@ public class Menu {
         this.server = server;
         this.numPort = numPort;
         this.message = "";
+        this.firstShow = true;
     }
 
     public void mainMenu() {
@@ -102,10 +103,17 @@ public class Menu {
                         this.takeAcard();
                         break;
                     case "SHOW":
+                        if (this.firstShow) {
+                            this.printCard();
+                            this.firstShow = false;
+                            this.getAction();
+                        } else {
+                            this.printDealerCards();
+                        }
                         break;
 
                     case "WINS":
-
+                        this.firstShow = true;
                         break;
                     case "ERRO":
                         this.protocol.handlerError();
@@ -121,6 +129,19 @@ public class Menu {
                 System.err.println("Error reading the Socket: " + ex.getMessage());
             }
         }
+    }
+
+    private void printDealerCards() {
+        System.out.println("--------------------------------");
+
+        System.out.println("--------------------------------");
+    }
+
+    private void printCard() throws IOException {
+        System.out.println("--------------------------------");
+        System.out.println("    Dealer initial card " + this.protocol.takeDealerCard());
+        System.out.println("--------------------------------");
+
     }
 
     private void takeAcard() throws IOException {
@@ -151,20 +172,29 @@ public class Menu {
         }
         System.out.println("    Your amount is " + this.protocol.handAmount());
         System.out.println("--------------------------------");
-        System.out.println("    Select a number:");
-        System.out.println("    1. Ask for a new card");
-        System.out.println("    2. Double the bet");
-        System.out.println("--------------------------------");
-        this.getAction();
     }
 
     private void getAction() throws IOException {
+        System.out.println("--------------------------------");
+        System.out.println("    Select a number:");
+        System.out.println("    1. Ask for a new card");
+        System.out.println("    2. Double the bet");
+        System.out.println("    3. Send cards");
+        System.out.println("    4. Surrender");
+        System.out.println("    5. Exit");
+        System.out.println("--------------------------------");
         int opcio = this.scanner.nextInt();
 
         if (opcio == 1) {
             this.protocol.sendHitt();
         }else if(opcio == 2){
             this.protocol.sendBet();
+        } else if (opcio == 3) {
+            this.protocol.sendShow();
+        }else if (opcio == 4) {
+            this.protocol.sendSurrender();
+        }else if (opcio == 5) {
+            //exit the game
         }
     }
 }
