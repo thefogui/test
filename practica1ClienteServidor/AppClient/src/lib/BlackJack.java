@@ -18,7 +18,7 @@ public class BlackJack {
         this.dealerHand = new Hand("Dealer");
         this.playerMoney = 500;
         this.gameOver = false;
-        this.playerBet = 1;
+        this.playerBet = MAX_BET;
         this.roundCount = 0;
         this.isRunning = true;
     }

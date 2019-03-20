@@ -41,12 +41,12 @@ public class Protocol {
     }
 
     public void sendShow() throws IOException {
-        int lenght = this.blackJack.getDealerHand().getHandCards().size();
+        int length = this.blackJack.getDealerHand().getHandCards().size();
         this.message = "SHOW";
         this.comUtils.write_string(this.message);
         this.comUtils.write_SP();
 
-        this.comUtils.writeLen((char)lenght);
+        this.comUtils.writeLen((char)length);
 
         for(Card card : this.blackJack.getDealerHand().getHandCards()) {
             this.comUtils.write_SP();
@@ -137,11 +137,40 @@ public class Protocol {
         return null;
     }
 
+    public String getServerCards() throws IOException {
+        String cards = "";
+        String space = this.read_sp();
+        int length = this.comUtils.readLen();
+        String naipe, rank;
+
+        for (int i = 0; i < length; i++) {
+            space = this.read_sp();
+            rank = this.comUtils.read_Char();
+            naipe = this.comUtils.read_Char();
+            Card card = new Card(naipe.charAt(0), rank.charAt(0));
+            cards += card.toString() + " ";
+        }
+        return cards;
+    }
+
     private void sendError(String error) throws IOException {
         this.message = "ERRO";
         this.comUtils.writeCommand(this.message);
         this.comUtils.write_SP();
         this.comUtils.writeErrorMessage(error);
+    }
+
+    public int getPlayerBet() {
+        return this.blackJack.getPlayerBet();
+    }
+
+    public void sendExit() throws IOException {
+        this.message = "EXIT";
+        this.comUtils.writeCommand(this.message);
+    }
+
+    public void setPlaying(boolean b) {
+        this.blackJack.setRunning(b);
     }
 }
 

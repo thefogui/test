@@ -7,6 +7,7 @@
       <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/Menu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/src/Controller/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/Controller/Protocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/src/View/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/View/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppClient/src/lib/BlackJack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/lib/BlackJack.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/Protocol.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="181" column="38" selection-start-line="181" selection-start-column="38" selection-end-line="181" selection-end-column="38" />
+            <state relative-caret-position="-1927">
+              <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -207,7 +208,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553073849657" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553081100352" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Groovy JUnit" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Groovy JUnit" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -267,7 +268,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Learn" order="0" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4967742" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4967742" visible="true" weight="0.25" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -278,7 +279,7 @@
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" sideWeight="0.4989075" weight="0.27097505" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" sideWeight="0.47969544" visible="true" weight="0.29489797" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.47969544" visible="true" weight="0.29489797" />
       <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.5672589" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
@@ -449,8 +450,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/Protocol.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="181" column="38" selection-start-line="181" selection-start-column="38" selection-end-line="181" selection-end-column="38" />
+        <state relative-caret-position="-1927">
+          <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

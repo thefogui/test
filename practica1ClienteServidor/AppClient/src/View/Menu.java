@@ -51,7 +51,13 @@ public class Menu {
                         System.out.println("Has seleccionado la opcion 3");
                         break;
                     case EXIT:
-                        System.out.println("Has seleccionado la opcion 4");
+                        try {
+                            this.finalize();
+                        } catch (IOException ex) {
+                            System.err.println("Error sending the EXIT command " + ex.getMessage());
+                        } catch (Throwable throwable) {
+                            System.err.println("Error sending the EXIT command " + throwable.getMessage());
+                        }
                         break;
                     default:
                         System.err.println("Not a valid number!");
@@ -114,13 +120,15 @@ public class Menu {
                     case "WINS":
                         this.firstShow = true;
                         this.checkWinner();
+                        this.menuReplay();
                         break;
                     case "ERRO":
                         this.protocol.handlerError();
+                        this.protocol.setPlaying(false);
                         break;
                     default:
                         System.err.println("It ins't a valid command. closing the game");
-                        //set running to false
+                        this.protocol.setPlaying(false);
                         break;
                 }
 
@@ -137,9 +145,9 @@ public class Menu {
         System.out.println("--------------------------------");
     }
 
-    private void printDealerCards() {
+    private void printDealerCards() throws IOException {
         System.out.println("--------------------------------");
-
+        System.out.println("    Server cards: " + this.protocol.getServerCards());
         System.out.println("--------------------------------");
     }
 
@@ -151,7 +159,6 @@ public class Menu {
     }
 
     private void takeAcard() throws IOException {
-        String space = this.protocol.read_sp();
         System.out.println("--------------------------------");
         System.out.println("    Card " +  this.protocol.takeACard());
         System.out.println("    Your amount is " + this.protocol.handAmount());
@@ -181,26 +188,77 @@ public class Menu {
     }
 
     private void getAction() throws IOException {
+        int opcio;
+
+        if (this.protocol.getPlayerBet() < 21) {
+            System.out.println("--------------------------------");
+            System.out.println("    Select a number:");
+            System.out.println("    1. Ask for a new card");
+            System.out.println("    2. Double the bet");
+            System.out.println("    3. Send cards");
+            System.out.println("    4. Surrender");
+            System.out.println("    5. Exit");
+            System.out.println("--------------------------------");
+            opcio = this.scanner.nextInt();
+
+            if (opcio == 1) {
+                this.protocol.sendHitt();
+
+            }else if(opcio == 2){
+                this.protocol.sendBet();
+            } else if (opcio == 3) {
+                this.protocol.sendShow();
+            }else if (opcio == 4) {
+                this.protocol.sendSurrender();
+            }else if (opcio == 5) {
+                this.exitAndClose();
+                this.protocol.setPlaying(false);
+            }
+
+        } else {
+            System.out.println("--------------------------------");
+            System.out.println("    Select a number:");
+            System.out.println("    1. Double the bet");
+            System.out.println("    2. Send cards");
+            System.out.println("    3. Surrender");
+            System.out.println("    4. Exit");
+            System.out.println("--------------------------------");
+            opcio = this.scanner.nextInt();
+
+            if (opcio == 1) {
+                this.protocol.sendBet();
+            }else if(opcio == 2){
+                this.protocol.sendShow();
+            } else if (opcio == 3) {
+                this.protocol.sendSurrender();
+            }else if (opcio == 4) {
+                this.exitAndClose();
+                this.protocol.setPlaying(false);
+            }
+        }
+    }
+
+    private void exitAndClose() throws IOException {
+        this.protocol.sendExit();
+        System.out.println("--------------------------------");
+        System.out.println("    Closing the game!");
+        System.out.println("--------------------------------");
+    }
+
+    private void menuReplay() throws IOException {
+        int opcio;
         System.out.println("--------------------------------");
         System.out.println("    Select a number:");
-        System.out.println("    1. Ask for a new card");
-        System.out.println("    2. Double the bet");
-        System.out.println("    3. Send cards");
-        System.out.println("    4. Surrender");
-        System.out.println("    5. Exit");
+        System.out.println("    1. Player a new game");
+        System.out.println("    2. Exit");
         System.out.println("--------------------------------");
-        int opcio = this.scanner.nextInt();
+        opcio = this.scanner.nextInt();
 
         if (opcio == 1) {
-            this.protocol.sendHitt();
+            this.protocol.sendReplay();
         }else if(opcio == 2){
-            this.protocol.sendBet();
-        } else if (opcio == 3) {
-            this.protocol.sendShow();
-        }else if (opcio == 4) {
-            this.protocol.sendSurrender();
-        }else if (opcio == 5) {
-            //exit the game
+            this.exitAndClose();
+            this.protocol.setPlaying(false);
         }
     }
 }
