@@ -6,11 +6,21 @@ public class Hand {
     private String player;
     private ArrayList<Card> handCards;
     private int actualValue;
+    private int cash;
 
     public Hand(String player) {
         this.player = player;
         this.handCards = new ArrayList<Card>();
         this.actualValue = 0; //the hand start empty
+        this.cash = 500;
+    }
+
+    public int getCash() {
+        return cash;
+    }
+
+    public void setCash(int cash) {
+        this.cash = cash;
     }
 
     public String getPlayer() {
@@ -72,5 +82,19 @@ public class Hand {
         Card card = new Card(suit, rank);
         this.handCards.add(card);
         this.actualValue += getActualValueByCard(card);
+    }
+
+    public boolean getblack() {
+        if (this.getHandCards().get(0).getRank() == 'A' && (
+                this.getHandCards().get(1).getRank() == 'K' ||
+                this.getHandCards().get(1).getRank() == 'Q' ||
+                this.getHandCards().get(1).getRank() == 'J')) {
+            if (this.getHandCards().get(1).getRank() == 'A' && (
+                    this.getHandCards().get(0).getRank() == 'K' ||
+                    this.getHandCards().get(0).getRank() == 'Q' ||
+                    this.getHandCards().get(0).getRank() == 'J'))
+                return true;
+        }
+        return false;
     }
 }

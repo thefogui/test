@@ -14,6 +14,8 @@ public class Menu {
     private int option;
     private String message;
     private boolean firstShow;
+    private boolean firstCash;
+    private boolean playerCanBet;
     private static final int CONNECT_TO_SERVER = 1;
     private static final int AUTOMATIC_CLIENT = 2;
     private static final int MANUAL_CLIENT = 3;
@@ -26,6 +28,8 @@ public class Menu {
         this.numPort = numPort;
         this.message = "";
         this.firstShow = true;
+        this.firstCash = true;
+        this.playerCanBet = true;
     }
 
     public void mainMenu() {
@@ -101,8 +105,10 @@ public class Menu {
                 switch (this.message) {
                     case "INIT":
                         this.sendCash();
+                        this.playerCanBet = true;
                         break;
                     case "IDCK":
+                        this.protocol.reset();
                         this.takeTheInitialCards();
                         break;
                     case "CARD":
@@ -110,6 +116,7 @@ public class Menu {
                         break;
                     case "SHOW":
                         if (this.firstShow) {
+
                             this.printCard();
                             this.firstShow = false;
                             this.getAction();
@@ -124,6 +131,7 @@ public class Menu {
                         break;
                     case "ERRO":
                         this.protocol.handlerError();
+                        //enviar exit
                         this.protocol.setPlaying(false);
                         break;
                     default:
@@ -149,6 +157,7 @@ public class Menu {
         System.out.println("--------------------------------");
         System.out.println("    Server cards: " + this.protocol.getServerCards());
         System.out.println("--------------------------------");
+        //reset dealer hand
     }
 
     private void printCard() throws IOException {
@@ -172,10 +181,17 @@ public class Menu {
         int cash;
         System.out.println("--------------------------------");
         System.out.println("    Actual bet: " + bet);
-        System.out.println("    Entry the amount of cash:");
-        System.out.println("--------------------------------");
-        cash = this.scanner.nextInt();
-        this.protocol.sendCash(cash);
+
+        if (this.firstCash) {
+            System.out.println("    Entry the amount of cash:");
+            System.out.println("--------------------------------");
+            cash = this.scanner.nextInt();
+            this.protocol.sendCash(cash);
+            this.firstCash = false;
+        } else {
+            this.protocol.sendCash(this.protocol.getPlayerCash());
+            System.out.println("--------------------------------");
+        }
     }
 
     private void takeTheInitialCards() throws IOException {
@@ -189,51 +205,79 @@ public class Menu {
 
     private void getAction() throws IOException {
         int opcio;
+        if (this.playerCanBet) {
+            this.playerCanBet = false;
+            if (this.protocol.getplayerScore() < 21) {
+                System.out.println("--------------------------------");
+                System.out.println("    Select a number:");
+                System.out.println("    1. Ask for a new card");
+                System.out.println("    2. Double the bet");
+                System.out.println("    3. Send cards");
+                System.out.println("    4. Surrender");
+                System.out.println("--------------------------------");
+                opcio = this.scanner.nextInt();
 
-        if (this.protocol.getPlayerBet() < 21) {
-            System.out.println("--------------------------------");
-            System.out.println("    Select a number:");
-            System.out.println("    1. Ask for a new card");
-            System.out.println("    2. Double the bet");
-            System.out.println("    3. Send cards");
-            System.out.println("    4. Surrender");
-            System.out.println("    5. Exit");
-            System.out.println("--------------------------------");
-            opcio = this.scanner.nextInt();
+                if (opcio == 1) {
+                    this.protocol.sendHitt();
 
-            if (opcio == 1) {
-                this.protocol.sendHitt();
+                }else if(opcio == 2){
+                    this.protocol.sendBet();
+                    this.getAction();
+                } else if (opcio == 3) {
+                    this.protocol.sendShow();
+                    this.protocol.reset();
+                }else if (opcio == 4) {
+                    this.protocol.sendSurrender();
+                    this.protocol.reset();
+                }
 
-            }else if(opcio == 2){
-                this.protocol.sendBet();
-            } else if (opcio == 3) {
-                this.protocol.sendShow();
-            }else if (opcio == 4) {
-                this.protocol.sendSurrender();
-            }else if (opcio == 5) {
-                this.exitAndClose();
-                this.protocol.setPlaying(false);
+            } else {
+                System.out.println("--------------------------------");
+                System.out.println("    Select a number:");
+                System.out.println("    1. Double the bet");
+                System.out.println("    2. Send cards");
+                System.out.println("    3. Surrender");
+                System.out.println("--------------------------------");
+                opcio = this.scanner.nextInt();
+
+                if (opcio == 1) {
+                    this.protocol.sendBet();
+                    this.getAction();
+                }else if(opcio == 2){
+                    this.protocol.sendShow();
+                    this.protocol.reset();
+                } else if (opcio == 3) {
+                    this.protocol.sendSurrender();
+                    this.protocol.reset();
+                }
             }
-
         } else {
-            System.out.println("--------------------------------");
-            System.out.println("    Select a number:");
-            System.out.println("    1. Double the bet");
-            System.out.println("    2. Send cards");
-            System.out.println("    3. Surrender");
-            System.out.println("    4. Exit");
-            System.out.println("--------------------------------");
-            opcio = this.scanner.nextInt();
+            if (this.protocol.getplayerScore() < 21) {
+                System.out.println("--------------------------------");
+                System.out.println("    Select a number:");
+                System.out.println("    1. Ask for a new card");
+                System.out.println("    2. Send cards");
+                System.out.println("--------------------------------");
+                opcio = this.scanner.nextInt();
 
-            if (opcio == 1) {
-                this.protocol.sendBet();
-            }else if(opcio == 2){
-                this.protocol.sendShow();
-            } else if (opcio == 3) {
-                this.protocol.sendSurrender();
-            }else if (opcio == 4) {
-                this.exitAndClose();
-                this.protocol.setPlaying(false);
+                if (opcio == 1)
+                    this.protocol.sendHitt();
+                else if (opcio == 2) {
+                    this.protocol.sendShow();
+                    this.protocol.reset();
+                }
+
+            } else {
+                System.out.println("--------------------------------");
+                System.out.println("    Select a number:");
+                System.out.println("    1. Send cards");
+                System.out.println("--------------------------------");
+                opcio = this.scanner.nextInt();
+
+                if (opcio == 1) {
+                    this.protocol.sendShow();
+                    this.protocol.reset();
+                }
             }
         }
     }
@@ -249,13 +293,15 @@ public class Menu {
         int opcio;
         System.out.println("--------------------------------");
         System.out.println("    Select a number:");
-        System.out.println("    1. Player a new game");
+        System.out.println("    1. Play a new game");
         System.out.println("    2. Exit");
+        System.out.println("    Actual cash: " + this.protocol.getPlayerCash());
         System.out.println("--------------------------------");
         opcio = this.scanner.nextInt();
 
         if (opcio == 1) {
             this.protocol.sendReplay();
+            this.protocol.reset();
         }else if(opcio == 2){
             this.exitAndClose();
             this.protocol.setPlaying(false);

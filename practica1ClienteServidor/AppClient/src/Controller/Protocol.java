@@ -2,8 +2,8 @@ package Controller;
 
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import lib.*;
 
 public class Protocol {
@@ -33,6 +33,7 @@ public class Protocol {
         this.comUtils.write_string(this.message);
         this.comUtils.write_SP();
         this.comUtils.write_int32(chips);
+        this.blackJack.setPlayerMoney(chips);
     }
 
     public void sendHitt() throws IOException {
@@ -41,14 +42,13 @@ public class Protocol {
     }
 
     public void sendShow() throws IOException {
-        int length = this.blackJack.getDealerHand().getHandCards().size();
+        int length = this.blackJack.getPlayerHand().getHandCards().size();
         this.message = "SHOW";
         this.comUtils.write_string(this.message);
         this.comUtils.write_SP();
+        this.comUtils.writeChar((char)length);
 
-        this.comUtils.writeLen((char)length);
-
-        for(Card card : this.blackJack.getDealerHand().getHandCards()) {
+        for(Card card : this.blackJack.getPlayerHand().getHandCards()) {
             this.comUtils.write_SP();
             this.comUtils.writeCard(card.getRank(), card.getCardNaipe());
         }
@@ -124,8 +124,10 @@ public class Protocol {
 
         switch (winner) {
             case "0":
+                this.blackJack.setPlayerMoney(this.blackJack.getPlayerMoney() + amount);
                 return "You are the winner, cash earned: " + amount;
             case "1":
+                this.blackJack.setPlayerMoney(this.blackJack.getPlayerMoney() - amount);
                 return "Dealer is the winner, cash lost: " + amount;
             case "2":
                 return "Tie, no ones wins the bet";
@@ -160,10 +162,6 @@ public class Protocol {
         this.comUtils.writeErrorMessage(error);
     }
 
-    public int getPlayerBet() {
-        return this.blackJack.getPlayerBet();
-    }
-
     public void sendExit() throws IOException {
         this.message = "EXIT";
         this.comUtils.writeCommand(this.message);
@@ -171,6 +169,21 @@ public class Protocol {
 
     public void setPlaying(boolean b) {
         this.blackJack.setRunning(b);
+    }
+
+    public int getPlayerCash() {
+        return this.blackJack.getPlayerMoney();
+    }
+
+    public int getplayerScore() {
+        return this.blackJack.getPlayerHand().getActualValue();
+    }
+
+    public void reset() {
+        this.blackJack.getPlayerHand().setHandCards(new ArrayList<>());
+        this.blackJack.getDealerHand().setHandCards(new ArrayList<>());
+        this.blackJack.getDealerHand().setActualValue(0);
+        this.blackJack.getPlayerHand().setActualValue(0);
     }
 }
 

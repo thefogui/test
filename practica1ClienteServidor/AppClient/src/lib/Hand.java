@@ -6,11 +6,21 @@ public class Hand {
     private String player;
     private ArrayList<Card> handCards;
     private int actualValue;
+    private int cash;
 
     public Hand(String player) {
         this.player = player;
         this.handCards = new ArrayList<Card>();
         this.actualValue = 0; //the hand start empty
+        this.cash = 500;
+    }
+
+    public int getCash() {
+        return cash;
+    }
+
+    public void setCash(int cash) {
+        this.cash = cash;
     }
 
     public String getPlayer() {

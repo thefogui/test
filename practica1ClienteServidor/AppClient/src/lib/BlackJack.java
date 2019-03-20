@@ -16,7 +16,7 @@ public class BlackJack {
         this.playerName = playerName;
         this.playerHand = new Hand(String.valueOf(this.playerName));
         this.dealerHand = new Hand("Dealer");
-        this.playerMoney = 500;
+        this.playerMoney = this.playerHand.getCash();
         this.gameOver = false;
         this.playerBet = MAX_BET;
         this.roundCount = 0;
@@ -97,38 +97,5 @@ public class BlackJack {
 
     public boolean getIsRunning() {
         return this.isRunning;
-    }
-
-    public Card dealPlayerCard() {
-        return this.deck.deal(this.getPlayerHand());
-    }
-
-    public void doubleBet() throws Exception {
-        int doubleBet = this.playerBet * 2;
-        if (this.playerMoney >= doubleBet)
-            this.playerBet = doubleBet;
-        else
-            throw new Exception("Player can't do this action");
-    }
-
-    public int getWinner() {
-        if (dealerHand.getActualValue() > 21)
-            return 0;
-        else {
-            if (playerHand.getActualValue() < dealerHand.getActualValue()) {
-                return 1;
-            } else if (playerHand.getActualValue() > dealerHand.getActualValue()){
-                return 0;
-            } else {
-                return 2;
-            }
-        }
-    }
-
-    public void dealerAskCard() {
-        while (this.getDealerHand().getActualValue() < 17) {
-            Card card = this.deck.deal(this.getDealerHand());
-            this.getDealerHand().take(card);
-        }
     }
 }

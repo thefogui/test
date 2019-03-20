@@ -3,6 +3,8 @@ package main.java.com.controller;
 import java.io.IOException;
 import java.net.*;
 import java.net.SocketException;
+import java.util.ArrayList;
+
 import main.java.com.model.Card;
 import main.java.com.model.BlackJack;
 import main.java.com.model.Users;
@@ -16,13 +18,14 @@ public class Protocol {
     private String command;
     private String stringToSend;
     private Users users;
+    private boolean firstCash;
 
     public Protocol(Socket socket, Users users) throws IOException {
         this.command = null;
         this.stringToSend = null;
         this.users = users;
         this.blackJack = new BlackJack(1);
-
+        this.firstCash = true;
         this.socket = socket;
         this.comutils = new ComUtils(this.socket);
     }
@@ -47,7 +50,7 @@ public class Protocol {
                         break;
                     case "SHOW":
                         this.showCards();
-
+                        this.blackJack.dealerAskCard();
                         this.solveWinner();
                         break;
                     case "BETT":
@@ -69,11 +72,11 @@ public class Protocol {
                         System.out.println("Closing the connection.");
                         this.blackJack.setRunning(false);
                         this.socket.close();
-                    /*try {
-                        this.finalize();
-                    } catch (Throwable exception) {
-                        exception.printStackTrace();
-                    }*/
+                        /*try {
+                            this.finalize();
+                        } catch (Throwable exception) {
+                            exception.printStackTrace();
+                        }*/
                         break;
                     case "ERRO":
                         System.err.println(this.handlerError());
@@ -103,13 +106,8 @@ public class Protocol {
     }
 
     private void solveWinner() throws IOException {
-        this.blackJack.dealerAskCard();
-        if (this.blackJack.getPlayerBet() == 1) {
-            this.sendWINS();
-        } else {
-            this.blackJack.dealPlayerCard();
-        }
-        this.sendSHOW();
+
+        this.sendWINS();
     }
 
     public String handlerError() throws IOException {
@@ -132,7 +130,6 @@ public class Protocol {
         this.comutils.writeCommand(this.stringToSend);
         this.comutils.write_SP();
         Card card = this.blackJack.dealPlayerCard();
-        this.comutils.write_SP();
         this.comutils.writeChar(card.getRank());
         this.comutils.writeChar(card.getCardProtcolNaipe().charAt(0));
         System.out.println(card.toString());
@@ -158,33 +155,29 @@ public class Protocol {
         this.stringToSend = "WINS";
         this.comutils.writeCommand(this.stringToSend);
         this.comutils.write_SP();
-
-        this.comutils.writeLen(this.blackJack.getWinner());
+        this.comutils.writeChar(this.blackJack.getWinner());
         this.comutils.write_SP();
-        this.comutils.write_int32(this.blackJack.getRoundCount()); //get the amount of chips earned
+        this.comutils.write_int32(this.blackJack.getPlayerBet()); //get the amount of chips earned
     }
 
     private void startNewGame() throws IOException {
-        this.comutils.read_Char();
+        this.blackJack.restart();
+        this.sendInit(100);
+        this.sendIDCK();
+        this.sendOneCard();
     }
 
     private void surrender() throws IOException {
-        if (this.blackJack.getPlayerMoney() <= 0) {
-            this.message = "ERRO";
-            this.comutils.writeCommand(this.message);
-            this.comutils.writeErrorMessage("Not enough money!");
-        } else {
-            this.message = "WINS";
-            this.comutils.writeCommand(this.message);
-            this.comutils.write_SP();
-            this.comutils.writeChar('2');
-            this.comutils.write_SP();
-            this.comutils.write_int32(100);
-        }
+        this.message = "WINS";
+        this.comutils.writeCommand(this.message);
+        this.comutils.write_SP();
+        this.comutils.writeChar('2');
+        this.comutils.write_SP();
+        this.comutils.write_int32(100);
     }
 
     private void doubleBet() throws Exception {
-        if (this.blackJack.getRoundCount() < this.blackJack.getPlayerHand().getActualValue()) {
+        if (this.blackJack.getPlayerBet() > this.blackJack.getPlayerHand().getCash()) {
             this.stringToSend = "ERRO";
             this.comutils.writeCommand(this.stringToSend);
             this.stringToSend = "Not enough money to double the bet";
@@ -197,7 +190,7 @@ public class Protocol {
         int length;
         String rank;
         String suit;
-
+        this.blackJack.getPlayerHand().setHandCards(new ArrayList<>());
         this.comutils.read_Char();
         length = this.comutils.readLen();
 
@@ -215,6 +208,7 @@ public class Protocol {
             suit = this.comutils.read_Char();
             this.blackJack.getPlayerHand().take(rank.charAt(0), suit.charAt(0));
         }
+        this.sendSHOW();
     }
 
     private void askExtraCard() throws IOException {

@@ -52,7 +52,7 @@ public class Card {
     private int calculateValue() {
         if (this.rank == 'A')
             return 1; //This will be specified 1 or 11 in Hand.java
-        else if (this.rank == 'K' || this.rank == 'J' || this.rank == 'Q' || this.rank ==  'K')
+        else if (this.rank == 'K' || this.rank == 'J' || this.rank == 'Q' || this.rank ==  'X')
             return 10;
 
         return Character.getNumericValue(this.rank); //Integer.valueOf(rank).intValue()

@@ -2,10 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8f723af-fb6a-4339-b065-c17faaa5099c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppClient/Controller/ComUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppClient/Controller/ComUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppClient/Controller/Protocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppClient/Controller/Protocol.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppClient/View/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppClient/View/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppClient/lib/BlackJack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppClient/lib/BlackJack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppClient/lib/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppClient/lib/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppClient/lib/Hand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppClient/lib/Hand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ComUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ComUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Protocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/BlackJack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/BlackJack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Hand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/controller/Protocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/controller/Protocol.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/model/BlackJack.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/model/BlackJack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/model/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/model/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/model/Hand.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/model/Hand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/src/main/java/com/controller/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/src/main/java/com/controller/Protocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/src/main/java/com/model/BlackJack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/src/main/java/com/model/BlackJack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/src/main/java/com/model/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/src/main/java/com/model/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/src/main/java/com/model/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/src/main/java/com/model/Hand.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,13 +32,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/AppClient$Client.ic" NAME="Client Coverage Results" MODIFIED="1553094362924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ComUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1532">
-              <caret line="105" column="29" lean-forward="true" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
+            <state relative-caret-position="324">
+              <caret line="192" column="31" selection-start-line="192" selection-start-column="31" selection-end-line="192" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -31,7 +52,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/Deck.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
+            <state relative-caret-position="765">
               <caret line="67" column="21" lean-forward="true" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -41,10 +62,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/CardTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/BlackJack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-429">
-              <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+            <state relative-caret-position="524">
+              <caret line="98" selection-start-line="98" selection-end-line="98" />
               <folding>
                 <element signature="e#1093#1094#0" expanded="true" />
                 <element signature="e#1126#1127#0" expanded="true" />
@@ -52,7 +82,6 @@
                 <element signature="e#1451#1452#0" expanded="true" />
                 <element signature="e#2048#2049#0" expanded="true" />
                 <element signature="e#2086#2087#0" expanded="true" />
-                <element signature="e#2123#2124#0" expanded="true" />
                 <element signature="e#2160#2161#0" expanded="true" />
               </folding>
             </state>
@@ -62,29 +91,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/Protocol.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="554">
-              <caret line="172" column="37" lean-forward="true" selection-start-line="172" selection-start-column="37" selection-end-line="172" selection-end-column="37" />
+            <state relative-caret-position="84">
+              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3075#3076#0" expanded="true" />
                 <element signature="e#3127#3128#0" expanded="true" />
                 <element signature="e#3161#3162#0" expanded="true" />
                 <element signature="e#3247#3248#0" expanded="true" />
-                <element signature="e#5100#5101#0" expanded="true" />
-                <element signature="e#5119#5120#0" expanded="true" />
                 <element signature="e#5329#5330#0" expanded="true" />
                 <element signature="e#5358#5359#0" expanded="true" />
+                <element signature="e#5344#5345#0" expanded="true" />
+                <element signature="e#5363#5364#0" expanded="true" />
+                <element signature="e#5657#5658#0" expanded="true" />
+                <element signature="e#5676#5677#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lib/Hand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
-              <caret line="67" selection-start-line="67" selection-end-line="67" />
+            <state relative-caret-position="110">
+              <caret line="42" column="27" lean-forward="true" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
               <folding>
+                <element signature="e#402#403#0" expanded="true" />
+                <element signature="e#429#430#0" expanded="true" />
+                <element signature="e#466#467#0" expanded="true" />
+                <element signature="e#498#499#0" expanded="true" />
+                <element signature="e#514#515#0" expanded="true" />
+                <element signature="e#546#547#0" expanded="true" />
+                <element signature="e#605#606#0" expanded="true" />
+                <element signature="e#647#648#0" expanded="true" />
                 <element signature="e#682#683#0" expanded="true" />
                 <element signature="e#716#717#0" expanded="true" />
               </folding>
@@ -95,35 +134,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/Card.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="63" column="25" lean-forward="true" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
+            <state relative-caret-position="15">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
               <folding>
                 <element signature="e#558#559#0" expanded="true" />
                 <element signature="e#586#587#0" expanded="true" />
                 <element signature="e#693#694#0" expanded="true" />
                 <element signature="e#725#726#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/View/Menu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3900">
-              <caret line="260" column="44" selection-start-line="260" selection-start-column="44" selection-end-line="260" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#844#845#0" expanded="true" />
+                <element signature="e#871#872#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/util/Scanner.java">
+        <entry file="file://$PROJECT_DIR$/src/View/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="861" selection-start-line="861" selection-end-line="861" />
+            <state relative-caret-position="443">
+              <caret line="164" column="75" selection-start-line="164" selection-start-column="75" selection-end-line="164" selection-end-column="75" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,17 +179,17 @@
         <option value="$PROJECT_DIR$/src/lib/Deck.java" />
         <option value="$PROJECT_DIR$/src/Client.java" />
         <option value="$PROJECT_DIR$/src/test/Controller/ComUtilsTest.java" />
-        <option value="$PROJECT_DIR$/src/Controller/ComUtils.java" />
-        <option value="$PROJECT_DIR$/src/lib/Card.java" />
         <option value="$PROJECT_DIR$/src/lib/Hand.java" />
         <option value="$PROJECT_DIR$/src/lib/BlackJack.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Protocol.java" />
+        <option value="$PROJECT_DIR$/src/lib/Card.java" />
         <option value="$PROJECT_DIR$/src/View/Menu.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ComUtils.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Protocol.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="838" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="width" value="834" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -215,7 +247,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553081205853" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553099849505" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -245,10 +277,10 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Client">
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Client" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client" />
       <module name="AppClient" />
-      <option name="PROGRAM_PARAMETERS" value="-s 161.116.36.208 -p 1212" />
+      <option name="PROGRAM_PARAMETERS" value="-s localhost -p 1213" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -326,7 +358,6 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client" />
         <item itemvalue="JUnit.ComUtilsTest" />
         <item itemvalue="JUnit.ComUtilsTest.readCommand" />
         <item itemvalue="JUnit.BlackJackTest" />
@@ -380,10 +411,10 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="838" height="1050" extended-state="0" />
+    <frame x="0" y="0" width="834" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19472362" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19570707" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -392,13 +423,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4987437" weight="0.32857144" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4861809" visible="true" weight="0.29489797" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49120602" weight="0.39795917" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4848485" visible="true" weight="0.29489797" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49063337" weight="0.39795917" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32857144" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5138191" side_tool="true" visible="true" weight="0.29489797" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5151515" side_tool="true" visible="true" weight="0.29489797" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49623117" weight="0.32857144" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -410,6 +441,18 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/View/Menu.java</url>
+          <line>219</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -435,13 +478,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/CardTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -482,19 +518,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ComUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/test/CardTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1532">
-          <caret line="105" column="29" lean-forward="true" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/Deck.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
+        <state relative-caret-position="765">
           <caret line="67" column="21" lean-forward="true" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -502,52 +535,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/Hand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-          <folding>
-            <element signature="e#682#683#0" expanded="true" />
-            <element signature="e#716#717#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/Card.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="63" column="25" lean-forward="true" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
           <folding>
             <element signature="e#558#559#0" expanded="true" />
             <element signature="e#586#587#0" expanded="true" />
             <element signature="e#693#694#0" expanded="true" />
             <element signature="e#725#726#0" expanded="true" />
+            <element signature="e#844#845#0" expanded="true" />
+            <element signature="e#871#872#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Protocol.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="172" column="37" lean-forward="true" selection-start-line="172" selection-start-column="37" selection-end-line="172" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3075#3076#0" expanded="true" />
-            <element signature="e#3127#3128#0" expanded="true" />
-            <element signature="e#3161#3162#0" expanded="true" />
-            <element signature="e#3247#3248#0" expanded="true" />
-            <element signature="e#5100#5101#0" expanded="true" />
-            <element signature="e#5119#5120#0" expanded="true" />
-            <element signature="e#5329#5330#0" expanded="true" />
-            <element signature="e#5358#5359#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="222">
+          <caret line="655" column="16" selection-start-line="655" selection-start-column="16" selection-end-line="655" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/BlackJack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-429">
-          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        <state relative-caret-position="524">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
           <folding>
             <element signature="e#1093#1094#0" expanded="true" />
             <element signature="e#1126#1127#0" expanded="true" />
@@ -555,18 +568,66 @@
             <element signature="e#1451#1452#0" expanded="true" />
             <element signature="e#2048#2049#0" expanded="true" />
             <element signature="e#2086#2087#0" expanded="true" />
-            <element signature="e#2123#2124#0" expanded="true" />
             <element signature="e#2160#2161#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ComUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="192" column="31" selection-start-line="192" selection-start-column="31" selection-end-line="192" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3900">
-          <caret line="260" column="44" selection-start-line="260" selection-start-column="44" selection-end-line="260" selection-end-column="44" />
+        <state relative-caret-position="443">
+          <caret line="164" column="75" selection-start-line="164" selection-start-column="75" selection-end-line="164" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Protocol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3075#3076#0" expanded="true" />
+            <element signature="e#3127#3128#0" expanded="true" />
+            <element signature="e#3161#3162#0" expanded="true" />
+            <element signature="e#3247#3248#0" expanded="true" />
+            <element signature="e#5329#5330#0" expanded="true" />
+            <element signature="e#5358#5359#0" expanded="true" />
+            <element signature="e#5344#5345#0" expanded="true" />
+            <element signature="e#5363#5364#0" expanded="true" />
+            <element signature="e#5657#5658#0" expanded="true" />
+            <element signature="e#5676#5677#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/Hand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="42" column="27" lean-forward="true" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
+          <folding>
+            <element signature="e#402#403#0" expanded="true" />
+            <element signature="e#429#430#0" expanded="true" />
+            <element signature="e#466#467#0" expanded="true" />
+            <element signature="e#498#499#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#546#547#0" expanded="true" />
+            <element signature="e#605#606#0" expanded="true" />
+            <element signature="e#647#648#0" expanded="true" />
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#716#717#0" expanded="true" />
           </folding>
         </state>
       </provider>

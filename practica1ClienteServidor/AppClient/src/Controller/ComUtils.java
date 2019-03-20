@@ -196,8 +196,8 @@ public class ComUtils {
         this.dataOutputStream.write(bStr, 0, 1);
     }
 
-    public int readLen() throws IOException {
-        return (int) this.dataInputStream.readByte();
+    public char readLen() throws IOException {
+        return (char) this.dataInputStream.readByte();
     }
 
     public void writeErrorMessage(String message) throws IOException {
