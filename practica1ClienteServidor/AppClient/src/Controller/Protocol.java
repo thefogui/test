@@ -28,10 +28,6 @@ public class Protocol {
         this.comUtils.write_int32(this.blackJack.getPlayerID());
     }
 
-    private void decideTheWinner() {
-
-    }
-
     public void sendCash(int chips) throws IOException {
         this.message = "CASH";
         this.comUtils.write_string(this.message);
@@ -64,7 +60,7 @@ public class Protocol {
     }
 
     public void sendSurrender() throws IOException {
-        this.message = "SNRD";
+        this.message = "SRND";
         this.comUtils.write_string(this.message);
     }
 
@@ -73,10 +69,6 @@ public class Protocol {
         this.comUtils.write_string(this.message);
     }
 
-    private void startTheGame() throws IOException{
-        String space = this.comUtils.read_Char();
-        this.message = "CASH";
-    }
 
     public String handlerError() throws IOException {
         String space = this.comUtils.read_Char();;
@@ -122,6 +114,34 @@ public class Protocol {
 
     public int readInteger() throws IOException {
         return this.comUtils.read_int32();
+    }
+
+    public String checkWinner() throws IOException{
+        String space = this.read_sp();
+        String winner = this.comUtils.read_Char();
+        space = this.read_sp();
+        int amount = this.comUtils.read_int32();
+
+        switch (winner) {
+            case "0":
+                return "You are the winner, cash earned: " + amount;
+            case "1":
+                return "Dealer is the winner, cash lost: " + amount;
+            case "2":
+                return "Tie, no ones wins the bet";
+            default:
+                this.sendError("There is an error identifying the winner, closing connection!");
+                //close the connection
+                break;
+        }
+        return null;
+    }
+
+    private void sendError(String error) throws IOException {
+        this.message = "ERRO";
+        this.comUtils.writeCommand(this.message);
+        this.comUtils.write_SP();
+        this.comUtils.writeErrorMessage(error);
     }
 }
 

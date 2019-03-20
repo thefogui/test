@@ -111,9 +111,9 @@ public class Menu {
                             this.printDealerCards();
                         }
                         break;
-
                     case "WINS":
                         this.firstShow = true;
+                        this.checkWinner();
                         break;
                     case "ERRO":
                         this.protocol.handlerError();
@@ -121,7 +121,6 @@ public class Menu {
                     default:
                         System.err.println("It ins't a valid command. closing the game");
                         //set running to false
-
                         break;
                 }
 
@@ -129,6 +128,13 @@ public class Menu {
                 System.err.println("Error reading the Socket: " + ex.getMessage());
             }
         }
+    }
+
+    private void checkWinner() throws IOException {
+        String winner = this.protocol.checkWinner();
+        System.out.println("--------------------------------");
+        System.out.println(winner);
+        System.out.println("--------------------------------");
     }
 
     private void printDealerCards() {
