@@ -124,7 +124,14 @@ public class BlackJack {
             this.playerHand.setActualValue(0);
             return '0';
         }else if (this.getPlayerHand().getblack()) {
-
+            this.dealerHand.setActualValue(0);
+            this.playerHand.setActualValue(0);
+            return '0';
+        } else if (this.playerHand.getActualValue() > 21) {
+            this.dealerHand.setActualValue(0);
+            this.playerHand.setActualValue(0);
+            return '1';
+        }else if (this.playerHand.getActualValue() == 21) {
             this.dealerHand.setActualValue(0);
             this.playerHand.setActualValue(0);
             return '0';
