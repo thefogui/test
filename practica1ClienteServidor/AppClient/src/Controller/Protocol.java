@@ -180,8 +180,8 @@ public class Protocol {
     }
 
     public void reset() {
-        this.blackJack.getPlayerHand().setHandCards(new ArrayList<>());
-        this.blackJack.getDealerHand().setHandCards(new ArrayList<>());
+        this.blackJack.getDealerHand().getHandCards().clear();
+        this.blackJack.getPlayerHand().getHandCards().clear();
         this.blackJack.getDealerHand().setActualValue(0);
         this.blackJack.getPlayerHand().setActualValue(0);
     }

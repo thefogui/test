@@ -108,7 +108,7 @@ public class Menu {
                         this.playerCanBet = true;
                         break;
                     case "IDCK":
-                        this.protocol.reset();
+                        //this.protocol.reset();
                         this.takeTheInitialCards();
                         break;
                     case "CARD":

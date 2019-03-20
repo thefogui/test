@@ -115,20 +115,33 @@ public class BlackJack {
     }
 
     public char getWinner() {
-        if (this.dealerHand.getblack())
+        if (this.dealerHand.getblack()) {
+            this.dealerHand.setActualValue(0);
+            this.playerHand.setActualValue(0);
             return '1';
-        else if (this.dealerHand.getActualValue() > 21)
+        }else if (this.dealerHand.getActualValue() > 21) {
+            this.dealerHand.setActualValue(0);
+            this.playerHand.setActualValue(0);
             return '0';
-        else if (this.getPlayerHand().getblack())
+        }else if (this.getPlayerHand().getblack()) {
+
+            this.dealerHand.setActualValue(0);
+            this.playerHand.setActualValue(0);
             return '0';
-        else {
+        }else {
             if (playerHand.getActualValue() < dealerHand.getActualValue()) {
+                this.dealerHand.setActualValue(0);
+                this.playerHand.setActualValue(0);
                 this.getPlayerHand().setCash(this.getPlayerHand().getCash() - this.playerBet);
                 return '1';
             } else if (playerHand.getActualValue() > dealerHand.getActualValue()){
+                this.dealerHand.setActualValue(0);
+                this.playerHand.setActualValue(0);
                 this.getPlayerHand().setCash(this.getPlayerHand().getCash() + this.playerBet);
                 return '0';
             } else {
+                this.dealerHand.setActualValue(0);
+                this.playerHand.setActualValue(0);
                 return '2';
             }
         }

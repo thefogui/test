@@ -3,27 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="ae54573e-caa3-4fbb-80f7-347cbe1b3219" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../AppClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/Controller/ComUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/Controller/ComUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/Controller/Protocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/Controller/Protocol.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/lib/BlackJack.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/lib/BlackJack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/lib/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/lib/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/lib/Hand.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/lib/Hand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppClient/src/Controller/ComUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/Controller/ComUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/src/Controller/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/Controller/Protocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/src/View/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/View/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppClient/src/lib/BlackJack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/lib/BlackJack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppClient/src/lib/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/lib/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppClient/src/lib/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/lib/Hand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppServer/main/java/com/controller/Protocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppServer/main/java/com/controller/Protocol.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppServer/main/java/com/model/BlackJack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppServer/main/java/com/model/BlackJack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppServer/main/java/com/model/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppServer/main/java/com/model/Deck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppServer/main/java/com/model/Hand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppServer/main/java/com/model/Hand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/Protocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/model/BlackJack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/BlackJack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/Hand.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/model/Card.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-61">
-              <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+            <state relative-caret-position="539">
+              <caret line="82" column="5" lean-forward="true" selection-start-line="64" selection-start-column="4" selection-end-line="82" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -82,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/model/BlackJack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="120" column="21" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
+            <state relative-caret-position="-64">
+              <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
               <folding>
                 <element signature="e#1716#1717#0" expanded="true" />
                 <element signature="e#1762#1763#0" expanded="true" />
@@ -235,7 +220,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553099849485" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553101751037" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Groovy JUnit" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Groovy JUnit" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -392,13 +377,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/Card.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-61">
-          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/model/Hand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -468,8 +446,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/model/BlackJack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="120" column="21" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
+        <state relative-caret-position="-64">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
           <folding>
             <element signature="e#1716#1717#0" expanded="true" />
             <element signature="e#1762#1763#0" expanded="true" />
@@ -478,6 +456,13 @@
             <element signature="e#2572#2573#0" expanded="true" />
             <element signature="e#2631#2632#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="82" column="5" lean-forward="true" selection-start-line="64" selection-start-column="4" selection-end-line="82" selection-end-column="5" />
         </state>
       </provider>
     </entry>
