@@ -1,0 +1,14 @@
+﻿Mar 20, 2019 6:19:58 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: STRT
+Mar 20, 2019 6:19:58 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: 234
+Mar 20, 2019 6:19:58 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Mar 20, 2019 6:20:02 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Mar 20, 2019 6:20:02 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK J♣
+Mar 20, 2019 6:20:02 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 5♠
+Mar 20, 2019 6:20:02 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 9♦
