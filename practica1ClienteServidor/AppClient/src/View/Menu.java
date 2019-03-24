@@ -18,7 +18,7 @@ public class Menu {
     private boolean playerCanBet;
     private static final int CONNECT_TO_SERVER = 1;
     private static final int AUTOMATIC_CLIENT = 2;
-    private static final int MANUAL_CLIENT = 3;
+    private static final int AUTOMATIC_IA_CLIENT = 3;
     private static final int EXIT = 4;
 
     public Menu(String server, int numPort) {
@@ -48,11 +48,12 @@ public class Menu {
                 switch (option) {
                     case CONNECT_TO_SERVER:
                         this.connectToServer();
+                        break;
                     case AUTOMATIC_CLIENT:
                         System.out.println("Has seleccionado la opcion 2");
                         break;
-                    case MANUAL_CLIENT:
-                        System.out.println("Has seleccionado la opcion 3");
+                    case AUTOMATIC_IA_CLIENT:
+
                         break;
                     case EXIT:
                         try {
@@ -65,6 +66,7 @@ public class Menu {
                         break;
                     default:
                         System.err.println("Not a valid number!");
+                        break;
                 }
             } catch (InputMismatchException e) {
                 System.err.println("You need to introduce a number!");
@@ -116,7 +118,6 @@ public class Menu {
                         break;
                     case "SHOW":
                         if (this.firstShow) {
-
                             this.printCard();
                             this.firstShow = false;
                             this.getAction();
@@ -219,7 +220,6 @@ public class Menu {
 
                 if (opcio == 1) {
                     this.protocol.sendHitt();
-
                 }else if(opcio == 2){
                     this.protocol.sendBet();
                     this.getAction();

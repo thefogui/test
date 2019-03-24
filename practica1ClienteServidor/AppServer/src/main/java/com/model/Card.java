@@ -24,16 +24,16 @@ public class Card {
         return cardNaipe;
     }
 
-    public String getCardProtcolNaipe() {
-        String naipe = null;
-        if (getCardNaipe() == 'C')
-            naipe = "3";
-        else if (getCardNaipe() == 'D')
-            naipe = "4";
-        else if (getCardNaipe() == 'H')
-            naipe = "5";
+    public char getCardProtcolNaipe() {
+        char naipe;
+        if (this.cardNaipe == 'C')
+            naipe = (char) 0x03;
+        else if (this.cardNaipe == 'D')
+            naipe = (char) 0x04;
+        else if (this.cardNaipe == 'H')
+            naipe = (char) 0x05;
         else
-            naipe = "6";
+            naipe = (char) 0x06;
         return naipe;
     }
 
@@ -66,13 +66,13 @@ public class Card {
     public String toString() {
         String suit = "";
         String rank = "";
-        if (this.getCardNaipe()=='H')
+        if (this.cardNaipe=='H')
             suit = "\u2665";
-        else if(this.getCardNaipe()=='D')
+        else if(this.cardNaipe=='D')
             suit = "\u2666";
-        else if(this.getCardNaipe()=='C')
+        else if(this.cardNaipe=='C')
             suit = "\u2663";
-        else if(this.getCardNaipe()=='S')
+        else if(this.cardNaipe=='S')
             suit = "\u2660";
 
         if (this.rank == 'X')

@@ -41,7 +41,7 @@ public class Protocol {
 
                 this.command = this.comutils.readCommand();
                 this.command = this.command.toUpperCase();
-                System.out.println(command);
+
                 this.writeLog("CLIENTE: " + command);
                 switch (this.command) {
                     //Do the switch case for each message in the protocol.
@@ -56,7 +56,7 @@ public class Protocol {
                         break;
                     case "SHOW":
                         this.showCards();
-                        this.blackJack.dealerAskCard();
+
                         this.solveWinner();
                         break;
                     case "BETT":
@@ -107,7 +107,6 @@ public class Protocol {
         String space = this.comutils.read_Char();
         int userId = this.comutils.read_int32();
         this.writeLog("CLIENTE: " + userId);
-        System.out.println(userId);
         this.users.addNewUser(userId); //retorna el blackjack
         this.sendInit(100);
     }
@@ -126,11 +125,10 @@ public class Protocol {
     public void sendIDCK() throws IOException {
         this.stringToSend = "IDCK";
         this.comutils.writeCommand(this.stringToSend);
-        for(Card card : this.blackJack.getPlayerHand().getHandCards()){
+        for(Card card : this.blackJack.getPlayerHand().getHandCards()) {
             this.comutils.write_SP();
             this.comutils.writeChar(card.getRank());
-            this.comutils.writeChar(card.getCardProtcolNaipe().charAt(0));
-            System.out.println(card.toString());
+            this.comutils.writeChar(card.getCardProtcolNaipe());
             this.writeLog("SERVIDOR: " + stringToSend + " " + card.toString());
         }
     }
@@ -141,24 +139,22 @@ public class Protocol {
         this.comutils.write_SP();
         Card card = this.blackJack.dealPlayerCard();
         this.comutils.writeChar(card.getRank());
-        this.comutils.writeChar(card.getCardProtcolNaipe().charAt(0));
-        System.out.println(card.toString());
+        this.comutils.writeChar(card.getCardProtcolNaipe());
         this.writeLog("SERVIDOR: " + stringToSend + " " + card.toString());
     }
 
     public void sendSHOW() throws IOException {
-        int lenght = this.blackJack.getDealerHand().getHandCards().size();
+        int length = this.blackJack.getDealerHand().getHandCards().size();
         this.stringToSend = "SHOW";
         this.comutils.writeCommand(this.stringToSend);
         this.comutils.write_SP();
 
-        this.comutils.writeLen(lenght);
+        this.comutils.writeChar(Character.forDigit(length,10));
 
         for(Card card : this.blackJack.getDealerHand().getHandCards()) {
             this.comutils.write_SP();
             this.comutils.writeChar(card.getRank());
-            this.comutils.writeChar(card.getCardProtcolNaipe().charAt(0));
-            System.out.println(card.toString());
+            this.comutils.writeChar(card.getCardProtcolNaipe());
             this.writeLog("SERVIDOR: " + stringToSend + " " + card.toString());
         }
     }
@@ -195,7 +191,7 @@ public class Protocol {
             this.stringToSend = "ERRO";
             this.comutils.writeCommand(this.stringToSend);
             this.stringToSend = "Not enough money to double the bet";
-            this.comutils.writeErrorMessage(this.stringToSend);
+            this.sendErrorMessage(this.stringToSend);
             this.writeLog("SERVIDOR: ERRO "+ stringToSend);
         }
         this.blackJack.doubleBet();
@@ -207,7 +203,8 @@ public class Protocol {
         String suit;
         this.blackJack.getPlayerHand().setHandCards(new ArrayList<>());
         this.comutils.read_Char();
-        length = this.comutils.readLen();
+
+        length = Integer.parseInt(String.valueOf(this.comutils.read_Char()));
 
         for (int i = 0; i < length; i++) {
             this.comutils.read_Char();
@@ -224,6 +221,7 @@ public class Protocol {
             this.blackJack.getPlayerHand().take(rank.charAt(0), suit.charAt(0));
             this.writeLog("CLIENTE: "+ rank + suit);
         }
+        this.blackJack.dealerAskCard();
         this.sendSHOW();
     }
 
@@ -235,11 +233,11 @@ public class Protocol {
         int cash;
         this.comutils.read_Char();
         cash = this.comutils.read_int32();
-        System.out.println(cash);
         if (cash < this.blackJack.MAX_BET){
             this.message = "ERRO";
             this.comutils.writeCommand(this.message);
-            this.comutils.writeErrorMessage("The cash should be greater than 100");
+
+            this.sendErrorMessage("The cash should be greater than 100");
             this.writeLog("SERVIDOR: "+ message + " " + " The cash should be greater than 100");
         } else {
             this.blackJack.setPlayerMoney(cash);
@@ -252,10 +250,11 @@ public class Protocol {
         this.message = "SHOW";
         this.comutils.writeCommand(this.message);
         this.comutils.write_SP();
-        this.comutils.writeLen(1);
+        this.comutils.writeChar('1');
         this.comutils.write_SP();
         Card card = this.blackJack.getDealerHand().getHandCards().get(0);
-        this.comutils.writeCard(card.getRank(), card.getCardNaipe());
+        this.comutils.writeChar(card.getRank());
+        this.comutils.writeChar(card.getCardNaipe());
         this.writeLog("SERVIDOR: "+ message + " " + card.toString());
     }
 
@@ -267,27 +266,24 @@ public class Protocol {
         this.writeLog("SERVIDOR: "+ message + " " + chips);
     }
 
-    public void writeLog(String mensaje) {
-
+    public void writeLog(String mensaje) throws SecurityException, IOException {
         Logger logger = Logger.getLogger("MyLog");
-        String fileRute = "log/Server" + Thread.currentThread().getName() + ".log";
+        String fileRute = "log/ServerClient" + this.blackJack.getPlayerID() + ".log";
 
-        try {
+        file = new FileHandler(fileRute, true);
+        logger.addHandler(file);
+        logger.setUseParentHandlers(false);
 
-            file = new FileHandler(fileRute, true);
-            logger.addHandler(file);
-            logger.setUseParentHandlers(false);
+        SimpleFormatter formatter = new SimpleFormatter();
+        file.setFormatter(formatter);
 
-            SimpleFormatter formatter = new SimpleFormatter();
-            file.setFormatter(formatter);
+        logger.info(mensaje);
+        file.close();
+    }
 
-            logger.info(mensaje);
-            file.close();
-
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void sendErrorMessage(String message) throws IOException {
+        int length = message.length();
+        char [] chars = ("" + length).toCharArray();
+        this.comutils.writeErrorMessage(chars[0], chars[1], length, message);
     }
 }

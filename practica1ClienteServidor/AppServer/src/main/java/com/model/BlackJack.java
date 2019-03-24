@@ -109,47 +109,41 @@ public class BlackJack {
         return this.deck.deal(this.getPlayerHand());
     }
 
-    public void doubleBet() throws Exception {
+    public void doubleBet() {
         int doubleBet = this.playerBet * 2;
         this.playerBet = doubleBet;
     }
 
     public char getWinner() {
-        if (this.dealerHand.getblack()) {
-            this.dealerHand.setActualValue(0);
-            this.playerHand.setActualValue(0);
+        if (this.getPlayerHand().getActualValue() == this.getDealerHand().getActualValue()) {
+            this.getDealerHand().setActualValue(0);
+            this.getPlayerHand().setActualValue(0);
+            return '2';
+        } else if (this.playerHand.getblack()) {
+            this.getDealerHand().setActualValue(0);
+            this.getPlayerHand().setActualValue(0);
+            return '0';
+        } else if (this.getDealerHand().getblack()) {
+            this.getDealerHand().setActualValue(0);
+            this.getPlayerHand().setActualValue(0);
             return '1';
-        }else if (this.dealerHand.getActualValue() > 21) {
-            this.dealerHand.setActualValue(0);
-            this.playerHand.setActualValue(0);
-            return '0';
-        }else if (this.getPlayerHand().getblack()) {
-            this.dealerHand.setActualValue(0);
-            this.playerHand.setActualValue(0);
-            return '0';
-        } else if (this.playerHand.getActualValue() > 21) {
-            this.dealerHand.setActualValue(0);
-            this.playerHand.setActualValue(0);
-            return '1';
-        }else if (this.playerHand.getActualValue() == 21) {
-            this.dealerHand.setActualValue(0);
-            this.playerHand.setActualValue(0);
-            return '0';
-        }else {
-            if (playerHand.getActualValue() < dealerHand.getActualValue()) {
-                this.dealerHand.setActualValue(0);
-                this.playerHand.setActualValue(0);
-                this.getPlayerHand().setCash(this.getPlayerHand().getCash() - this.playerBet);
+        } else{
+            if (this.getDealerHand().getActualValue() > 21) {
+                this.getDealerHand().setActualValue(0);
+                this.getPlayerHand().setActualValue(0);
+                return '0';
+            } else if(this.getPlayerHand().getActualValue() > 21) {
+                this.getDealerHand().setActualValue(0);
+                this.getPlayerHand().setActualValue(0);
                 return '1';
-            } else if (playerHand.getActualValue() > dealerHand.getActualValue()){
-                this.dealerHand.setActualValue(0);
-                this.playerHand.setActualValue(0);
-                this.getPlayerHand().setCash(this.getPlayerHand().getCash() + this.playerBet);
+            } else if (this.getPlayerHand().getActualValue() > this.getDealerHand().getActualValue()) {
+                this.getDealerHand().setActualValue(0);
+                this.getPlayerHand().setActualValue(0);
                 return '0';
             } else {
-                this.dealerHand.setActualValue(0);
-                this.playerHand.setActualValue(0);
-                return '2';
+                this.getDealerHand().setActualValue(0);
+                this.getPlayerHand().setActualValue(0);
+                return '1';
             }
         }
     }

@@ -1,0 +1,58 @@
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: STRT
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: 111111
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK K♣
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK J♥
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW Q♦
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: SHOW
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: S
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: S
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW Q♦
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 8♦
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: WINS 2 100
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: RPLY
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 9♦
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 8♣
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW Q♣
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 9♦
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 8♣
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW Q♣
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: SHOW
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: S
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: S
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW Q♣
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 10♥
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: WINS 2 100
+Mar 21, 2019 6:22:07 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: EXIT

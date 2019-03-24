@@ -230,13 +230,18 @@ public class ComUtils {
         return (int) this.dataInputStream.readByte();
     }
 
-    public void writeErrorMessage(String message) throws IOException {
-        this.write_string_variable(99, message); //maximum size of
+    public void writeErrorMessage(char c1, char c2, int size,String message) throws IOException {
+        this.writeChar(c1);
+        this.writeChar(c2);
+        this.write_string_variable(size, message); //maximum size of
         //the string is 99 characters
     }
 
     public String readErrorMessage() throws IOException {
-        return this.read_string_variable(99);
+        char c1 = this.read_Char().charAt(0);
+        char c2 = this.read_Char().charAt(0);
+        int size = Integer.parseInt(new String(String.valueOf(c1) + String.valueOf(c2)));
+        return this.read_string_variable(size);
     }
 
     public enum Endianness {

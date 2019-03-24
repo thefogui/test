@@ -2,7 +2,6 @@ package Controller;
 
 import java.io.*;
 import java.net.*;
-import java.util.ArrayList;
 
 import lib.*;
 
@@ -46,11 +45,12 @@ public class Protocol {
         this.message = "SHOW";
         this.comUtils.write_string(this.message);
         this.comUtils.write_SP();
-        this.comUtils.writeChar((char)length);
+        this.comUtils.writeChar(Character.forDigit(length,10));
 
         for(Card card : this.blackJack.getPlayerHand().getHandCards()) {
             this.comUtils.write_SP();
-            this.comUtils.writeCard(card.getRank(), card.getCardNaipe());
+            this.comUtils.writeChar(card.getRank());
+            this.comUtils.writeChar(card.getCardNaipe());
         }
     }
 
@@ -71,8 +71,8 @@ public class Protocol {
 
 
     public String handlerError() throws IOException {
-        String space = this.comUtils.read_Char();;
-        return this.comUtils.read_string_variable(99);
+        String space = this.comUtils.read_Char();
+        return this.comUtils.readErrorMessage();
     }
 
     public String takeACard() throws IOException {
@@ -87,7 +87,7 @@ public class Protocol {
 
     public String takeDealerCard() throws IOException {
         String space = this.read_sp();
-        int length = this.comUtils.readLen();
+        int length = Integer.parseInt(String.valueOf(this.comUtils.read_Char()));
         space = this.read_sp();
         String naipe, rank;
         rank = this.comUtils.read_Char();
@@ -142,7 +142,7 @@ public class Protocol {
     public String getServerCards() throws IOException {
         String cards = "";
         String space = this.read_sp();
-        int length = this.comUtils.readLen();
+        int length = Integer.parseInt(String.valueOf(this.comUtils.read_Char()));
         String naipe, rank;
 
         for (int i = 0; i < length; i++) {
@@ -156,10 +156,9 @@ public class Protocol {
     }
 
     private void sendError(String error) throws IOException {
-        this.message = "ERRO";
-        this.comUtils.writeCommand(this.message);
-        this.comUtils.write_SP();
-        this.comUtils.writeErrorMessage(error);
+        int length = error.length();
+        char [] chars = ("" + length).toCharArray();
+        this.comUtils.writeErrorMessage(chars[0], chars[1], length, error);
     }
 
     public void sendExit() throws IOException {

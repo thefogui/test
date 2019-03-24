@@ -30,7 +30,16 @@ public class Card {
     }
 
     public char getCardNaipe() {
-        return cardNaipe;
+        char naipe;
+        if (this.cardNaipe == 'C')
+            naipe = (char) 0x03;
+        else if (this.cardNaipe == 'D')
+            naipe = (char) 0x04;
+        else if (this.cardNaipe == 'H')
+            naipe = (char) 0x05;
+        else
+            naipe = (char) 0x06;
+        return naipe;
     }
 
     public void setCardNaipe(char cardNaipe) {
@@ -62,13 +71,13 @@ public class Card {
     public String toString() {
         String suit = "";
         String rank = "";
-        if (this.getCardNaipe()=='H')
+        if (this.cardNaipe=='H')
             suit = "\u2665";
-        else if(this.getCardNaipe()=='D')
+        else if(this.cardNaipe=='D')
             suit = "\u2666";
-        else if(this.getCardNaipe()=='C')
+        else if(this.cardNaipe=='C')
             suit = "\u2663";
-        else if(this.getCardNaipe()=='S')
+        else if(this.cardNaipe=='S')
             suit = "\u2660";
 
         if (this.rank == 'X')

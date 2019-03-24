@@ -88,13 +88,13 @@ public class Hand {
         if (this.getHandCards().get(0).getRank() == 'A' && (
                 this.getHandCards().get(1).getRank() == 'K' ||
                 this.getHandCards().get(1).getRank() == 'Q' ||
-                this.getHandCards().get(1).getRank() == 'J')) {
-            if (this.getHandCards().get(1).getRank() == 'A' && (
+                this.getHandCards().get(1).getRank() == 'J'))
+            return true;
+        if (this.getHandCards().get(1).getRank() == 'A' && (
                     this.getHandCards().get(0).getRank() == 'K' ||
                     this.getHandCards().get(0).getRank() == 'Q' ||
                     this.getHandCards().get(0).getRank() == 'J'))
-                return true;
-        }
+            return true;
         return false;
     }
 }
