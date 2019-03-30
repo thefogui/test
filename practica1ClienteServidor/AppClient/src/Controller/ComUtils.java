@@ -4,8 +4,6 @@ import java.io.*;
 import java.net.Socket;
 
 public class ComUtils {
-    private final int STRSIZE = 40;
-
     private DataInputStream dataInputStream;
     private DataOutputStream dataOutputStream;
 
@@ -153,23 +151,6 @@ public class ComUtils {
         this.writeChar(SP);
     }
 
-    public void writeLen(int len) throws IOException {
-        this.dataOutputStream.write((byte) len);
-    }
-
-    public void writeCard(char rank, char suit) throws IOException {
-        this.dataOutputStream.write((byte) rank);
-        int ascii = (int) suit;
-        this.dataOutputStream.write((byte) ascii);
-    }
-
-    public String readCard() throws IOException {
-        String card;
-        card = String.valueOf(this.dataInputStream.readByte());
-        card += String.valueOf(this.dataInputStream.readByte());
-        return card;
-    }
-
     public void writeCommand(String command) throws IOException {
         this.write_string(command);
     }
@@ -194,10 +175,6 @@ public class ComUtils {
         byte[] bStr = new byte[1];
         bStr[0] = (byte) c;
         this.dataOutputStream.write(bStr, 0, 1);
-    }
-
-    public char readLen() throws IOException {
-        return (char) this.dataInputStream.readByte();
     }
 
     public void writeErrorMessage(char c1, char c2, int size,String message) throws IOException {
