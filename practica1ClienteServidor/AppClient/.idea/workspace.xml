@@ -2,35 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8f723af-fb6a-4339-b065-c17faaa5099c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/View/BlackJackIA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppServer/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppClient/Controller/Protocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppClient/Controller/Protocol.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppClient/View/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppClient/View/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppClient/lib/BlackJack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppClient/lib/BlackJack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppClient/lib/Deck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppClient/test/lib/DeckTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Protocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/BlackJackSmart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BlackJackSmart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/BlackJack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/BlackJack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Deck.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Hand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/lib/DeckTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/BlackJackIA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BlackJackIA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-2.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-3.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-4.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-5.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-6.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-7.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-8.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/Server.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/controller/Protocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/controller/Protocol.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/src/main/java/com/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/src/Server.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -165,8 +138,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/View/BlackJackIA.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="313" column="23" selection-start-line="313" selection-start-column="23" selection-end-line="313" selection-end-column="23" />
+                <state relative-caret-position="445">
+                  <caret line="276" column="47" selection-start-line="276" selection-start-column="47" selection-end-line="276" selection-end-column="47" />
                   <folding>
                     <element signature="e#0#7356#0" expanded="true" />
                     <element signature="imports" expanded="true" />
@@ -190,7 +163,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/View/Menu.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-606">
+                <state relative-caret-position="-2574">
                   <caret line="127" selection-start-line="127" selection-end-line="127" />
                   <folding>
                     <element signature="e#0#12352#0" expanded="true" />
@@ -317,7 +290,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553952618058" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553953300486" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -440,10 +413,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="564" y="0" width="1116" height="1050" extended-state="6" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14897579" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.0976801" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -452,13 +425,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4945055" weight="0.32857144" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.47579142" visible="true" weight="0.31836733" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.47619048" visible="true" weight="0.31836733" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.489011" weight="0.39795917" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4993895" weight="0.32959184" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4993895" weight="0.32857144" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.52420855" side_tool="true" visible="true" weight="0.31836733" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.52380955" side_tool="true" visible="true" weight="0.31836733" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4945055" weight="0.3276644" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -532,7 +505,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-606">
+        <state relative-caret-position="-2574">
           <caret line="127" selection-start-line="127" selection-end-line="127" />
           <folding>
             <element signature="e#0#12352#0" expanded="true" />
@@ -628,8 +601,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/BlackJackIA.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="313" column="23" selection-start-line="313" selection-start-column="23" selection-end-line="313" selection-end-column="23" />
+        <state relative-caret-position="445">
+          <caret line="276" column="47" selection-start-line="276" selection-start-column="47" selection-end-line="276" selection-end-column="47" />
           <folding>
             <element signature="e#0#7356#0" expanded="true" />
             <element signature="imports" expanded="true" />

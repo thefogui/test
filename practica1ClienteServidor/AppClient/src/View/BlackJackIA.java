@@ -9,7 +9,6 @@ package View;
 
 import Controller.Protocol;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Random;
 import lib.Card;
 
@@ -259,31 +258,33 @@ public class BlackJackIA {
         } else if (this.protocol.getPlayerCash() == 16){
             for (Card card : this.protocol.getDealerHand()){
                 if (card.getRank() == '7' || card.getRank() == '8') {
-                    //hit
+                    this.protocol.sendHitt();
                 } else if (card.getRank() == '9' || card.getRank() == 'X' || card.getRank() == 'A') {
-                    //surr
+                    this.protocol.sendSurrender();
+                    this.protocol.sendReplay();
                 } else {
-                    //show
+                    this.protocol.sendShow();
                 }
             }
         } else if (this.protocol.getPlayerCash() == 15) {
             for (Card card : this.protocol.getDealerHand()){
                 if (card.getRank() == '7' || card.getRank() == '8' || card.getRank() == '9'
                         || card.getRank() == 'A') {
-                    //hit
+                    this.protocol.sendHitt();
                 } else if (card.getRank() == 'X') {
-                    //surr
+                    this.protocol.sendSurrender();
+                    this.protocol.sendReplay();
                 } else {
-                    //show
+                    this.protocol.sendShow();
                 }
             }
         } else if (this.protocol.getPlayerCash() == 13 || this.protocol.getPlayerCash() == 14) {
             for (Card card : this.protocol.getDealerHand()){
                 if (card.getRank() == '7' || card.getRank() == '8' || card.getRank() == '9'
                         || card.getRank() == 'A' || card.getRank() == 'X') {
-                    //hit
+                    this.protocol.sendHitt();
                 } else {
-                    //show
+                    this.protocol.sendShow();
                 }
             }
         } else if (this.protocol.getPlayerCash() == 12) {
@@ -291,35 +292,35 @@ public class BlackJackIA {
                 if (card.getRank() == '2' || card.getRank() == '3' || card.getRank() == '7'
                         || card.getRank() == '8' || card.getRank() == '9'
                         || card.getRank() == 'A' || card.getRank() == 'X') {
-                    //hit
+                    this.protocol.sendHitt();
                 } else {
-                    //show
+                    this.protocol.sendShow();
                 }
             }
         } else if (this.protocol.getPlayerCash() == 11) {
-            //bet
-            //hit
+            this.protocol.sendBet();
+            this.protocol.sendHitt();
         } else if (this.protocol.getPlayerCash() == 10) {
             for (Card card : this.protocol.getDealerHand()){
                 if (card.getRank() == 'X' || card.getRank() == 'A') {
-                    //hit
+                    this.protocol.sendHitt();
                 } else {
-                    //BET
-                    //HIT
+                    this.protocol.sendBet();
+                    this.protocol.sendHitt();
                 }
             }
         } else if (this.protocol.getPlayerCash() == 9) {
             for (Card card : this.protocol.getDealerHand()){
                 if (card.getRank() == '3' || card.getRank() == '4' ||
                     card.getRank() == '5' || card.getRank() == '6') {
-                    //bet
-                    //hit
+                    this.protocol.sendBet();
+                    this.protocol.sendHitt();
                 } else {
-                    //HIT
+                    this.protocol.sendHitt();
                 }
             }
         } else {
-            //hitt
+            this.protocol.sendHitt();
         }
     }
 
