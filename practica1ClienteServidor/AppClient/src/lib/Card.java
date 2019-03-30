@@ -1,3 +1,9 @@
+/*
+ * This class can be used to generate one card object
+ *
+ * Authors: Vitor Carvalho and Ivet Aymerich
+ */
+
 package lib;
 
 public class Card {

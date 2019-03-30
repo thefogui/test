@@ -1,7 +1,12 @@
+/*
+ * Menu that is used by the user of the application.
+ *
+ * Authors: Vitor Carvalho and Ivet Aymerich
+ */
+
 package View;
 
 import Controller.Protocol;
-
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -17,11 +22,9 @@ public class Menu {
     private boolean firstCash;
     private boolean playerCanBet;
     private static final int CONNECT_TO_SERVER = 1;
-    private static final int AUTOMATIC_CLIENT = 2;
-    private static final int AUTOMATIC_IA_CLIENT = 3;
-    private static final int EXIT = 4;
+    private static final int EXIT = 2;
 
-    public Menu(String server, int numPort) {
+    public Menu(String server, int numPort, int client) {
         this.scanner = new Scanner(System.in);
         this.option = 0;
         this.server = server;
@@ -30,15 +33,37 @@ public class Menu {
         this.firstShow = true;
         this.firstCash = true;
         this.playerCanBet = true;
+        this.startBlackjack(client);
+    }
+
+    private void startBlackjack(int client) {
+        if (client == 0)
+            this.mainMenu();
+        else if (client == 1) {
+            try {
+                this.startAutomaticClient();
+            } catch (Throwable throwable) {
+                System.err.println("Error starting the protocol " + throwable.getMessage());
+            }
+        } else {
+            try {
+                this.startAutomaticAIClient();
+            } catch (Throwable throwable) {
+                System.err.println("Error starting the protocol " + throwable.getMessage());
+            }
+        }
+    }
+
+    private void startAutomaticAIClient() throws IOException {
+        BlackJackIA blackJackIA = new BlackJackIA(this.server, this.numPort);
+        blackJackIA.start();
     }
 
     public void mainMenu() {
         while(option != EXIT) {
             System.out.println("--------------------------------");
             System.out.println("    1. Connect to server");
-            System.out.println("    2. Automatic client");
-            System.out.println("    3. Sub menu client");
-            System.out.println("    4. Exit");
+            System.out.println("    2. Exit");
             System.out.println("    Choose an option");
             System.out.println("--------------------------------");
 
@@ -48,12 +73,6 @@ public class Menu {
                 switch (option) {
                     case CONNECT_TO_SERVER:
                         this.connectToServer();
-                        break;
-                    case AUTOMATIC_CLIENT:
-                        System.out.println("Has seleccionado la opcion 2");
-                        break;
-                    case AUTOMATIC_IA_CLIENT:
-
                         break;
                     case EXIT:
                         try {
@@ -75,6 +94,12 @@ public class Menu {
         }
     }
 
+    private void startAutomaticClient() throws IOException {
+        BlackJackSmart blackJackSmart = new BlackJackSmart(this.server, numPort);
+
+        blackJackSmart.start();
+    }
+
     private void connectToServer() {
         int username = 0;
         System.out.println("--------------------------------");
@@ -92,7 +117,7 @@ public class Menu {
             this.protocol = new Protocol(server, numPort, username);
             this.protocol.start();
             this.readSocket();
-        }catch (IOException e) {
+        } catch (IOException e) {
             System.err.println("Can't start the protocol " + e.getMessage());
         }
     }
@@ -106,15 +131,16 @@ public class Menu {
                 System.out.println(this.message);
                 switch (this.message) {
                     case "INIT":
+                        this.protocol.reset();
                         this.sendCash();
                         this.playerCanBet = true;
                         break;
                     case "IDCK":
-                        //this.protocol.reset();
                         this.takeTheInitialCards();
                         break;
                     case "CARD":
                         this.takeAcard();
+                        this.getAction();
                         break;
                     case "SHOW":
                         if (this.firstShow) {
@@ -173,7 +199,6 @@ public class Menu {
         System.out.println("    Card " +  this.protocol.takeACard());
         System.out.println("    Your amount is " + this.protocol.handAmount());
         System.out.println("--------------------------------");
-        this.getAction();
     }
 
     private void sendCash() throws IOException {
@@ -225,10 +250,10 @@ public class Menu {
                     this.getAction();
                 } else if (opcio == 3) {
                     this.protocol.sendShow();
-                    this.protocol.reset();
+
                 }else if (opcio == 4) {
                     this.protocol.sendSurrender();
-                    this.protocol.reset();
+
                 }
 
             } else {
@@ -245,10 +270,10 @@ public class Menu {
                     this.getAction();
                 }else if(opcio == 2){
                     this.protocol.sendShow();
-                    this.protocol.reset();
+
                 } else if (opcio == 3) {
                     this.protocol.sendSurrender();
-                    this.protocol.reset();
+
                 }
             }
         } else {
@@ -264,7 +289,7 @@ public class Menu {
                     this.protocol.sendHitt();
                 else if (opcio == 2) {
                     this.protocol.sendShow();
-                    this.protocol.reset();
+
                 }
 
             } else {
@@ -276,7 +301,7 @@ public class Menu {
 
                 if (opcio == 1) {
                     this.protocol.sendShow();
-                    this.protocol.reset();
+
                 }
             }
         }
@@ -301,7 +326,6 @@ public class Menu {
 
         if (opcio == 1) {
             this.protocol.sendReplay();
-            this.protocol.reset();
         }else if(opcio == 2){
             this.exitAndClose();
             this.protocol.setPlaying(false);

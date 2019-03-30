@@ -1,3 +1,10 @@
+/*
+ * This class is used to save the hand of the players and
+ * calculate the total of points of it.
+ *
+ * Authors: Vitor Carvalho and Ivet Aymerich
+ */
+
 package lib;
 
 import java.util.ArrayList;
@@ -12,7 +19,7 @@ public class Hand {
         this.player = player;
         this.handCards = new ArrayList<Card>();
         this.actualValue = 0; //the hand start empty
-        this.cash = 500;
+        this.cash = 0;
     }
 
     public int getCash() {

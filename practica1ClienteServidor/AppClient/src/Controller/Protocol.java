@@ -2,6 +2,7 @@ package Controller;
 
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
 
 import lib.*;
 
@@ -17,6 +18,14 @@ public class Protocol {
         this.socket = new Socket(this.serverAddress, port);
         this.comUtils = new ComUtils(this.socket);
         this.blackJack = new BlackJack(username);
+    }
+
+    public BlackJack getBlackJack() {
+        return blackJack;
+    }
+
+    public void setBlackJack(BlackJack blackJack) {
+        this.blackJack = blackJack;
     }
 
     public void start() throws IOException {
@@ -44,6 +53,7 @@ public class Protocol {
         int length = this.blackJack.getPlayerHand().getHandCards().size();
         this.message = "SHOW";
         this.comUtils.write_string(this.message);
+
         this.comUtils.write_SP();
         this.comUtils.writeChar(Character.forDigit(length,10));
 
@@ -93,6 +103,7 @@ public class Protocol {
         rank = this.comUtils.read_Char();
         naipe = this.comUtils.read_Char();
         Card card = new Card(naipe.charAt(0), rank.charAt(0));
+        this.blackJack.getDealerHand().take(card);
         return card.toString();
     }
 
@@ -150,6 +161,7 @@ public class Protocol {
             rank = this.comUtils.read_Char();
             naipe = this.comUtils.read_Char();
             Card card = new Card(naipe.charAt(0), rank.charAt(0));
+            this.blackJack.getDealerHand().take(card);
             cards += card.toString() + " ";
         }
         return cards;
@@ -183,6 +195,10 @@ public class Protocol {
         this.blackJack.getPlayerHand().getHandCards().clear();
         this.blackJack.getDealerHand().setActualValue(0);
         this.blackJack.getPlayerHand().setActualValue(0);
+    }
+
+    public ArrayList<Card> getDealerHand() {
+        return this.blackJack.getDealerHand().getHandCards();
     }
 }
 

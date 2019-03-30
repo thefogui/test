@@ -1,5 +1,3 @@
-package main.java.com;
-
 import main.java.com.controller.Mainthread;
 
 import java.io.IOException;

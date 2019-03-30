@@ -1,7 +1,13 @@
+/*
+ * Class that refers to the blackJack
+ * Can save the player and the dealer hand
+ *
+ * Authors: Vitor Carvalho AND Ivet Aymerich
+ */
+
 package lib;
 
 public class BlackJack {
-    private Deck deck;
     private Hand dealerHand;
     private Hand playerHand;
     private int playerMoney;
@@ -12,6 +18,9 @@ public class BlackJack {
     private boolean isRunning;
     public static final int MAX_BET = 100;
 
+    /*
+     * Constructor of the class
+     */
     public BlackJack(int playerName) {
         this.playerName = playerName;
         this.playerHand = new Hand(String.valueOf(this.playerName));
@@ -25,14 +34,6 @@ public class BlackJack {
 
     public void setRunning(boolean running){
         this.isRunning = running;
-    }
-
-    public Deck getDeck() {
-        return deck;
-    }
-
-    public void setDeck(Deck deck) {
-        this.deck = deck;
     }
 
     public Hand getDealerHand() {

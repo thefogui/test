@@ -2,29 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8f723af-fb6a-4339-b065-c17faaa5099c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/View/BlackJackSmart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/BlackJackIA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AppServer/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppClient/Controller/ComUtils$Endianness.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppClient/Controller/ComUtils$Endianness.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppClient/Controller/ComUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppClient/Controller/ComUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AppClient/Controller/Protocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppClient/Controller/Protocol.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppClient/lib/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppClient/lib/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ComUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ComUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppClient/View/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppClient/View/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppClient/lib/BlackJack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppClient/lib/BlackJack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppClient/lib/Deck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppClient/test/lib/DeckTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Protocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/BlackJackSmart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BlackJackSmart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/BlackJack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/BlackJack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Deck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Hand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/lib/DeckTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-0.log" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/log/ServerThread-0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/controller/ComUtils$Endianness.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/controller/ComUtils$Endianness.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/controller/ComUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/controller/ComUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-0.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/log/ServerThread-8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/Server.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/controller/Protocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/controller/Protocol.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/model/BlackJack.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/model/BlackJack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/model/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/model/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/model/Hand.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/out/production/AppServer/main/java/com/model/Hand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/src/main/java/com/controller/ComUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/src/main/java/com/controller/ComUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/src/main/java/com/controller/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/src/main/java/com/controller/Protocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/src/main/java/com/model/BlackJack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/src/main/java/com/model/BlackJack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/src/main/java/com/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/src/main/java/com/model/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppServer/src/main/java/com/model/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/src/main/java/com/model/Hand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServer/src/main/java/com/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServer/src/Server.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,8 +49,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Controller/ComUtils.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2240">
-                  <caret line="206" column="22" selection-start-line="206" selection-start-column="22" selection-end-line="206" selection-end-column="22" />
+                <state relative-caret-position="-2229">
+                  <caret line="36" selection-start-line="36" selection-end-line="36" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -53,12 +59,58 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/lib/Deck.java">
+            <entry file="file://$PROJECT_DIR$/src/lib/BlackJack.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="765">
-                  <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
+                <state relative-caret-position="1125">
+                  <caret line="99" selection-start-line="99" selection-end-line="99" />
                   <folding>
-                    <element signature="imports" expanded="true" />
+                    <element signature="e#0#2226#0" expanded="true" />
+                    <element signature="e#994#995#0" expanded="true" />
+                    <element signature="e#1027#1028#0" expanded="true" />
+                    <element signature="e#1156#1157#0" expanded="true" />
+                    <element signature="e#1189#1190#0" expanded="true" />
+                    <element signature="e#1318#1319#0" expanded="true" />
+                    <element signature="e#1352#1353#0" expanded="true" />
+                    <element signature="e#1403#1404#0" expanded="true" />
+                    <element signature="e#1449#1450#0" expanded="true" />
+                    <element signature="e#2223#2224#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/lib/Card.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="207">
+                  <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+                  <folding>
+                    <element signature="e#0#2356#0" expanded="true" />
+                    <element signature="e#558#559#0" expanded="true" />
+                    <element signature="e#602#603#0" expanded="true" />
+                    <element signature="e#1136#1137#0" expanded="true" />
+                    <element signature="e#1163#1164#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/lib/Hand.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="91">
+                  <caret line="41" selection-start-line="41" selection-end-line="41" />
+                  <folding>
+                    <element signature="e#0#2000#0" expanded="true" />
+                    <element signature="e#402#403#0" expanded="true" />
+                    <element signature="e#429#430#0" expanded="true" />
+                    <element signature="e#466#467#0" expanded="true" />
+                    <element signature="e#498#499#0" expanded="true" />
+                    <element signature="e#717#718#0" expanded="true" />
+                    <element signature="e#853#854#0" expanded="true" />
+                    <element signature="e#887#888#0" expanded="true" />
+                    <element signature="e#938#939#0" expanded="true" />
+                    <element signature="e#984#985#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -67,72 +119,65 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Controller/Protocol.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="184">
-                  <caret line="114" column="15" selection-start-line="114" selection-start-column="15" selection-end-line="114" selection-end-column="15" />
+                <state relative-caret-position="487">
+                  <caret line="200" column="60" selection-start-line="200" selection-start-column="60" selection-end-line="200" selection-end-column="60" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#3075#3076#0" expanded="true" />
-                    <element signature="e#3127#3128#0" expanded="true" />
-                    <element signature="e#3161#3162#0" expanded="true" />
-                    <element signature="e#3247#3248#0" expanded="true" />
-                    <element signature="e#5329#5330#0" expanded="true" />
-                    <element signature="e#5358#5359#0" expanded="true" />
-                    <element signature="e#5344#5345#0" expanded="true" />
-                    <element signature="e#5363#5364#0" expanded="true" />
-                    <element signature="e#5657#5658#0" expanded="true" />
-                    <element signature="e#5676#5677#0" expanded="true" />
+                    <element signature="e#601#602#0" expanded="true" />
+                    <element signature="e#633#634#0" expanded="true" />
+                    <element signature="e#686#687#0" expanded="true" />
+                    <element signature="e#728#729#0" expanded="true" />
+                    <element signature="e#3552#3553#0" expanded="true" />
+                    <element signature="e#3604#3605#0" expanded="true" />
+                    <element signature="e#3638#3639#0" expanded="true" />
+                    <element signature="e#3724#3725#0" expanded="true" />
+                    <element signature="e#5771#5772#0" expanded="true" />
+                    <element signature="e#5825#5826#0" expanded="true" />
+                    <element signature="e#5860#5861#0" expanded="true" />
+                    <element signature="e#5930#5931#0" expanded="true" />
+                    <element signature="e#6390#6391#0" expanded="true" />
+                    <element signature="e#6416#6417#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/View/BlackJackSmart.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="300">
+                  <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="288" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#1428#1429#0" expanded="true" />
+                    <element signature="e#1463#1464#0" expanded="true" />
+                    <element signature="e#1748#1749#0" expanded="true" />
+                    <element signature="e#1780#1781#0" expanded="true" />
+                    <element signature="e#1831#1832#0" expanded="true" />
+                    <element signature="e#1873#1874#0" expanded="true" />
+                    <element signature="e#2345#2346#0" expanded="true" />
+                    <element signature="e#2399#2400#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/View/BlackJackSmart.java">
+            <entry file="file://$PROJECT_DIR$/src/View/BlackJackIA.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="952">
-                  <caret line="187" column="56" selection-start-line="187" selection-start-column="56" selection-end-line="187" selection-end-column="56" />
+                <state relative-caret-position="459">
+                  <caret line="313" column="23" selection-start-line="313" selection-start-column="23" selection-end-line="313" selection-end-column="23" />
                   <folding>
+                    <element signature="e#0#7356#0" expanded="true" />
                     <element signature="imports" expanded="true" />
-                    <element signature="e#750#751#0" expanded="true" />
-                    <element signature="e#781#782#0" expanded="true" />
-                    <element signature="e#831#832#0" expanded="true" />
-                    <element signature="e#871#872#0" expanded="true" />
-                    <element signature="e#904#905#0" expanded="true" />
-                    <element signature="e#933#934#0" expanded="true" />
-                    <element signature="e#977#978#0" expanded="true" />
-                    <element signature="e#1013#1014#0" expanded="true" />
-                    <element signature="e#1044#1045#0" expanded="true" />
-                    <element signature="e#1074#1075#0" expanded="true" />
-                    <element signature="e#1117#1118#0" expanded="true" />
-                    <element signature="e#1155#1156#0" expanded="true" />
-                    <element signature="e#1185#1186#0" expanded="true" />
-                    <element signature="e#1214#1215#0" expanded="true" />
-                    <element signature="e#1255#1256#0" expanded="true" />
-                    <element signature="e#1291#1292#0" expanded="true" />
-                    <element signature="e#1327#1328#0" expanded="true" />
-                    <element signature="e#1362#1363#0" expanded="true" />
-                    <element signature="e#1415#1416#0" expanded="true" />
-                    <element signature="e#1463#1464#0" expanded="true" />
-                    <element signature="e#1497#1498#0" expanded="true" />
-                    <element signature="e#1527#1528#0" expanded="true" />
-                    <element signature="e#1573#1574#0" expanded="true" />
-                    <element signature="e#1611#1612#0" expanded="true" />
-                    <element signature="e#1647#1648#0" expanded="true" />
-                    <element signature="e#1679#1680#0" expanded="true" />
-                    <element signature="e#1730#1731#0" expanded="true" />
-                    <element signature="e#1772#1773#0" expanded="true" />
-                    <element signature="e#1808#1809#0" expanded="true" />
-                    <element signature="e#1840#1841#0" expanded="true" />
-                    <element signature="e#1891#1892#0" expanded="true" />
-                    <element signature="e#1933#1934#0" expanded="true" />
-                    <element signature="e#1972#1973#0" expanded="true" />
-                    <element signature="e#2007#2008#0" expanded="true" />
-                    <element signature="e#2064#2065#0" expanded="true" />
-                    <element signature="e#2112#2113#0" expanded="true" />
-                    <element signature="e#2237#2238#0" expanded="true" />
-                    <element signature="e#2276#2277#0" expanded="true" />
-                    <element signature="e#2354#2355#0" expanded="true" />
-                    <element signature="e#2403#2404#0" expanded="true" />
+                    <element signature="e#1469#1470#0" expanded="true" />
+                    <element signature="e#1504#1505#0" expanded="true" />
+                    <element signature="e#1789#1790#0" expanded="true" />
+                    <element signature="e#1821#1822#0" expanded="true" />
+                    <element signature="e#1872#1873#0" expanded="true" />
+                    <element signature="e#1914#1915#0" expanded="true" />
+                    <element signature="e#2598#2599#0" expanded="true" />
+                    <element signature="e#2652#2653#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -141,14 +186,27 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/View/Menu.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="184">
-                  <caret line="178" column="17" selection-start-line="178" selection-start-column="17" selection-end-line="178" selection-end-column="17" />
+                <state relative-caret-position="-606">
+                  <caret line="127" selection-start-line="127" selection-end-line="127" />
                   <folding>
+                    <element signature="e#0#12352#0" expanded="true" />
                     <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Client.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="476">
+                  <caret line="41" column="25" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+                  <folding>
+                    <element signature="e#0#1091#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -173,22 +231,23 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/lib/Deck.java" />
-        <option value="$PROJECT_DIR$/src/Client.java" />
         <option value="$PROJECT_DIR$/src/test/Controller/ComUtilsTest.java" />
-        <option value="$PROJECT_DIR$/src/lib/Hand.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ComUtils.java" />
+        <option value="$PROJECT_DIR$/src/test/lib/DeckTest.java" />
         <option value="$PROJECT_DIR$/src/lib/BlackJack.java" />
         <option value="$PROJECT_DIR$/src/lib/Card.java" />
-        <option value="$PROJECT_DIR$/src/Controller/ComUtils.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Protocol.java" />
-        <option value="$PROJECT_DIR$/src/View/Menu.java" />
+        <option value="$PROJECT_DIR$/src/lib/Hand.java" />
+        <option value="$PROJECT_DIR$/src/Client.java" />
         <option value="$PROJECT_DIR$/src/View/BlackJackSmart.java" />
+        <option value="$PROJECT_DIR$/src/View/Menu.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Protocol.java" />
+        <option value="$PROJECT_DIR$/src/View/BlackJackIA.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1680" />
-    <option name="height" value="974" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -196,6 +255,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -247,31 +307,17 @@
               <item name="AppClient" type="b2602c69:ProjectViewProjectNode" />
               <item name="AppClient" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AppClient" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AppClient" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AppClient" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AppClient" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553259322372" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553952618058" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -289,12 +335,12 @@
     <configuration name="Client" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client" />
       <module name="AppClient" />
-      <option name="PROGRAM_PARAMETERS" value="-s localhost -p 2000" />
+      <option name="PROGRAM_PARAMETERS" value="-s localhost -p 2000 -i 0" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BlackJackTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BlackJackTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="AppClient" />
       <extension name="coverage">
         <pattern>
@@ -309,7 +355,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ComUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ComUtilsTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="AppClient" />
       <extension name="coverage">
         <pattern>
@@ -326,7 +372,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ComUtilsTest.readCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ComUtilsTest.readCommand" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="AppClient" />
       <extension name="coverage">
         <pattern>
@@ -367,9 +413,6 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ComUtilsTest" />
-        <item itemvalue="JUnit.ComUtilsTest.readCommand" />
-        <item itemvalue="JUnit.BlackJackTest" />
         <item itemvalue="JUnit.DeckTest.setDeck" />
       </list>
     </recent_temporary>
@@ -387,11 +430,20 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="974" extended-state="0" />
+    <frame x="564" y="0" width="1116" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0946276" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14897579" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -399,16 +451,16 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4987437" weight="0.32857144" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48351648" visible="true" weight="0.3185941" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49063337" weight="0.39795917" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4945055" weight="0.32857144" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.47579142" visible="true" weight="0.31836733" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.489011" weight="0.39795917" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32857144" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.51648355" side_tool="true" visible="true" weight="0.3185941" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4993895" weight="0.32959184" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4993895" weight="0.32857144" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.52420855" side_tool="true" visible="true" weight="0.31836733" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4949495" weight="0.32857144" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4945055" weight="0.3276644" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -419,42 +471,80 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/View/BlackJackSmart.java</url>
+          <line>245</line>
+          <properties class="View.BlackJackSmart" method="getAction">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/View/Menu.java</url>
+          <line>251</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/lib/Card.java">
+    <entry file="file://$PROJECT_DIR$/src/test/CardTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/Deck.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/lib/DeckTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="41" column="25" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
           <folding>
-            <element signature="e#558#559#0" expanded="true" />
-            <element signature="e#586#587#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
-            <element signature="e#871#872#0" expanded="true" />
+            <element signature="e#0#1091#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/Hand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+        <state relative-caret-position="91">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
           <folding>
+            <element signature="e#0#2000#0" expanded="true" />
             <element signature="e#402#403#0" expanded="true" />
             <element signature="e#429#430#0" expanded="true" />
             <element signature="e#466#467#0" expanded="true" />
             <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#546#547#0" expanded="true" />
-            <element signature="e#605#606#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
-            <element signature="e#682#683#0" expanded="true" />
-            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#717#718#0" expanded="true" />
+            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#887#888#0" expanded="true" />
+            <element signature="e#938#939#0" expanded="true" />
+            <element signature="e#984#985#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-606">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
+          <folding>
+            <element signature="e#0#12352#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ComUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2240">
-          <caret line="206" column="22" selection-start-line="206" selection-start-column="22" selection-end-line="206" selection-end-column="22" />
+        <state relative-caret-position="-2229">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -463,104 +553,94 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/BlackJack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="1125">
+          <caret line="99" selection-start-line="99" selection-end-line="99" />
           <folding>
-            <element signature="e#1093#1094#0" expanded="true" />
-            <element signature="e#1126#1127#0" expanded="true" />
-            <element signature="e#1419#1420#0" expanded="true" />
-            <element signature="e#1451#1452#0" expanded="true" />
-            <element signature="e#2048#2049#0" expanded="true" />
-            <element signature="e#2086#2087#0" expanded="true" />
-            <element signature="e#2123#2124#0" expanded="true" />
-            <element signature="e#2160#2161#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/CardTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="178" column="17" selection-start-line="178" selection-start-column="17" selection-end-line="178" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Protocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="114" column="15" selection-start-line="114" selection-start-column="15" selection-end-line="114" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3075#3076#0" expanded="true" />
-            <element signature="e#3127#3128#0" expanded="true" />
-            <element signature="e#3161#3162#0" expanded="true" />
-            <element signature="e#3247#3248#0" expanded="true" />
-            <element signature="e#5329#5330#0" expanded="true" />
-            <element signature="e#5358#5359#0" expanded="true" />
-            <element signature="e#5344#5345#0" expanded="true" />
-            <element signature="e#5363#5364#0" expanded="true" />
-            <element signature="e#5657#5658#0" expanded="true" />
-            <element signature="e#5676#5677#0" expanded="true" />
+            <element signature="e#0#2226#0" expanded="true" />
+            <element signature="e#994#995#0" expanded="true" />
+            <element signature="e#1027#1028#0" expanded="true" />
+            <element signature="e#1156#1157#0" expanded="true" />
+            <element signature="e#1189#1190#0" expanded="true" />
+            <element signature="e#1318#1319#0" expanded="true" />
+            <element signature="e#1352#1353#0" expanded="true" />
+            <element signature="e#1403#1404#0" expanded="true" />
+            <element signature="e#1449#1450#0" expanded="true" />
+            <element signature="e#2223#2224#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/BlackJackSmart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="187" column="56" selection-start-line="187" selection-start-column="56" selection-end-line="187" selection-end-column="56" />
+        <state relative-caret-position="300">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="288" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#750#751#0" expanded="true" />
-            <element signature="e#781#782#0" expanded="true" />
-            <element signature="e#831#832#0" expanded="true" />
-            <element signature="e#871#872#0" expanded="true" />
-            <element signature="e#904#905#0" expanded="true" />
-            <element signature="e#933#934#0" expanded="true" />
-            <element signature="e#977#978#0" expanded="true" />
-            <element signature="e#1013#1014#0" expanded="true" />
-            <element signature="e#1044#1045#0" expanded="true" />
-            <element signature="e#1074#1075#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-            <element signature="e#1155#1156#0" expanded="true" />
-            <element signature="e#1185#1186#0" expanded="true" />
-            <element signature="e#1214#1215#0" expanded="true" />
-            <element signature="e#1255#1256#0" expanded="true" />
-            <element signature="e#1291#1292#0" expanded="true" />
-            <element signature="e#1327#1328#0" expanded="true" />
-            <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#1415#1416#0" expanded="true" />
+            <element signature="e#1428#1429#0" expanded="true" />
             <element signature="e#1463#1464#0" expanded="true" />
-            <element signature="e#1497#1498#0" expanded="true" />
-            <element signature="e#1527#1528#0" expanded="true" />
-            <element signature="e#1573#1574#0" expanded="true" />
-            <element signature="e#1611#1612#0" expanded="true" />
-            <element signature="e#1647#1648#0" expanded="true" />
-            <element signature="e#1679#1680#0" expanded="true" />
-            <element signature="e#1730#1731#0" expanded="true" />
-            <element signature="e#1772#1773#0" expanded="true" />
-            <element signature="e#1808#1809#0" expanded="true" />
-            <element signature="e#1840#1841#0" expanded="true" />
-            <element signature="e#1891#1892#0" expanded="true" />
-            <element signature="e#1933#1934#0" expanded="true" />
-            <element signature="e#1972#1973#0" expanded="true" />
-            <element signature="e#2007#2008#0" expanded="true" />
-            <element signature="e#2064#2065#0" expanded="true" />
-            <element signature="e#2112#2113#0" expanded="true" />
-            <element signature="e#2237#2238#0" expanded="true" />
-            <element signature="e#2276#2277#0" expanded="true" />
-            <element signature="e#2354#2355#0" expanded="true" />
-            <element signature="e#2403#2404#0" expanded="true" />
+            <element signature="e#1748#1749#0" expanded="true" />
+            <element signature="e#1780#1781#0" expanded="true" />
+            <element signature="e#1831#1832#0" expanded="true" />
+            <element signature="e#1873#1874#0" expanded="true" />
+            <element signature="e#2345#2346#0" expanded="true" />
+            <element signature="e#2399#2400#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Protocol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="200" column="60" selection-start-line="200" selection-start-column="60" selection-end-line="200" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#601#602#0" expanded="true" />
+            <element signature="e#633#634#0" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#3552#3553#0" expanded="true" />
+            <element signature="e#3604#3605#0" expanded="true" />
+            <element signature="e#3638#3639#0" expanded="true" />
+            <element signature="e#3724#3725#0" expanded="true" />
+            <element signature="e#5771#5772#0" expanded="true" />
+            <element signature="e#5825#5826#0" expanded="true" />
+            <element signature="e#5860#5861#0" expanded="true" />
+            <element signature="e#5930#5931#0" expanded="true" />
+            <element signature="e#6390#6391#0" expanded="true" />
+            <element signature="e#6416#6417#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#2356#0" expanded="true" />
+            <element signature="e#558#559#0" expanded="true" />
+            <element signature="e#602#603#0" expanded="true" />
+            <element signature="e#1136#1137#0" expanded="true" />
+            <element signature="e#1163#1164#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/BlackJackIA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="313" column="23" selection-start-line="313" selection-start-column="23" selection-end-line="313" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#7356#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1469#1470#0" expanded="true" />
+            <element signature="e#1504#1505#0" expanded="true" />
+            <element signature="e#1789#1790#0" expanded="true" />
+            <element signature="e#1821#1822#0" expanded="true" />
+            <element signature="e#1872#1873#0" expanded="true" />
+            <element signature="e#1914#1915#0" expanded="true" />
+            <element signature="e#2598#2599#0" expanded="true" />
+            <element signature="e#2652#2653#0" expanded="true" />
           </folding>
         </state>
       </provider>

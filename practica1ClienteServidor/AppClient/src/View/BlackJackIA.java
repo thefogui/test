@@ -1,10 +1,20 @@
+/*
+ * This class generates an automatic player fo the game using the blackjack
+ * AI algorithm.
+ *
+ * Authors: Vitor Carvalho and Ivet Aymerich
+ */
+
 package View;
 
 import Controller.Protocol;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
+import lib.Card;
 
-public class BlackJackSmart {
+public class BlackJackIA {
+
     private Protocol protocol;
     private String server;
     private int numPort;
@@ -17,7 +27,7 @@ public class BlackJackSmart {
     private Random random;
     private int minBet;
 
-    public BlackJackSmart(String server, int numPort) throws IOException {
+    public BlackJackIA(String server, int numPort) throws IOException {
         this.option = 0;
         this.server = server;
         this.numPort = numPort;
@@ -244,32 +254,72 @@ public class BlackJackSmart {
     }
 
     private void getAction() throws IOException {
-        int action = 0;
-        if (this.playerCanBet) {
-            if (this.protocol.getplayerScore() < 17) {
-                 action = this.anyRandomIntRange(0,2);
-                 if (action == 0)
-                     this.protocol.sendHitt();
-                 else {
-                     this.protocol.sendBet();
-                     this.protocol.sendHitt();
-                 }
-            } else if (this.protocol.getplayerScore() == 21) {
-                this.protocol.sendShow();
-                this.protocol.reset();
-            } else if (this.protocol.getplayerScore() > 21) {
-                this.protocol.sendSurrender();
-                this.protocol.reset();
-            } else {
-                action = this.anyRandomIntRange(0,100);
-                if (action < 10) {
-                    this.protocol.sendSurrender();
-                    this.protocol.reset();
+        if (this.protocol.getPlayerCash() >= 17 && this.protocol.getPlayerCash() <= 20) {
+            //show
+        } else if (this.protocol.getPlayerCash() == 16){
+            for (Card card : this.protocol.getDealerHand()){
+                if (card.getRank() == '7' || card.getRank() == '8') {
+                    //hit
+                } else if (card.getRank() == '9' || card.getRank() == 'X' || card.getRank() == 'A') {
+                    //surr
                 } else {
-                    this.protocol.sendShow();
-                    this.protocol.reset();
+                    //show
                 }
             }
+        } else if (this.protocol.getPlayerCash() == 15) {
+            for (Card card : this.protocol.getDealerHand()){
+                if (card.getRank() == '7' || card.getRank() == '8' || card.getRank() == '9'
+                        || card.getRank() == 'A') {
+                    //hit
+                } else if (card.getRank() == 'X') {
+                    //surr
+                } else {
+                    //show
+                }
+            }
+        } else if (this.protocol.getPlayerCash() == 13 || this.protocol.getPlayerCash() == 14) {
+            for (Card card : this.protocol.getDealerHand()){
+                if (card.getRank() == '7' || card.getRank() == '8' || card.getRank() == '9'
+                        || card.getRank() == 'A' || card.getRank() == 'X') {
+                    //hit
+                } else {
+                    //show
+                }
+            }
+        } else if (this.protocol.getPlayerCash() == 12) {
+            for (Card card : this.protocol.getDealerHand()){
+                if (card.getRank() == '2' || card.getRank() == '3' || card.getRank() == '7'
+                        || card.getRank() == '8' || card.getRank() == '9'
+                        || card.getRank() == 'A' || card.getRank() == 'X') {
+                    //hit
+                } else {
+                    //show
+                }
+            }
+        } else if (this.protocol.getPlayerCash() == 11) {
+            //bet
+            //hit
+        } else if (this.protocol.getPlayerCash() == 10) {
+            for (Card card : this.protocol.getDealerHand()){
+                if (card.getRank() == 'X' || card.getRank() == 'A') {
+                    //hit
+                } else {
+                    //BET
+                    //HIT
+                }
+            }
+        } else if (this.protocol.getPlayerCash() == 9) {
+            for (Card card : this.protocol.getDealerHand()){
+                if (card.getRank() == '3' || card.getRank() == '4' ||
+                    card.getRank() == '5' || card.getRank() == '6') {
+                    //bet
+                    //hit
+                } else {
+                    //HIT
+                }
+            }
+        } else {
+            //hitt
         }
     }
 
