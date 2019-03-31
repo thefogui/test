@@ -1,8 +1,8 @@
-/*
+/**
  * This class generates an automatic player fo the game using the blackjack
  * AI algorithm.
  *
- * Authors: Vitor Carvalho and Ivet Aymerich
+ * @Authors: Vitor Carvalho and Ivet Aymerich
  */
 
 package View;
@@ -13,7 +13,6 @@ import java.util.Random;
 import lib.Card;
 
 public class BlackJackIA {
-
     private Protocol protocol;
     private String server;
     private int numPort;
@@ -26,6 +25,13 @@ public class BlackJackIA {
     private Random random;
     private int minBet;
 
+    /**
+     * Constructor of the class
+     * start the attributes and connect to the server using the function connect
+     * @param server the server address InetAdresss
+     * @param numPort the server port
+     * @throws IOException error creating the socket
+     */
     public BlackJackIA(String server, int numPort) throws IOException {
         this.option = 0;
         this.server = server;
@@ -111,6 +117,10 @@ public class BlackJackIA {
         this.playerCanBet = playerCanBet;
     }
 
+    /**
+     * Function that return a positive integer randomly
+     * @return integer positive
+     */
     public int anyRandomInt() {
         int random = this.random.nextInt();
         if (random < 0)
@@ -118,10 +128,20 @@ public class BlackJackIA {
         return random;
     }
 
+    /**
+     * Function that returns a positive integer in range
+     * @param low the minimal value
+     * @param high the maximum value
+     * @return integer positive
+     */
     public int anyRandomIntRange(int low, int high) {
         return this.random.nextInt(high) + low;
     }
 
+    /**
+     * This function connects to the server using the Protocol class
+     * @throws IOException an error can be occurred creating the socket.
+     */
     private void connect() throws IOException {
         int username = this.anyRandomInt();
         System.out.println("--------------------------------");
@@ -131,11 +151,20 @@ public class BlackJackIA {
         System.out.println("--------------------------------");
     }
 
+    /**
+     * this function start the game sending the initial message using the protool
+     *
+     * @throws IOException an error sending the message using the socket
+     */
     public void start() throws IOException {
         this.protocol.start();
         this.readSocket();
     }
 
+    /**
+     * It send the player chips generated randomly to the server
+     * @throws IOException error writing in the socket
+     */
     public void sendCash() throws IOException {
         int cash;
 
@@ -150,6 +179,10 @@ public class BlackJackIA {
         this.protocol.sendCash(cash);
     }
 
+    /**
+     * While the game is running it reads the socket and call others functions based on the message read
+     * @throws IOException error reading the socket.
+     */
     private void readSocket() throws IOException {
         while(this.protocol.getIsRunning()) {
             try {
@@ -201,6 +234,10 @@ public class BlackJackIA {
         }
     }
 
+    /**
+     * Read the min bet sent by the server and print it
+     * @throws IOException error reading the socket.
+     */
     private void readMinBet() throws IOException {
         String sp = this.protocol.read_sp();
         this.minBet = this.protocol.readInteger();
@@ -209,6 +246,10 @@ public class BlackJackIA {
         System.out.println("--------------------------------");
     }
 
+    /**
+     * This function selects between play another game or exit, the probability of exit is 30%
+     * @throws IOException error writing in the socket
+     */
     private void replayOrExit() throws IOException {
         int action = this.anyRandomIntRange(0,100);
         if (action > 30) {
@@ -223,6 +264,10 @@ public class BlackJackIA {
         }
     }
 
+    /**
+     * Close the game sending an 'EXIT' message to the server
+     * @throws IOException error writing in the socket
+     */
     private void exitAndClose() throws IOException {
         this.protocol.sendExit();
         System.out.println("--------------------------------");
@@ -230,6 +275,11 @@ public class BlackJackIA {
         System.out.println("--------------------------------");
     }
 
+    /**
+     * This function take the first 2 initial cards from the server
+     * and print the player current score
+     * @throws IOException error reading the socket
+     */
     private void takeTheInitialCards() throws IOException {
         System.out.println("--------------------------------");
         for (int i = 0; i < 2; i++){
@@ -239,6 +289,11 @@ public class BlackJackIA {
         System.out.println("--------------------------------");
     }
 
+    /**
+     * Takes an extra card sent by the server by reading the socket.
+     * Pints the actual player score
+     * @throws IOException error reading the socket
+     */
     private void takeAcard() throws IOException {
         System.out.println("--------------------------------");
         System.out.println("    Card " +  this.protocol.takeACard());
@@ -252,9 +307,16 @@ public class BlackJackIA {
         System.out.println("--------------------------------");
     }
 
+    /**
+     * This function uses the wikipedia strategy to take decisions
+     * it uses the player card and the server initial card to take the decision
+     * that why it saves the save card in the game. It wouldn't be necessary to do it
+     * if it wasn't by the function.
+     * @throws IOException error reading and writing in the socket
+     */
     private void getAction() throws IOException {
         if (this.protocol.getPlayerCash() >= 17 && this.protocol.getPlayerCash() <= 20) {
-            //show
+            this.protocol.sendShow();
         } else if (this.protocol.getPlayerCash() == 16){
             for (Card card : this.protocol.getDealerHand()){
                 if (card.getRank() == '7' || card.getRank() == '8') {
@@ -319,17 +381,30 @@ public class BlackJackIA {
                     this.protocol.sendHitt();
                 }
             }
+        } else if (this.protocol.getPlayerCash() > 21) {
+            this.protocol.sendSurrender();
+        } else if (this.protocol.getPlayerCash() == 21) {
+            this.protocol.sendShow();
         } else {
             this.protocol.sendHitt();
         }
     }
 
+    /**
+     * It prints the server cards sent by the show, not the initial one
+     * @throws IOException error reading the socket
+     */
     private void printDealerCards() throws IOException {
         System.out.println("--------------------------------");
         System.out.println("    Server cards: " + this.protocol.getServerCards());
         System.out.println("--------------------------------");
     }
 
+    /**
+     * This function reads the socket and print the winner,
+     * also sum the amount of chips lost or worn.
+     * @throws IOException error reading the socket
+     */
     private void checkWinner() throws IOException {
         String winner = this.protocol.checkWinner();
         System.out.println("--------------------------------");

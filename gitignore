@@ -2,3 +2,5 @@
 /practica1ClienteServidor/AppServer/.idea/*
 practica1ClienteServidor/AppServer/out/*
 practica1ClienteServidor/AppClient/out/*
+practica1ClienteServidor/AppClient/.idea/workspace.xml
+practica1ClienteServidor/AppClient/out/production/AppClient/Controller/*.class

@@ -3,12 +3,20 @@ package main.java.com.model;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * It creates all cards that the blackjack requires
+ *
+ * @author Vitor Carvalho and Ivet Aymerich
+ */
 public class Deck {
     private ArrayList<Card> deckCards;
     private char[] suits; //Clubs, Diamonds, Hearts, Spades
     private char[] ranks;
     private int count;
 
+    /**
+     * Creates the deck with the cards, without shuffle it
+     */
     public Deck() {
         char[] suits = {'C', 'D', 'H', 'S'}; //Ascii code 03, 04, 03, 06
         char[] ranks = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'X','J', 'Q', 'K'};
@@ -59,8 +67,10 @@ public class Deck {
         this.count = count;
     }
 
-    /*
-     * Function that deal the cards for the player
+    /**
+     * Function that deal the cards for a single player
+     *
+     * @return card object from class card
      * */
     public Card deal(Hand playerHand) {
         Card dealtCard = this.deckCards.get(0);
@@ -70,7 +80,7 @@ public class Deck {
         return dealtCard;
     }
 
-    /*
+    /**
      * Function to shuffle the deck
      * */
     public void shuffle() {

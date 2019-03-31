@@ -2,12 +2,21 @@ package main.java.com.model;
 
 import java.util.ArrayList;
 
+/**
+ * It represents the hand of the player
+ *
+ * @author Vitor Carvalho and Ivet Aymerich
+ */
 public class Hand {
     private String player;
     private ArrayList<Card> handCards;
     private int actualValue;
     private int cash;
 
+    /**
+     *
+     * @param player the id of the player, an integer value
+     */
     public Hand(String player) {
         this.player = player;
         this.handCards = new ArrayList<Card>();
@@ -51,9 +60,11 @@ public class Hand {
         return this.handCards.toString();
     }
 
-    /*
-    * This function return the actual value of the card
-    * */
+    /**
+     * This function return the actual value of the card
+     *
+     * @param card that is a instance of a Card class
+     * */
     private int getActualValueByCard(Card card) {
         //if the player has 10 or less scored the value of the card A is equal to 11
         //otherwise the value of the card A is 1
@@ -67,23 +78,31 @@ public class Hand {
         return card.getValue();
     }
 
-    /*
-    * Function that allows the player take a card
-    * @param Card the actual card
-    * @param show boolean that indicates if we show the card or not
-    * */
+    /**
+     * Function that allows the player take a card
+     *
+     * */
     public void take(Card card) {
         this.handCards.add(card);
         this.actualValue += getActualValueByCard(card);
 
     }
 
+    /**
+     * Function to add a card to a player hand
+     * @param rank the rank of the card, a char value
+     * @param suit the  suit of the card, a char value
+     */
     public void take(char rank, char suit) {
         Card card = new Card(suit, rank);
         this.handCards.add(card);
         this.actualValue += getActualValueByCard(card);
     }
 
+    /**
+     * This function return a boolean value that indicates if the player has a blackjack
+     * @return return true if the player has a blackjack, false otherwise.
+     */
     public boolean getblack() {
         if (this.getHandCards().get(0).getRank() == 'A' && (
                 this.getHandCards().get(1).getRank() == 'K' ||

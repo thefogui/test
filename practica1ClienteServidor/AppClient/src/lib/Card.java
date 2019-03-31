@@ -35,6 +35,10 @@ public class Card {
         this.value = value;
     }
 
+    /**
+     * This fucntion returns the value of the card naipe based in the protocol
+     * @return return the char value of the card naipe.
+     */
     public char getCardNaipe() {
         char naipe;
         if (this.cardNaipe == 'C')
@@ -64,6 +68,11 @@ public class Card {
      * Function that calculates the value of the actual card
      * return the integer value of the card
      * */
+
+    /**
+     * Return the values of the card rank.
+     * @return this function checks the rank and retuns the value of it.
+     */
     private int calculateValue() {
         if (this.rank == 'A')
             return 1; //This will be specified 1 or 11 in Hand.java

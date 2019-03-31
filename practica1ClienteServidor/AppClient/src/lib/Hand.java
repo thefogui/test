@@ -60,6 +60,7 @@ public class Hand {
 
     /*
      * This function return the actual value of the card
+     * @param Card the actual card
      * */
     private int getActualValueByCard(Card card) {
         //if the player has 10 or less scored the value of the card A is equal to 11
@@ -77,7 +78,6 @@ public class Hand {
     /*
      * Function that allows the player take a card
      * @param Card the actual card
-     * @param show boolean that indicates if we show the card or not
      * */
     public void take(Card card) {
         this.handCards.add(card);

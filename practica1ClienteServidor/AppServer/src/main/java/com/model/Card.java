@@ -1,10 +1,20 @@
 package main.java.com.model;
 
+/**
+ * Represents a card
+ *
+ * @author Vitor Carvalho and Ivet Aymerich
+ */
 public class Card {
     private int value;
     private char cardNaipe;
     private char rank;
 
+    /**
+     * Creates a single card
+     * @param cardNaipe the card suit, a char value
+     * @param rank the rank of card, a char value
+     */
     public Card(char cardNaipe, char rank) {
         this.cardNaipe = cardNaipe;
         this.rank = rank;
@@ -24,6 +34,11 @@ public class Card {
         return cardNaipe;
     }
 
+    /**
+     * Returns the card suit based on the protocol
+     *
+     * @return a char value that cab ve 0x03, 0x04, 0x04 or 0x05
+     */
     public char getCardProtcolNaipe() {
         char naipe;
         if (this.cardNaipe == 'C')
@@ -49,10 +64,10 @@ public class Card {
         this.rank = rank;
     }
 
-    /*
-    * Function that calculates the value of the actual card
-    * return the integer value of the card
-    * */
+    /**
+     * Function that calculates the value of the actual card
+     * return the integer value of the card
+     * */
     private int calculateValue() {
         if (this.rank == 'A')
             return 1; //This will be specified 1 or 11 in Hand.java

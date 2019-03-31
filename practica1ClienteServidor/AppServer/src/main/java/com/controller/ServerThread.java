@@ -4,20 +4,24 @@ import java.net.Socket;
 import java.io.IOException;
 import main.java.com.model.Users;
 
+/**
+ * Class that starts the protocol and creates a new thread
+ *
+ * @author Vitor Carvalho and Ivet Aymerich
+ */
 public class ServerThread implements Runnable {
-    private Socket socket;
-    private ComUtils comutils;
-
-    private int userIndex;
     private Protocol protocol;
-    private int userID;
     private Users users;
 
+    /**
+     * Cinstructor, creates a new protocol object
+     * @param socket the socket used in the communication
+     * @param users HashMap with all users
+     * @throws IOException error creating the socket.
+     */
     public ServerThread(Socket socket, Users users) throws IOException {
-
         this.users = users;
-        this.userIndex = Integer.MAX_VALUE;
-        this.protocol =  new Protocol(socket, this.users);
+        this.protocol = new Protocol(socket, this.users);
     }
 
     @Override

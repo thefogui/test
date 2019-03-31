@@ -11,7 +11,7 @@ public class Server {
 
         try {
             Mainthread mainthread = new Mainthread(Integer.parseInt(args[1]));
-            mainthread.startServer();
+            mainthread.startServer(); //start the main thread
         }catch (IOException e) {
             System.err.println("Error: can't start main thread: " + e.getMessage());
         }

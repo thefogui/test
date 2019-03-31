@@ -1,4 +1,4 @@
-/*
+/**
  * Menu that is used by the user of the application.
  *
  * Authors: Vitor Carvalho and Ivet Aymerich
@@ -36,6 +36,12 @@ public class Menu {
         this.startBlackjack(client);
     }
 
+    /**
+     * This function start the game with the bots or show a meu to the player.
+     * the param decides which one will play, if is 0 the human play if is 1 or 2
+     * the computer plays the game
+     * @param client integer 0 for player menu, 1 and 2 to play with bots.
+     */
     private void startBlackjack(int client) {
         if (client == 0)
             this.mainMenu();
@@ -54,11 +60,19 @@ public class Menu {
         }
     }
 
+    /**
+     * Start the client that uses the wikipedia specification
+     * @throws IOException error starting the socket
+     */
     private void startAutomaticAIClient() throws IOException {
         BlackJackIA blackJackIA = new BlackJackIA(this.server, this.numPort);
         blackJackIA.start();
     }
 
+    /**
+     * It prints the main menu to the user
+     * he introduces he option
+     */
     public void mainMenu() {
         while(option != EXIT) {
             System.out.println("--------------------------------");
@@ -94,12 +108,19 @@ public class Menu {
         }
     }
 
+    /**
+     * Starts the basic client
+     * @throws IOException error starting the socket
+     */
     private void startAutomaticClient() throws IOException {
         BlackJackSmart blackJackSmart = new BlackJackSmart(this.server, numPort);
 
         blackJackSmart.start();
     }
 
+    /**
+     * Connects to the server, the user needs to introduce his/her username
+     */
     private void connectToServer() {
         int username = 0;
         System.out.println("--------------------------------");
@@ -122,6 +143,9 @@ public class Menu {
         }
     }
 
+    /**
+     * Reads the socket and shows differents options to the user
+     */
     public void readSocket() {
         while(this.protocol.getIsRunning()) {
             try {
@@ -173,6 +197,10 @@ public class Menu {
         }
     }
 
+    /**
+     * Read the socket and print the winner, also removes/add the amount of chips of the actual bet
+     * @throws IOException error reading the socket.
+     */
     private void checkWinner() throws IOException {
         String winner = this.protocol.checkWinner();
         System.out.println("--------------------------------");
@@ -180,6 +208,10 @@ public class Menu {
         System.out.println("--------------------------------");
     }
 
+    /**
+     * Read the socket and print the cards in the dealer hand
+     * @throws IOException error reading the socket
+     */
     private void printDealerCards() throws IOException {
         System.out.println("--------------------------------");
         System.out.println("    Server cards: " + this.protocol.getServerCards());
@@ -187,6 +219,10 @@ public class Menu {
         //reset dealer hand
     }
 
+    /**
+     * prints the initial dealer card
+     * @throws IOException error reading the socket.
+     */
     private void printCard() throws IOException {
         System.out.println("--------------------------------");
         System.out.println("    Dealer initial card " + this.protocol.takeDealerCard());
@@ -194,6 +230,11 @@ public class Menu {
 
     }
 
+    /**
+     * Takes a card for the player it is the answer the server sents after the client send a
+     * 'HITT' message
+     * @throws IOException error reading the socket
+     */
     private void takeAcard() throws IOException {
         System.out.println("--------------------------------");
         System.out.println("    Card " +  this.protocol.takeACard());
@@ -201,6 +242,10 @@ public class Menu {
         System.out.println("--------------------------------");
     }
 
+    /**
+     * This function sends the chips introduced by the client to the server.
+     * @throws IOException error writing in the socket.
+     */
     private void sendCash() throws IOException {
         String space = this.protocol.read_sp();
         int bet = this.protocol.readInteger();
@@ -220,6 +265,10 @@ public class Menu {
         }
     }
 
+    /**
+     * This function reads the initial cards the server gave to the client.
+     * @throws IOException error reading cards
+     */
     private void takeTheInitialCards() throws IOException {
         System.out.println("--------------------------------");
         for (int i = 0; i < 2; i++){
@@ -229,8 +278,12 @@ public class Menu {
         System.out.println("--------------------------------");
     }
 
+    /**
+     * This function shows to the user a menu and expect him to introduce his choice
+     * @throws IOException error writing and reading in  the socket
+     */
     private void getAction() throws IOException {
-        int opcio;
+        int option;
         if (this.playerCanBet) {
             this.playerCanBet = false;
             if (this.protocol.getplayerScore() < 21) {
@@ -241,21 +294,18 @@ public class Menu {
                 System.out.println("    3. Send cards");
                 System.out.println("    4. Surrender");
                 System.out.println("--------------------------------");
-                opcio = this.scanner.nextInt();
+                option = this.scanner.nextInt();
 
-                if (opcio == 1) {
+                if (option == 1) {
                     this.protocol.sendHitt();
-                }else if(opcio == 2){
+                }else if(option == 2){
                     this.protocol.sendBet();
                     this.getAction();
-                } else if (opcio == 3) {
+                } else if (option == 3) {
                     this.protocol.sendShow();
-
-                }else if (opcio == 4) {
+                }else if (option == 4) {
                     this.protocol.sendSurrender();
-
                 }
-
             } else {
                 System.out.println("--------------------------------");
                 System.out.println("    Select a number:");
@@ -263,17 +313,15 @@ public class Menu {
                 System.out.println("    2. Send cards");
                 System.out.println("    3. Surrender");
                 System.out.println("--------------------------------");
-                opcio = this.scanner.nextInt();
+                option = this.scanner.nextInt();
 
-                if (opcio == 1) {
+                if (option == 1) {
                     this.protocol.sendBet();
                     this.getAction();
-                }else if(opcio == 2){
+                }else if(option == 2){
                     this.protocol.sendShow();
-
-                } else if (opcio == 3) {
+                } else if (option == 3) {
                     this.protocol.sendSurrender();
-
                 }
             }
         } else {
@@ -283,11 +331,11 @@ public class Menu {
                 System.out.println("    1. Ask for a new card");
                 System.out.println("    2. Send cards");
                 System.out.println("--------------------------------");
-                opcio = this.scanner.nextInt();
+                option = this.scanner.nextInt();
 
-                if (opcio == 1)
+                if (option == 1)
                     this.protocol.sendHitt();
-                else if (opcio == 2) {
+                else if (option == 2) {
                     this.protocol.sendShow();
 
                 }
@@ -297,9 +345,9 @@ public class Menu {
                 System.out.println("    Select a number:");
                 System.out.println("    1. Send cards");
                 System.out.println("--------------------------------");
-                opcio = this.scanner.nextInt();
+                option = this.scanner.nextInt();
 
-                if (opcio == 1) {
+                if (option == 1) {
                     this.protocol.sendShow();
 
                 }
@@ -307,6 +355,10 @@ public class Menu {
         }
     }
 
+    /**
+     * This function send a 'EXIT' message to the server and closes the connection
+     * @throws IOException error writing in the socket.
+     */
     private void exitAndClose() throws IOException {
         this.protocol.sendExit();
         System.out.println("--------------------------------");
@@ -314,19 +366,23 @@ public class Menu {
         System.out.println("--------------------------------");
     }
 
+    /**
+     * Shows a menu that ask to the user if he wants to play another game or exit
+     * @throws IOException error reading the socket.
+     */
     private void menuReplay() throws IOException {
-        int opcio;
+        int option;
         System.out.println("--------------------------------");
         System.out.println("    Select a number:");
         System.out.println("    1. Play a new game");
         System.out.println("    2. Exit");
         System.out.println("    Actual cash: " + this.protocol.getPlayerCash());
         System.out.println("--------------------------------");
-        opcio = this.scanner.nextInt();
+        option = this.scanner.nextInt();
 
-        if (opcio == 1) {
+        if (option == 1) {
             this.protocol.sendReplay();
-        }else if(opcio == 2){
+        }else if(option == 2){
             this.exitAndClose();
             this.protocol.setPlaying(false);
         }

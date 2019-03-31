@@ -2,6 +2,11 @@ package main.java.com.model;
 
 import java.util.ArrayList;
 
+/**
+ * Class Blackjack start the game and the players hands
+ *
+ * @author vitor Carvalho and Ivet Aymerich
+ */
 public class BlackJack {
     private Deck deck;
     private Hand dealerHand;
@@ -11,19 +16,26 @@ public class BlackJack {
     private Boolean gameOver;
     private int roundCount;
     private boolean isRunning;
-    public static final int MAX_BET = 100;
+    public static final int MIN_BET = 100;
 
+    /**
+     * Constructor, start the game creating the deck and shuffles it
+     * @param playerName integer that refers to a player ID
+     */
     public BlackJack(int playerName) {
         this.playerName = playerName;
         this.playerHand = new Hand(String.valueOf(this.playerName));
         this.dealerHand = new Hand("Dealer");
         this.gameOver = false;
-        this.playerBet = MAX_BET;
+        this.playerBet = MIN_BET;
         this.roundCount = 0;
         this.isRunning = true;
         this.startGame();
     }
 
+    /**
+     * Function that starts the game and creates the deck
+     */
     public void startGame() {
         this.deck = new Deck();
         this.deck.shuffle(); //shuffle the deck
@@ -114,6 +126,11 @@ public class BlackJack {
         this.playerBet = doubleBet;
     }
 
+    /**
+     * This function decides which player won the game using their cards scores
+     * @return returns a char value that represent the winner, '0' the player is the winner
+     * '1' the dealer is the winner and '2' none of them won the game
+     */
     public char getWinner() {
         if (this.getPlayerHand().getActualValue() == this.getDealerHand().getActualValue()) {
             this.getDealerHand().setActualValue(0);
@@ -148,17 +165,25 @@ public class BlackJack {
         }
     }
 
+    /**
+     * This function deals a card to the dealer until he get more than 17
+     */
     public void dealerAskCard() {
        while (this.getDealerHand().getActualValue() < 17) {
            Card card = this.deck.deal(this.getDealerHand());
        }
     }
 
+    /**
+     * This function restart the game
+     */
     public void restart() {
         this.getPlayerHand().setHandCards(new ArrayList<>());
         this.dealerHand.setHandCards(new ArrayList<>());
+        this.getPlayerHand().setActualValue(0);
+        this.getDealerHand().setActualValue(0);
         this.gameOver = false;
-        this.playerBet = MAX_BET;
+        this.playerBet = MIN_BET;
         this.roundCount = 0;
         this.isRunning = true;
         startGame();

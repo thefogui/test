@@ -7,12 +7,15 @@ import java.util.ArrayList;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-
 import main.java.com.model.Card;
 import main.java.com.model.BlackJack;
 import main.java.com.model.Users;
 
-
+/**
+ * Protocol class, this class allows the communication between clients and the server
+ *
+ * @author Vitor Carvalho and Ivet Aymerich
+ */
 public class Protocol {
     private Socket socket;
     private BlackJack blackJack;
@@ -24,7 +27,12 @@ public class Protocol {
     private boolean firstCash;
     static FileHandler file;
 
-
+    /**
+     * Constructor, create the game and start the protocol attributes
+     * @param socket the socket that is assigned to this actual client
+     * @param users list of users
+     * @throws IOException error starting the socket
+     */
     public Protocol(Socket socket, Users users) throws IOException {
         this.command = null;
         this.stringToSend = null;
@@ -35,6 +43,10 @@ public class Protocol {
         this.comutils = new ComUtils(this.socket);
     }
 
+    /**
+     * This function sis the core of the class, it reads the socket and based on client messages do a thing or another
+     * @throws IOException error reading the socket.
+     */
     public void readSocket() throws IOException {
         while (this.blackJack.getIsRunning())  {
             try {
@@ -43,6 +55,7 @@ public class Protocol {
                 this.command = this.command.toUpperCase();
 
                 this.writeLog("CLIENTE: " + command);
+
                 switch (this.command) {
                     //Do the switch case for each message in the protocol.
                     case "STRT":
@@ -55,9 +68,13 @@ public class Protocol {
                         this.askExtraCard();
                         break;
                     case "SHOW":
-                        this.showCards();
+                        if (this.blackJack.getPlayerHand().getActualValue() >= 21) {
+                            this.sendClientLost();
+                        } else {
+                            this.showCards();
 
-                        this.solveWinner();
+                            this.solveWinner();
+                        }
                         break;
                     case "BETT":
                         try {
@@ -103,7 +120,25 @@ public class Protocol {
         }
     }
 
-    private void startAGame() throws IOException{
+    /**
+     * In case player exceed 21 points in this hands dealer don’t SHOW his hand and send directly a WIN ‘1’ command (dealer wins).
+     * @throws IOException error writing in the scoket
+     */
+    private void sendClientLost() throws IOException {
+        this.stringToSend = "WINS";
+        this.comutils.writeCommand(this.stringToSend);
+        this.comutils.write_SP();
+        this.comutils.writeChar('1');
+        this.comutils.write_SP();
+        this.comutils.write_int32(this.blackJack.getPlayerBet()); //get the amount of chips earned
+        this.writeLog("SERVIDOR: "+ stringToSend + " 1 " + this.blackJack.getPlayerBet());
+    }
+
+    /**
+     * This function reads the socket and gets the user ID and send a 'INIT' message to him
+     * @throws IOException error writing and reading the socket
+     */
+    private void startAGame() throws IOException {
         String space = this.comutils.read_Char();
         int userId = this.comutils.read_int32();
         this.writeLog("CLIENTE: " + userId);
@@ -111,18 +146,31 @@ public class Protocol {
         this.sendInit(100);
     }
 
+    /**
+     * Function that solves the winner and send it to the client
+     * @throws IOException error writing in the socket
+     */
     private void solveWinner() throws IOException {
 
         this.sendWINS();
     }
 
-    public String handlerError() throws IOException {
+    /**
+     * This function reads the client error and return its.
+     * @return String that contains the error message
+     * @throws IOException error reading the socket
+     */
+    private String handlerError() throws IOException {
         String err = this.comutils.readErrorMessage();
         this.writeLog("CLIENTE: " + err);
         return err ;
     }
 
-    public void sendIDCK() throws IOException {
+    /***
+     * Sens the 'IDCK' message to the server with the player initial cards
+     * @throws IOException error writing in the socket
+     */
+    private void sendIDCK() throws IOException {
         this.stringToSend = "IDCK";
         this.comutils.writeCommand(this.stringToSend);
         for(Card card : this.blackJack.getPlayerHand().getHandCards()) {
@@ -133,7 +181,11 @@ public class Protocol {
         }
     }
 
-    public void sendCARD() throws IOException {
+    /**
+     * Send the extra card asked by the user.
+     * @throws IOException error writing in the socket.
+     */
+    private void sendCARD() throws IOException {
         this.stringToSend = "CARD";
         this.comutils.writeCommand(this.stringToSend);
         this.comutils.write_SP();
@@ -143,7 +195,11 @@ public class Protocol {
         this.writeLog("SERVIDOR: " + stringToSend + " " + card.toString());
     }
 
-    public void sendSHOW() throws IOException {
+    /**
+     * Send the show message to the client with the dealer cards
+     * @throws IOException error reading and writing in the socket
+     */
+    private void sendSHOW() throws IOException {
         int length = this.blackJack.getDealerHand().getHandCards().size();
         this.stringToSend = "SHOW";
         this.comutils.writeCommand(this.stringToSend);
@@ -159,7 +215,11 @@ public class Protocol {
         }
     }
 
-    public void sendWINS() throws IOException {
+    /**
+     * it solves the winner and send it to the client.
+     * @throws IOException error writing in the socket
+     */
+    private void sendWINS() throws IOException {
         this.stringToSend = "WINS";
         this.comutils.writeCommand(this.stringToSend);
         this.comutils.write_SP();
@@ -169,6 +229,10 @@ public class Protocol {
         this.writeLog("SERVIDOR: "+ stringToSend + " " + this.blackJack.getWinner() + " " + this.blackJack.getPlayerBet());
     }
 
+    /**
+     * Start a game and sends the IDCK And the first SHOW message
+     * @throws IOException error writing in the socket
+     */
     private void startNewGame() throws IOException {
         this.blackJack.restart();
         this.sendInit(100);
@@ -176,16 +240,25 @@ public class Protocol {
         this.sendOneCard();
     }
 
+    /**
+     * IF the player surrender this function sends him a tie message
+     * @throws IOException error writing in the socket
+     */
     private void surrender() throws IOException {
         this.message = "WINS";
         this.comutils.writeCommand(this.message);
         this.comutils.write_SP();
         this.comutils.writeChar('2');
         this.comutils.write_SP();
-        this.comutils.write_int32(100);
+        this.comutils.write_int32(this.blackJack.getPlayerBet());
         this.writeLog("SERVIDOR: " + message);
     }
 
+    /**
+     * This function doubles the actual bet and it is an answer to the BETT message sent by the client
+     *
+     * @throws Exception error writing and reading the socket.
+     */
     private void doubleBet() throws Exception {
         if (this.blackJack.getPlayerBet() > this.blackJack.getPlayerHand().getCash()) {
             this.stringToSend = "ERRO";
@@ -197,6 +270,10 @@ public class Protocol {
         this.blackJack.doubleBet();
     }
 
+    /**
+     * Function that gets the player cards and send the dealer cards
+     * @throws IOException error reading and writing in the socket
+     */
     private void showCards() throws IOException {
         int length;
         String rank;
@@ -225,15 +302,23 @@ public class Protocol {
         this.sendSHOW();
     }
 
+    /**
+     * if the player ask for a new card this we send him a new card with this function
+     * @throws IOException error writing in the socket
+     */
     private void askExtraCard() throws IOException {
         this.sendCARD();
     }
 
+    /**
+     * Read the cash message to the client and send the 'IDCK' AND 'SHOW' cards
+     * @throws IOException error reading and writing in the socket.
+     */
     private void setCash() throws IOException {
         int cash;
         this.comutils.read_Char();
         cash = this.comutils.read_int32();
-        if (cash < this.blackJack.MAX_BET){
+        if (cash < this.blackJack.MIN_BET){
             this.message = "ERRO";
             this.comutils.writeCommand(this.message);
 
@@ -246,6 +331,10 @@ public class Protocol {
         }
     }
 
+    /**
+     * Sends the first dealer card to the client
+     * @throws IOException error writing in the socket
+     */
     private void sendOneCard() throws IOException {
         this.message = "SHOW";
         this.comutils.writeCommand(this.message);
@@ -258,7 +347,12 @@ public class Protocol {
         this.writeLog("SERVIDOR: "+ message + " " + card.toString());
     }
 
-    public void sendInit(int chips) throws IOException {
+    /**
+     * Send the 'INIT' to the client
+     * @param chips the minimal bet
+     * @throws IOException error writing in the socket.
+     */
+    private void sendInit(int chips) throws IOException {
         String message = "INIT";
         this.comutils.writeCommand(message);
         this.comutils.write_SP();
@@ -266,7 +360,13 @@ public class Protocol {
         this.writeLog("SERVIDOR: "+ message + " " + chips);
     }
 
-    public void writeLog(String mensaje) throws SecurityException, IOException {
+    /**
+     * Function that creates a log file for eah client and write a message
+     * @param mensaje message to write in the log
+     * @throws SecurityException exceptiong with the file
+     * @throws IOException error creating/reading/writing in the file
+     */
+    private void writeLog(String mensaje) throws SecurityException, IOException {
         Logger logger = Logger.getLogger("MyLog");
         String fileRute = "log/ServerClient" + this.blackJack.getPlayerID() + ".log";
 
@@ -281,7 +381,12 @@ public class Protocol {
         file.close();
     }
 
-    public void sendErrorMessage(String message) throws IOException {
+    /**
+     * Wites an error message in the socket
+     * @param message String
+     * @throws IOException error writing in the socket.
+     */
+    private void sendErrorMessage(String message) throws IOException {
         int length = message.length();
         char [] chars = ("" + length).toCharArray();
         this.comutils.writeErrorMessage(chars[0], chars[1], length, message);

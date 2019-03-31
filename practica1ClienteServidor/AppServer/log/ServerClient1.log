@@ -114,3 +114,379 @@ Mar 30, 2019 1:45:51 PM main.java.com.controller.Protocol writeLog
 INFO: SERVIDOR: SHOW 3♥
 Mar 30, 2019 1:45:51 PM main.java.com.controller.Protocol writeLog
 INFO: SERVIDOR: WINS 2 100
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: STRT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: 864031992
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 4♥
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK J♠
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 8♠
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD Q♠
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 6♥
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD Q♣
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 2♥
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 2♦
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 3♠
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 8♥
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD K♥
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 7♥
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD A♣
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 2♣
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD K♣
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 10♦
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 6♦
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 5♣
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD K♠
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD J♣
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 3♦
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 9♠
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 8♦
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD A♠
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 4♠
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD J♦
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 3♥
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 8♣
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 10♥
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 5♠
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 7♦
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 7♠
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 6♠
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 9♥
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD K♦
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD Q♦
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD A♦
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 10♣
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD J♥
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 9♣
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 10♠
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD A♥
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 4♣
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 5♥
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 3♣
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 5♦
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 9♦
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 4♦
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 7♣
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 2♠
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 6♣
+Mar 30, 2019 8:35:46 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: STRT
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: 747813543
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK K♦
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK A♠
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 8♦
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: SRND
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: WINS
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: RPLY
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK A♣
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 8♦
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 7♦
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK A♣
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 8♦
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 7♦
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: SRND
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: WINS
+Mar 30, 2019 8:41:15 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: EXIT
+Mar 30, 2019 8:49:48 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: STRT
+Mar 30, 2019 8:49:48 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: 1349934435
+Mar 30, 2019 8:49:48 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Mar 30, 2019 8:49:48 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Mar 30, 2019 8:49:48 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK Q♣
+Mar 30, 2019 8:49:48 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 2♠
+Mar 30, 2019 8:49:48 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW Q♠
+Mar 30, 2019 8:49:48 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: SRND
+Mar 30, 2019 8:49:48 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: WINS
+Mar 30, 2019 8:49:48 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: EXIT
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: STRT
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: 1193182627
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 4♦
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 10♦
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW A♣
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: SRND
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: WINS
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: RPLY
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 2♠
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 3♥
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW Q♦
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 2♠
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 3♥
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW Q♦
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: SRND
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: WINS
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: RPLY
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK K♠
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK Q♦
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW Q♠
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK K♠
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK Q♦
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW Q♠
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: SRND
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: WINS
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: RPLY
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK K♥
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 3♦
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 6♣
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK K♥
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 3♦
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 6♣
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: SRND
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: WINS
+Mar 30, 2019 8:50:03 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: EXIT
+Mar 30, 2019 9:08:13 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: STRT
+Mar 30, 2019 9:08:13 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: 1949461536
+Mar 30, 2019 9:08:13 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Mar 30, 2019 9:08:13 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Mar 30, 2019 9:08:13 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 6♥
+Mar 30, 2019 9:08:13 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 9♣
+Mar 30, 2019 9:08:13 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW Q♣
+Mar 30, 2019 9:08:13 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: SRND
+Mar 30, 2019 9:08:13 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: WINS
+Mar 30, 2019 9:08:13 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: EXIT
