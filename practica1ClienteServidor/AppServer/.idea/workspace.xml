@@ -4,13 +4,12 @@
     <list default="true" id="ae54573e-caa3-4fbb-80f7-347cbe1b3219" name="Default Changelist" comment="Inte">
       <change beforePath="$PROJECT_DIR$/../AppClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/Controller/Protocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/Controller/Protocol.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/BlackJackIA.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/BlackJackIA.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/BlackJackSmart.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/BlackJackSmart.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/src/Controller/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/Controller/Protocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppClient/src/View/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/View/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppClient/src/View/BlackJackIA.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/View/BlackJackIA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppClient/src/View/BlackJackSmart.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/View/BlackJackSmart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/ServerClient1.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/ServerClient1.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/Protocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/BlackJack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/BlackJack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/Hand.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/Protocol.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="126" column="17" selection-start-line="126" selection-start-column="17" selection-end-line="126" selection-end-column="17" />
+            <state relative-caret-position="180">
+              <caret line="70" selection-start-line="70" selection-end-line="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -311,7 +310,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554032022143" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554046771055" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -371,8 +370,8 @@
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" sideWeight="0.4981685" weight="0.27040815" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.47741148" weight="0.29489797" />
-      <window_info active="true" anchor="bottom" id="Debug" order="5" sideWeight="0.5672589" visible="true" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="4" sideWeight="0.47741148" visible="true" weight="0.29489797" />
+      <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.5672589" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" />
@@ -422,18 +421,6 @@
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout-to-restore>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/controller/Protocol.java</url>
-          <line>70</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -613,8 +600,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/Protocol.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="126" column="17" selection-start-line="126" selection-start-column="17" selection-end-line="126" selection-end-column="17" />
+        <state relative-caret-position="180">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

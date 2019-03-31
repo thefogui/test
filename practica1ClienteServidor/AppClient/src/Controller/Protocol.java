@@ -289,6 +289,10 @@ public class Protocol {
         return this.blackJack.getPlayerMoney();
     }
 
+    public int getPlayerScore() {
+        return this.blackJack.getPlayerHand().getActualValue();
+    }
+
     /**
      * This function return the player cash
      * @return int that refers to the player actual cash

@@ -168,10 +168,10 @@ public class BlackJackIA {
     public void sendCash() throws IOException {
         int cash;
 
-        if (this.protocol.getPlayerCash() == 0)
+        if (this.protocol.getPlayerScore() == 0)
             cash = this.anyRandomIntRange(this.minBet, Integer.MAX_VALUE);
         else
-            cash = this.protocol.getPlayerCash();
+            cash = this.protocol.getPlayerScore();
 
         System.out.println("--------------------------------");
         System.out.println("    Sending cash: " + cash);
@@ -252,7 +252,7 @@ public class BlackJackIA {
      */
     private void replayOrExit() throws IOException {
         int action = this.anyRandomIntRange(0,100);
-        if (action > 30) {
+        if (action > 5) {
             this.protocol.sendReplay();
             this.protocol.reset();
             System.out.println("--------------------------------");
@@ -315,9 +315,9 @@ public class BlackJackIA {
      * @throws IOException error reading and writing in the socket
      */
     private void getAction() throws IOException {
-        if (this.protocol.getPlayerCash() >= 17 && this.protocol.getPlayerCash() <= 20) {
+        if (this.protocol.getPlayerScore() >= 17 && this.protocol.getPlayerScore() <= 20) {
             this.protocol.sendShow();
-        } else if (this.protocol.getPlayerCash() == 16){
+        } else if (this.protocol.getPlayerScore() == 16){
             for (Card card : this.protocol.getDealerHand()){
                 if (card.getRank() == '7' || card.getRank() == '8') {
                     this.protocol.sendHitt();
@@ -328,7 +328,7 @@ public class BlackJackIA {
                     this.protocol.sendShow();
                 }
             }
-        } else if (this.protocol.getPlayerCash() == 15) {
+        } else if (this.protocol.getPlayerScore() == 15) {
             for (Card card : this.protocol.getDealerHand()){
                 if (card.getRank() == '7' || card.getRank() == '8' || card.getRank() == '9'
                         || card.getRank() == 'A') {
@@ -340,7 +340,7 @@ public class BlackJackIA {
                     this.protocol.sendShow();
                 }
             }
-        } else if (this.protocol.getPlayerCash() == 13 || this.protocol.getPlayerCash() == 14) {
+        } else if (this.protocol.getPlayerScore() == 13 || this.protocol.getPlayerScore() == 14) {
             for (Card card : this.protocol.getDealerHand()){
                 if (card.getRank() == '7' || card.getRank() == '8' || card.getRank() == '9'
                         || card.getRank() == 'A' || card.getRank() == 'X') {
@@ -349,7 +349,7 @@ public class BlackJackIA {
                     this.protocol.sendShow();
                 }
             }
-        } else if (this.protocol.getPlayerCash() == 12) {
+        } else if (this.protocol.getPlayerScore() == 12) {
             for (Card card : this.protocol.getDealerHand()){
                 if (card.getRank() == '2' || card.getRank() == '3' || card.getRank() == '7'
                         || card.getRank() == '8' || card.getRank() == '9'
@@ -359,10 +359,10 @@ public class BlackJackIA {
                     this.protocol.sendShow();
                 }
             }
-        } else if (this.protocol.getPlayerCash() == 11) {
+        } else if (this.protocol.getPlayerScore() == 11) {
             this.protocol.sendBet();
             this.protocol.sendHitt();
-        } else if (this.protocol.getPlayerCash() == 10) {
+        } else if (this.protocol.getPlayerScore() == 10) {
             for (Card card : this.protocol.getDealerHand()){
                 if (card.getRank() == 'X' || card.getRank() == 'A') {
                     this.protocol.sendHitt();
@@ -371,7 +371,7 @@ public class BlackJackIA {
                     this.protocol.sendHitt();
                 }
             }
-        } else if (this.protocol.getPlayerCash() == 9) {
+        } else if (this.protocol.getPlayerScore() == 9) {
             for (Card card : this.protocol.getDealerHand()){
                 if (card.getRank() == '3' || card.getRank() == '4' ||
                     card.getRank() == '5' || card.getRank() == '6') {
@@ -381,9 +381,9 @@ public class BlackJackIA {
                     this.protocol.sendHitt();
                 }
             }
-        } else if (this.protocol.getPlayerCash() > 21) {
-            this.protocol.sendSurrender();
-        } else if (this.protocol.getPlayerCash() == 21) {
+        } else if (this.protocol.getPlayerScore() > 21) {
+            this.protocol.sendShow();
+        } else if (this.protocol.getPlayerScore() == 21) {
             this.protocol.sendShow();
         } else {
             this.protocol.sendHitt();

@@ -238,12 +238,12 @@ public class BlackJackSmart {
     }
 
     /**
-     * This function selects between play another game or exit, the probability of exit is 30%
+     * This function selects between play another game or exit, the probability of exit is 5%
      * @throws IOException error writing in the socket
      */
     private void replayOrExit() throws IOException {
         int action = this.anyRandomIntRange(0,100);
-        if (action > 30) {
+        if (action > 5) {
             this.protocol.sendReplay();
             this.protocol.reset();
             System.out.println("--------------------------------");
@@ -317,8 +317,7 @@ public class BlackJackSmart {
                 this.protocol.sendShow();
                 this.protocol.reset();
             } else if (this.protocol.getplayerScore() > 21) {
-                this.protocol.sendSurrender();
-                this.protocol.reset();
+                this.protocol.sendShow();
             } else {
                 action = this.anyRandomIntRange(0,100);
                 if (action < 10) {
