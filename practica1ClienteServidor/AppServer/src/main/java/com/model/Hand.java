@@ -85,7 +85,6 @@ public class Hand {
     public void take(Card card) {
         this.handCards.add(card);
         this.actualValue += getActualValueByCard(card);
-
     }
 
     /**
@@ -109,11 +108,9 @@ public class Hand {
                 this.getHandCards().get(1).getRank() == 'Q' ||
                 this.getHandCards().get(1).getRank() == 'J'))
             return true;
-        if (this.getHandCards().get(1).getRank() == 'A' && (
+        return (this.getHandCards().get(1).getRank() == 'A' && (
                     this.getHandCards().get(0).getRank() == 'K' ||
                     this.getHandCards().get(0).getRank() == 'Q' ||
-                    this.getHandCards().get(0).getRank() == 'J'))
-            return true;
-        return false;
+                    this.getHandCards().get(0).getRank() == 'J'));
     }
 }

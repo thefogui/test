@@ -1,7 +1,5 @@
 package main.java.com.model;
 
-import java.util.ArrayList;
-
 /**
  * Class Blackjack start the game and the players hands
  *
@@ -41,7 +39,6 @@ public class BlackJack {
         this.deck.shuffle(); //shuffle the deck
         Card card = this.deck.deal(this.getPlayerHand());
         card = this.deck.deal(this.getPlayerHand());
-        card = this.deck.deal(this.getDealerHand());
         card = this.deck.deal(this.getDealerHand());
     }
 
@@ -145,7 +142,11 @@ public class BlackJack {
             this.getPlayerHand().setActualValue(0);
             return '1';
         } else{
-            if (this.getDealerHand().getActualValue() > 21) {
+            if (this.getPlayerHand().getblack()) {
+                this.getDealerHand().setActualValue(0);
+                this.getPlayerHand().setActualValue(0);
+                return '0';
+            }else if (this.getDealerHand().getActualValue() > 21) {
                 this.getDealerHand().setActualValue(0);
                 this.getPlayerHand().setActualValue(0);
                 return '0';
@@ -169,23 +170,25 @@ public class BlackJack {
      * This function deals a card to the dealer until he get more than 17
      */
     public void dealerAskCard() {
-       while (this.getDealerHand().getActualValue() < 17) {
+        int dealerScore = this.getDealerHand().getActualValue();
+        while (dealerScore < 17) {
            Card card = this.deck.deal(this.getDealerHand());
-       }
+           dealerScore = this.getDealerHand().getActualValue();
+        }
     }
 
     /**
      * This function restart the game
      */
     public void restart() {
-        this.getPlayerHand().setHandCards(new ArrayList<>());
-        this.dealerHand.setHandCards(new ArrayList<>());
+        this.getPlayerHand().getHandCards().clear();
+        this.dealerHand.getHandCards().clear();
         this.getPlayerHand().setActualValue(0);
         this.getDealerHand().setActualValue(0);
         this.gameOver = false;
         this.playerBet = MIN_BET;
         this.roundCount = 0;
         this.isRunning = true;
-        startGame();
+        this.startGame();
     }
 }

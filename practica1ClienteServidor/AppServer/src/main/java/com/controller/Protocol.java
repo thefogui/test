@@ -68,7 +68,7 @@ public class Protocol {
                         this.askExtraCard();
                         break;
                     case "SHOW":
-                        if (this.blackJack.getPlayerHand().getActualValue() >= 21) {
+                        if (this.blackJack.getPlayerHand().getActualValue() > 21) {
                             this.sendClientLost();
                         } else {
                             this.showCards();
@@ -125,6 +125,20 @@ public class Protocol {
      * @throws IOException error writing in the scoket
      */
     private void sendClientLost() throws IOException {
+        String space = this.comutils.read_Char();
+        int length = Integer.parseInt(String.valueOf(this.comutils.read_Char()));
+        String naipe = "", rank = "";
+
+        for (int i = 0; i < length; i++) {
+            space = this.comutils.read_Char();
+            rank = this.comutils.read_Char();
+            naipe = this.comutils.read_Char();
+            Card card = new Card(naipe.charAt(0), rank.charAt(0));
+            this.blackJack.getDealerHand().take(card);
+        }
+        this.writeLog("CLIENTE: " + rank + naipe);
+
+
         this.stringToSend = "WINS";
         this.comutils.writeCommand(this.stringToSend);
         this.comutils.write_SP();
@@ -236,8 +250,6 @@ public class Protocol {
     private void startNewGame() throws IOException {
         this.blackJack.restart();
         this.sendInit(100);
-        this.sendIDCK();
-        this.sendOneCard();
     }
 
     /**
@@ -275,29 +287,19 @@ public class Protocol {
      * @throws IOException error reading and writing in the socket
      */
     private void showCards() throws IOException {
-        int length;
-        String rank;
-        String suit;
-        this.blackJack.getPlayerHand().setHandCards(new ArrayList<>());
-        this.comutils.read_Char();
 
-        length = Integer.parseInt(String.valueOf(this.comutils.read_Char()));
+        String space = this.comutils.read_Char();
+        int length = Integer.parseInt(String.valueOf(this.comutils.read_Char()));
+        String naipe = "", rank = "";
 
         for (int i = 0; i < length; i++) {
-            this.comutils.read_Char();
+            space = this.comutils.read_Char();
             rank = this.comutils.read_Char();
-            if (rank.equals(String.valueOf('3')))
-                rank = "H";
-            else if (rank.equals(String.valueOf('4')))
-                rank = "D";
-            else if (rank.equals(String.valueOf('5')))
-                rank = "C";
-            else
-                rank = "S";
-            suit = this.comutils.read_Char();
-            this.blackJack.getPlayerHand().take(rank.charAt(0), suit.charAt(0));
-            this.writeLog("CLIENTE: "+ rank + suit);
+            naipe = this.comutils.read_Char();
+            Card card = new Card(naipe.charAt(0), rank.charAt(0));
+            this.blackJack.getDealerHand().take(card);
         }
+        this.writeLog("CLIENTE: " + rank + naipe);
         this.blackJack.dealerAskCard();
         this.sendSHOW();
     }

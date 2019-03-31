@@ -80,14 +80,14 @@ public class Protocol {
      * @throws IOException error writing the message in the socket
      */
     public void sendShow() throws IOException {
-        int length = this.blackJack.getPlayerHand().getHandCards().size();
+        int length = this.blackJack.getDealerHand().getHandCards().size();
         this.message = "SHOW";
-        this.comUtils.write_string(this.message);
-
+        this.comUtils.writeCommand(this.message);
         this.comUtils.write_SP();
+
         this.comUtils.writeChar(Character.forDigit(length,10));
 
-        for(Card card : this.blackJack.getPlayerHand().getHandCards()) {
+        for(Card card : this.blackJack.getDealerHand().getHandCards()) {
             this.comUtils.write_SP();
             this.comUtils.writeChar(card.getRank());
             this.comUtils.writeChar(card.getCardNaipe());

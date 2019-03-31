@@ -300,7 +300,18 @@ public class Menu {
                     this.protocol.sendHitt();
                 }else if(option == 2){
                     this.protocol.sendBet();
-                    this.getAction();
+                    System.out.println("--------------------------------");
+                    System.out.println("    Select a number:");
+                    System.out.println("    1. Ask for a new card");
+                    System.out.println("    2. Send cards");
+                    System.out.println("--------------------------------");
+                    option = this.scanner.nextInt();
+
+                    if (option == 1)
+                        this.protocol.sendHitt();
+                    else if (option == 2) {
+                        this.protocol.sendShow();
+                    }
                 } else if (option == 3) {
                     this.protocol.sendShow();
                 }else if (option == 4) {
@@ -317,7 +328,18 @@ public class Menu {
 
                 if (option == 1) {
                     this.protocol.sendBet();
-                    this.getAction();
+                    System.out.println("--------------------------------");
+                    System.out.println("    Select a number:");
+                    System.out.println("    1. Ask for a new card");
+                    System.out.println("    2. Send cards");
+                    System.out.println("--------------------------------");
+                    option = this.scanner.nextInt();
+
+                    if (option == 1)
+                        this.protocol.sendHitt();
+                    else if (option == 2) {
+                        this.protocol.sendShow();
+                    }
                 }else if(option == 2){
                     this.protocol.sendShow();
                 } else if (option == 3) {
@@ -337,9 +359,7 @@ public class Menu {
                     this.protocol.sendHitt();
                 else if (option == 2) {
                     this.protocol.sendShow();
-
                 }
-
             } else {
                 System.out.println("--------------------------------");
                 System.out.println("    Select a number:");
@@ -349,7 +369,6 @@ public class Menu {
 
                 if (option == 1) {
                     this.protocol.sendShow();
-
                 }
             }
         }
