@@ -41,11 +41,11 @@ public class Card {
      */
     public char getCardProtcolNaipe() {
         char naipe;
-        if (this.cardNaipe == 'C')
+        if (this.cardNaipe == 'H')
             naipe = (char) 0x03;
         else if (this.cardNaipe == 'D')
             naipe = (char) 0x04;
-        else if (this.cardNaipe == 'H')
+        else if (this.cardNaipe == 'C')
             naipe = (char) 0x05;
         else
             naipe = (char) 0x06;

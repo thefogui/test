@@ -165,9 +165,20 @@ public class ComUtils {
         char cStr;
 
         bStr = read_bytes(1);
+
+        if (String.valueOf( bStr[0]).equals("3"))
+            return "3";
+        if (String.valueOf( bStr[0]).equals("4"))
+            return "4";
+        if (String.valueOf( bStr[0]).equals("5"))
+            return "5";
+        if (String.valueOf( bStr[0]).equals("6"))
+            return "6";
+
         cStr = (char) bStr[0];
 
-        str = String.valueOf(cStr);
+
+        str = Character.toString(cStr);
         return str;
     }
 

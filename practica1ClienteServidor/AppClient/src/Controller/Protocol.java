@@ -141,7 +141,7 @@ public class Protocol {
         String space = this.read_sp();
         String naipe, rank;
         rank = this.comUtils.read_Char();
-        naipe = this.comUtils.read_Char();;
+        naipe = this.comUtils.read_Char();
         Card card = new Card(naipe.charAt(0), rank.charAt(0));
         this.blackJack.getPlayerHand().take(card);
         return card.toString();

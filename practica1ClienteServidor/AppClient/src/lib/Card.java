@@ -1,4 +1,4 @@
-/*
+/**
  * This class can be used to generate one card object
  *
  * Authors: Vitor Carvalho and Ivet Aymerich
@@ -13,15 +13,14 @@ public class Card {
 
     public Card(char cardNaipe, char rank) {
         if (cardNaipe == '3')
-            cardNaipe = 'H';
+            this.cardNaipe = 'H';
         else if (cardNaipe == '4')
-            cardNaipe = 'D';
+            this.cardNaipe = 'D';
         else if (cardNaipe == '5')
-            cardNaipe = 'C';
+            this.cardNaipe = 'C';
         else
-            cardNaipe = 'S';
+            this.cardNaipe = 'S';
 
-        this.cardNaipe = cardNaipe;
         this.rank = rank;
 
         this.value = this.calculateValue(); //calculate the value of the card
@@ -86,7 +85,7 @@ public class Card {
     public String toString() {
         String suit = "";
         String rank = "";
-        if (this.cardNaipe=='H')
+        if (this.cardNaipe == 'H')
             suit = "\u2665";
         else if(this.cardNaipe=='D')
             suit = "\u2666";
