@@ -1,4 +1,4 @@
-/*
+/**
  * Class protocol, it has the functions to communicate with the server.
  *
  * Authors: Vitor Carvalho and Ivet Aymerich
@@ -318,6 +318,10 @@ public class Protocol {
      */
     public ArrayList<Card> getDealerHand() {
         return this.blackJack.getDealerHand().getHandCards();
+    }
+
+    public void setPlayerCash(int cash) {
+        this.blackJack.setPlayerMoney(cash);
     }
 }
 

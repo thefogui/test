@@ -257,6 +257,7 @@ public class Menu {
             System.out.println("    Entry the amount of cash:");
             System.out.println("--------------------------------");
             cash = this.scanner.nextInt();
+            this.protocol.setPlayerCash(cash);
             this.protocol.sendCash(cash);
             this.firstCash = false;
         } else {

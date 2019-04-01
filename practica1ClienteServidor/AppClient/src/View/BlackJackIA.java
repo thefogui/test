@@ -168,10 +168,14 @@ public class BlackJackIA {
     public void sendCash() throws IOException {
         int cash;
 
-        if (this.protocol.getPlayerScore() == 0)
+        if (firstCash) {
             cash = this.anyRandomIntRange(this.minBet, Integer.MAX_VALUE);
+            this.protocol.setPlayerCash(cash);
+        }
         else
-            cash = this.protocol.getPlayerScore();
+            cash = this.protocol.getPlayerCash();
+
+        this.firstCash = false;
 
         System.out.println("--------------------------------");
         System.out.println("    Sending cash: " + cash);

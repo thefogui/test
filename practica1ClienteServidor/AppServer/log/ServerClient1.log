@@ -2578,3 +2578,133 @@ Mar 31, 2019 5:42:57 PM main.java.com.controller.Protocol writeLog
 INFO: SERVIDOR: WINS 2 200
 Mar 31, 2019 5:42:57 PM main.java.com.controller.Protocol writeLog
 INFO: CLIENTE: EXIT
+Apr 01, 2019 6:56:19 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: STRT
+Apr 01, 2019 6:56:19 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: 123
+Apr 01, 2019 6:56:19 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Apr 01, 2019 6:56:21 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Apr 01, 2019 6:56:21 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: ERRO  The cash should be greater than 100
+Apr 01, 2019 7:32:06 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: STRT
+Apr 01, 2019 7:32:06 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: 1
+Apr 01, 2019 7:32:06 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Apr 01, 2019 7:32:08 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Apr 01, 2019 7:32:08 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 2♣
+Apr 01, 2019 7:32:08 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 7♦
+Apr 01, 2019 7:32:08 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 4♠
+Apr 01, 2019 7:32:12 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Apr 01, 2019 7:32:12 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD 6♣
+Apr 01, 2019 7:32:19 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: HITT
+Apr 01, 2019 7:32:19 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: CARD J♥
+Apr 01, 2019 7:32:21 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: SHOW
+Apr 01, 2019 7:32:21 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: JJ
+Apr 01, 2019 7:32:21 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: WINS 1 100
+Apr 01, 2019 7:32:32 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: RPLY
+Apr 01, 2019 7:32:32 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Apr 01, 2019 7:32:36 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Apr 01, 2019 7:32:36 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 10♦
+Apr 01, 2019 7:32:36 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 8♣
+Apr 01, 2019 7:32:36 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 8♠
+Apr 01, 2019 7:32:43 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: BETT
+Apr 01, 2019 7:32:44 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: SHOW
+Apr 01, 2019 7:32:44 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: 88
+Apr 01, 2019 7:32:44 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 8♠
+Apr 01, 2019 7:32:44 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 10
+Apr 01, 2019 7:32:44 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 8
+Apr 01, 2019 7:32:44 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: WINS 2 200
+Apr 01, 2019 7:32:48 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: RPLY
+Apr 01, 2019 7:32:48 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Apr 01, 2019 7:32:50 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Apr 01, 2019 7:32:50 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 5♦
+Apr 01, 2019 7:32:50 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK K♥
+Apr 01, 2019 7:32:50 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 2♣
+Apr 01, 2019 7:32:53 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: SRND
+Apr 01, 2019 7:32:53 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: WINS
+Apr 01, 2019 7:32:55 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: EXIT
+Apr 01, 2019 8:15:58 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: STRT
+Apr 01, 2019 8:15:58 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: 1234
+Apr 01, 2019 8:15:58 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Apr 01, 2019 8:16:01 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Apr 01, 2019 8:16:01 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK J♠
+Apr 01, 2019 8:16:01 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK 6♠
+Apr 01, 2019 8:16:01 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 10♦
+Apr 01, 2019 8:16:04 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: SHOW
+Apr 01, 2019 8:16:04 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: X
+Apr 01, 2019 8:16:04 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 10♦
+Apr 01, 2019 8:16:04 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 10
+Apr 01, 2019 8:16:04 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: WINS 2 100
+Apr 01, 2019 8:16:08 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: RPLY
+Apr 01, 2019 8:16:08 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: INIT 100
+Apr 01, 2019 8:16:08 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: CASH
+Apr 01, 2019 8:16:08 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK K♦
+Apr 01, 2019 8:16:08 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: IDCK A♠
+Apr 01, 2019 8:16:08 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 9♣
+Apr 01, 2019 8:16:23 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: BETT
+Apr 01, 2019 8:16:24 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: SHOW
+Apr 01, 2019 8:16:24 PM main.java.com.controller.Protocol writeLog
+INFO: CLIENTE: 9
+Apr 01, 2019 8:16:24 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 9♣
+Apr 01, 2019 8:16:24 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: SHOW 9
+Apr 01, 2019 8:16:24 PM main.java.com.controller.Protocol writeLog
+INFO: SERVIDOR: WINS 2 200

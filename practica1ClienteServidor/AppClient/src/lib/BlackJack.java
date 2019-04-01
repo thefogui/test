@@ -1,4 +1,4 @@
-/*
+/**
  * Class that refers to the blackJack
  * Can save the player and the dealer hand
  *
@@ -25,7 +25,7 @@ public class BlackJack {
         this.playerName = playerName;
         this.playerHand = new Hand(String.valueOf(this.playerName));
         this.dealerHand = new Hand("Dealer");
-        this.playerMoney = this.playerHand.getCash();
+        this.playerMoney = 0;
         this.gameOver = false;
         this.playerBet = MAX_BET;
         this.roundCount = 0;

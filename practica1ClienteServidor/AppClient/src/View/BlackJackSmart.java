@@ -159,11 +159,13 @@ public class BlackJackSmart {
     public void sendCash() throws IOException {
         int cash;
 
-        if (this.protocol.getPlayerCash() == 0)
+        if (firstCash) {
             cash = this.anyRandomIntRange(this.minBet, Integer.MAX_VALUE);
-        else
+            this.protocol.setPlayerCash(cash);
+        } else
             cash = this.protocol.getPlayerCash();
 
+        this.firstCash = false;
         System.out.println("--------------------------------");
         System.out.println("    Sending cash: " + cash);
         System.out.println("--------------------------------");
