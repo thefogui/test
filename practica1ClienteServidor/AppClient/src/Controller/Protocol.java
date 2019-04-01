@@ -128,7 +128,6 @@ public class Protocol {
      * @throws IOException error reading the message in the socket
      */
     public String handlerError() throws IOException {
-        String space = this.comUtils.read_Char();
         return this.comUtils.readErrorMessage();
     }
 

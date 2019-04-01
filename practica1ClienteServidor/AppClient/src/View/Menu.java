@@ -181,7 +181,7 @@ public class Menu {
                         this.menuReplay();
                         break;
                     case "ERRO":
-                        this.protocol.handlerError();
+                        System.out.println(this.protocol.handlerError());
                         //enviar exit
                         this.protocol.setPlaying(false);
                         break;

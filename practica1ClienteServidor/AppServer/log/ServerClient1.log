@@ -2708,3 +2708,13 @@ Apr 01, 2019 8:16:24 PM main.java.com.controller.Protocol writeLog
 INFO: SERVIDOR: SHOW 9
 Apr 01, 2019 8:16:24 PM main.java.com.controller.Protocol writeLog
 INFO: SERVIDOR: WINS 2 200
+abr 01, 2019 10:03:26 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: CLIENTE: STRT
+abr 01, 2019 10:03:26 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: CLIENTE: 123
+abr 01, 2019 10:03:26 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: SERVIDOR: INIT 100
+abr 01, 2019 10:03:28 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: CLIENTE: CASH
+abr 01, 2019 10:03:28 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: SERVIDOR: ERRO  The cash should be greater than 100

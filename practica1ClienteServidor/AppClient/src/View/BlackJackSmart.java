@@ -211,7 +211,7 @@ public class BlackJackSmart {
                         this.replayOrExit();
                         break;
                     case "ERRO":
-                        this.protocol.handlerError();
+                        System.out.println(this.protocol.handlerError());
                         //enviar exit
                         this.protocol.setPlaying(false);
                         break;

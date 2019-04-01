@@ -3,16 +3,29 @@
   <component name="ChangeListManager">
     <list default="true" id="ae54573e-caa3-4fbb-80f7-347cbe1b3219" name="Default Changelist" comment="Inte">
       <change beforePath="$PROJECT_DIR$/../AppClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/Controller/ComUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/Controller/ComUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/Controller/Protocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/Controller/Protocol.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/BlackJackIA.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/BlackJackIA.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/BlackJackSmart.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/BlackJackSmart.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/out/production/AppClient/View/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppClient/src/Controller/ComUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/Controller/ComUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/src/Controller/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/Controller/Protocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/src/View/BlackJackIA.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/View/BlackJackIA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/src/View/BlackJackSmart.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/View/BlackJackSmart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppClient/src/View/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/View/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AppClient/src/lib/BlackJack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppClient/src/lib/BlackJack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppClient/src/test/Controller/ComUtilsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppClient/src/test/lib/BlackJackTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppClient/src/test/lib/CardTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppClient/src/test/lib/HandTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/ServerClient1.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/ServerClient1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppServer/main/java/com/controller/ComUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppServer/main/java/com/controller/ComUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/ComUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/ComUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServerSelector/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServerSelector/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServerSelector/log/ServerClient1.log" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServerSelector/log/ServerClient1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServerSelector/out/production/AppServerSelector/main/java/com/controller/ComUtils$Endianness.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServerSelector/out/production/AppServerSelector/main/java/com/controller/ComUtils$Endianness.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServerSelector/out/production/AppServerSelector/main/java/com/controller/ComUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServerSelector/out/production/AppServerSelector/main/java/com/controller/ComUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppServerSelector/src/main/java/com/controller/ComUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AppServerSelector/src/main/java/com/controller/ComUtils.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,7 +46,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/model/Card.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
+            <state relative-caret-position="748">
               <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
               <folding>
                 <element signature="e#567#568#0" expanded="true" />
@@ -48,7 +61,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/Mainthread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
+            <state relative-caret-position="527">
               <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -58,63 +71,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/lang/Thread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="698" column="29" selection-start-line="698" selection-start-column="29" selection-end-line="698" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="uml://JAVA/main.java.com">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement>main.java.com</OriginalElement>
-              <nodes>
-                <node x="120.79999999999998" y="182.0">Server</node>
-                <node x="57.5" y="0.0">main.java.com.model</node>
-                <node x="40.0" y="76.0">main.java.com.controller</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="Server" target="main.java.com.controller">
-                  <point x="22.0" y="-13.0" />
-                  <point x="186.79999999999998" y="162.0" />
-                  <point x="180.39999999999998" y="162.0" />
-                  <point x="62.39999999999998" y="13.0" />
-                </edge>
-                <edge source="main.java.com.controller" target="main.java.com.model">
-                  <point x="52.0" y="-13.0" />
-                  <point x="170.0" y="51.0" />
-                  <point x="158.33333333333334" y="51.0" />
-                  <point x="40.33333333333334" y="13.0" />
-                </edge>
-                <edge source="main.java.com.controller" target="main.java.com.controller">
-                  <point x="-31.200000000000003" y="13.0" />
-                  <point x="86.8" y="132.0" />
-                  <point x="10.0" y="132.0" />
-                  <point x="10.0" y="89.0" />
-                  <point x="-78.0" y="-0.0" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="1.0" x="-394.5" y="41.0" />
-              <SelectedNodes>
-                <node>main.java.com.model</node>
-              </SelectedNodes>
-              <Categories />
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/Protocol.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="391" column="27" lean-forward="true" selection-start-line="391" selection-start-column="27" selection-end-line="391" selection-end-column="27" />
+            <state relative-caret-position="5252">
+              <caret line="391" column="27" selection-start-line="391" selection-start-column="27" selection-end-line="391" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,10 +82,19 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/ComUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="232" column="24" selection-start-line="232" selection-start-column="24" selection-end-line="232" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/ServerThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
+            <state relative-caret-position="561">
               <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -137,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+            <state relative-caret-position="187">
+              <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -147,64 +116,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="uml://JAVA/main.java.com.controller">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement>main.java.com.controller</OriginalElement>
-              <nodes>
-                <node x="0.0" y="0.0">main.java.com.controller.Protocol</node>
-                <node x="0.0" y="688.0">main.java.com.controller.ServerThread</node>
-                <node x="283.0" y="0.0">main.java.com.controller.ComUtils</node>
-                <node x="660.0" y="0.0">main.java.com.controller.Mainthread</node>
-              </nodes>
-              <notes />
-              <edges />
-              <settings layout="Hierarchic Group" zoom="1.0" x="-331.0" y="409.0" />
-              <SelectedNodes>
-                <node>main.java.com.controller.Protocol</node>
-              </SelectedNodes>
-              <Categories>
-                <Category>Methods</Category>
-                <Category>Fields</Category>
-              </Categories>
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="uml://JAVA/main.java.com.model">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement>main.java.com.model</OriginalElement>
-              <nodes>
-                <node x="0.0" y="798.0">main.java.com.model.Users</node>
-                <node x="0.0" y="0.0">main.java.com.model.BlackJack</node>
-                <node x="863.0" y="0.0">main.java.com.model.Card</node>
-                <node x="264.0" y="0.0">main.java.com.model.Hand</node>
-                <node x="583.0" y="0.0">main.java.com.model.Deck</node>
-              </nodes>
-              <notes />
-              <edges />
-              <settings layout="Hierarchic Group" zoom="1.0" x="-399.0" y="320.0" />
-              <SelectedNodes />
-              <Categories>
-                <Category>Fields</Category>
-                <Category>Methods</Category>
-              </Categories>
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/model/Deck.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
+            <state relative-caret-position="1054">
               <caret line="79" selection-start-line="79" selection-end-line="79" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -231,7 +145,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/controller/ServerSocket.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Server.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/model/DeckTest.groovy" />
-        <option value="$PROJECT_DIR$/src/main/java/com/controller/ComUtils.java" />
         <option value="$PROJECT_DIR$/src/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controller/Mainthread.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controller/ServerThread.java" />
@@ -241,13 +154,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/model/BlackJack.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controller/Protocol.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/model/Card.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controller/ComUtils.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="23" />
-    <option name="width" value="1680" />
-    <option name="height" value="974" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="676" />
+    <option name="width" value="697" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -256,6 +170,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -297,7 +212,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -323,7 +237,7 @@
     <configuration name="Server" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server" />
       <module name="AppServer" />
-      <option name="PROGRAM_PARAMETERS" value="-p 1212" />
+      <option name="PROGRAM_PARAMETERS" value="-p 2000" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value=".*" />
@@ -347,18 +261,18 @@
       <updated>1552155961919</updated>
       <workItem from="1552836496158" duration="7249000" />
       <workItem from="1554106546124" duration="4549000" />
+      <workItem from="1554148097778" duration="1040000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4549000" />
+    <option name="totallyTimeSpent" value="5589000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
+    <frame x="676" y="0" width="697" height="735" extended-state="0" />
     <layout>
       <window_info id="Learn" order="0" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.66714907" visible="true" weight="0.0976801" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.66714907" visible="true" weight="0.3233909" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -366,12 +280,11 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" sideWeight="0.33285093" side_tool="true" weight="0.093406595" />
       <window_info id="simpleUML" order="8" weight="0.32967034" />
-      <window_info anchor="bottom" id="Dependency Viewer" weight="0.32959184" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" sideWeight="0.4981685" weight="0.27040815" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" sideWeight="0.47741148" visible="true" weight="0.29489797" />
+      <window_info active="true" anchor="bottom" id="Run" order="4" sideWeight="0.47741148" visible="true" weight="0.29401994" />
       <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.5672589" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
@@ -380,6 +293,7 @@
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.52258855" side_tool="true" weight="0.29489797" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.4989059" weight="0.32899022" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4949495" weight="0.32857144" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="13" weight="0.32959184" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
@@ -443,13 +357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/ComUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3255">
-          <caret line="218" selection-start-line="218" selection-end-line="218" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/model/Hand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
@@ -466,29 +373,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="28" selection-start-column="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/Deck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/Card.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
-          <folding>
-            <element signature="e#567#568#0" expanded="true" />
-            <element signature="e#595#596#0" expanded="true" />
-            <element signature="e#1270#1271#0" expanded="true" />
-            <element signature="e#1312#1313#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -524,7 +408,7 @@
               <point x="-78.0" y="-0.0" />
             </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="-394.5" y="41.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-394.0" y="41.0" />
           <SelectedNodes>
             <node>main.java.com.model</node>
           </SelectedNodes>
@@ -552,8 +436,8 @@
             <node>main.java.com.controller.Protocol</node>
           </SelectedNodes>
           <Categories>
-            <Category>Methods</Category>
             <Category>Fields</Category>
+            <Category>Methods</Category>
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
@@ -585,16 +469,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/lang/Thread.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/lang/Thread.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/Card.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="698" column="29" selection-start-line="698" selection-start-column="29" selection-end-line="698" selection-end-column="29" />
+        <state relative-caret-position="748">
+          <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+          <folding>
+            <element signature="e#567#568#0" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#1270#1271#0" expanded="true" />
+            <element signature="e#1312#1313#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/Mainthread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
+        <state relative-caret-position="527">
           <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -604,7 +495,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/ServerThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
+        <state relative-caret-position="561">
           <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -614,8 +505,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        <state relative-caret-position="187">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/Deck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -624,11 +525,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/Protocol.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="391" column="27" lean-forward="true" selection-start-line="391" selection-start-column="27" selection-end-line="391" selection-end-column="27" />
+        <state relative-caret-position="5252">
+          <caret line="391" column="27" selection-start-line="391" selection-start-column="27" selection-end-line="391" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/ComUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="232" column="24" selection-start-line="232" selection-start-column="24" selection-end-line="232" selection-end-column="24" />
         </state>
       </provider>
     </entry>

@@ -110,42 +110,41 @@ public class ComUtils {
 
     /* Llegir un string  mida variable size = nombre de bytes especifica la longitud*/
     public  String read_string_variable(int size) throws IOException {
-        byte bHeader[] = new byte[size];
-        char cHeader[] = new char[size];
-        int numBytes = size;
+        String result;
+        byte[] bStr = new byte[size];
+        char[] cStr = new char[size];
 
-        // Llegim l'string
-        byte bStr[]=new byte[size];
-        char cStr[]=new char[size];
-        bStr = read_bytes(numBytes);
-        for(int i=0;i<numBytes;i++)
-            cStr[i]=(char)bStr[i];
-        return String.valueOf(cStr);
+        bStr = read_bytes(size);
+
+        for(int i = 0; i < size;i++)
+            cStr[i]= (char) bStr[i];
+
+        result = String.valueOf(cStr);
+
+        return result;
     }
 
     /* Escriure un string mida variable, size = nombre de bytes especifica la longitud  */
     /* String str = string a escriure.*/
     public void write_string_variable(int size,String str) throws IOException {
+        int numBytes, lenStr;
+        byte bStr[] = new byte[size];
 
-        // Creem una seqüència amb la mida
-        byte bHeader[]=new byte[size];
-        String strHeader;
-        int numBytes=0;
+        lenStr = str.length();
 
-        // Creem la capçalera amb el nombre de bytes que codifiquen la mida
-        numBytes=str.length();
+        if (lenStr > size)
+            numBytes = size;
+        else
+            numBytes = lenStr;
 
-        strHeader=String.valueOf(numBytes);
-        int len;
-        if ((len=strHeader.length()) < size)
-            for (int i =len; i< size;i++){
-                strHeader= "0"+strHeader;}
-        for(int i=0;i<size;i++)
-            bHeader[i]=(byte)strHeader.charAt(i);
-        // Enviem la capçalera
-        dataOutputStream.write(bHeader, 0, size);
-        // Enviem l'string writeBytes de DataOutputStrem no envia el byte més alt dels chars.
-        dataOutputStream.writeBytes(str);
+        for(int i = 0; i < numBytes; i++)
+            bStr[i] = (byte) str.charAt(i);
+
+        for(int i = numBytes; i <size; i++)
+            bStr[i] = (byte) ' ';
+
+        dataOutputStream.write(bStr, 0, size);
+
     }
 
     public void write_SP() throws IOException {
@@ -231,6 +230,7 @@ public class ComUtils {
     }
 
     public void writeErrorMessage(char c1, char c2, int size,String message) throws IOException {
+        this.write_SP();
         this.writeChar(c1);
         this.writeChar(c2);
         this.write_string_variable(size, message); //maximum size of
