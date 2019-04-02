@@ -6566,3 +6566,51 @@ abr 01, 2019 10:06:30 PM main.java.com.controller.Protocol writeLog
 INFORMACIÓN: CLIENTE: CASH
 abr 01, 2019 10:06:30 PM main.java.com.controller.Protocol writeLog
 INFORMACIÓN: SERVIDOR: ERRO  The cash should be greater than 100
+abr 02, 2019 6:09:28 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: CLIENTE: STRT
+abr 02, 2019 6:09:28 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: CLIENTE: 123
+abr 02, 2019 6:09:28 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: SERVIDOR: INIT 100
+abr 02, 2019 6:09:30 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: CLIENTE: CASH
+abr 02, 2019 6:09:30 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: SERVIDOR: IDCK 4♦
+abr 02, 2019 6:09:30 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: SERVIDOR: IDCK 6♠
+abr 02, 2019 6:09:30 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: SERVIDOR: SHOW J♠
+abr 02, 2019 6:12:42 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: CLIENTE: SRND
+abr 02, 2019 6:12:42 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: SERVIDOR: WINS
+abr 02, 2019 6:12:44 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: CLIENTE: EXIT
+abr 02, 2019 6:12:44 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: CLIENTE: STRT
+abr 02, 2019 6:12:44 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: CLIENTE: 123
+abr 02, 2019 6:12:44 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: SERVIDOR: INIT 100
+abr 02, 2019 6:12:49 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: CLIENTE: CASH
+abr 02, 2019 6:12:49 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: SERVIDOR: IDCK A♣
+abr 02, 2019 6:12:49 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: SERVIDOR: IDCK 5♥
+abr 02, 2019 6:12:49 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: SERVIDOR: SHOW 8♥
+abr 02, 2019 6:29:02 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: CLIENTE: STRT
+abr 02, 2019 6:29:02 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: CLIENTE: 123
+abr 02, 2019 6:29:02 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: SERVIDOR: INIT 100
+abr 02, 2019 6:29:03 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: CLIENTE: CASH
+abr 02, 2019 6:29:03 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: SERVIDOR: IDCK 5♥
+abr 02, 2019 6:29:03 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: SERVIDOR: IDCK 7♣
+abr 02, 2019 6:29:03 PM main.java.com.controller.Protocol writeLog
+INFORMACIÓN: SERVIDOR: SHOW 9♥
