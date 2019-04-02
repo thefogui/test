@@ -1,5 +1,7 @@
 package Controller;
 
+import com.sun.deploy.util.SyncFileAccess;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -10,6 +12,12 @@ public class ComUtils {
     public ComUtils(Socket socket) throws IOException {
         dataInputStream = new DataInputStream(socket.getInputStream());
         dataOutputStream = new DataOutputStream(socket.getOutputStream());
+    }
+
+    public ComUtils(DataInputStream dataInputStream, DataOutputStream dataOutputStream) throws IOException {
+        this.dataInputStream = dataInputStream;
+
+        this.dataOutputStream = dataOutputStream;
     }
 
     public int read_int32() throws IOException {

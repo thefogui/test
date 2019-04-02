@@ -3,21 +3,34 @@ package test.Controller;
 import Controller.ComUtils;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ComUtilsTest {
 
     @Test
     void readCommand() {
         try {
-            System.out.println(1);
-            ComUtils comUtils = new ComUtils(new Socket("localhost", 1312));
-            System.out.println(2);
-            String readString = comUtils.read_string();
-            System.out.println(readString);
+            File file = new File("test.txt");
+
+            FileInputStream fileInputStream = new FileInputStream("test.txt");
+
+            if (file.createNewFile()) {
+                System.out.println("File is created!");
+            } else {
+                System.out.println("File already exists.");
+            }
+            FileOutputStream fileOutputStream = new FileOutputStream("test.txt" );
+
+            ComUtils comUtils = new ComUtils(new DataInputStream(fileInputStream), new DataOutputStream(fileOutputStream));
+            comUtils.write_string("STRT");
+
+            assertEquals("STRT", comUtils.readCommand());
+
         } catch (IOException ex) {
-            System.err.println("Error with the socket");
+            System.err.println("Error with the socket " + ex.getMessage());
         }
     }
 }
