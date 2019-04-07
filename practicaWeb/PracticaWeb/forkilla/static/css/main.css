@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100vw;
+    float: left;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    background: black;
+    position: fixed;
+    margin-top: 0px;
+    top: 0;
+    transform: translateZ(0px);
+    left: 0;
+    z-index: 11;
+}
+
+.header::after {
+    margin-top: 0px;
+    top: 0;
+}
+
+.header::before {
+    margin-top: 0px;
+    top: 0;
+}
+
+header .header_logo {
+    margin-left: 30px;
+    top: 0;
+    display: block;
+    float: left;
+    width: 70vw;
+    position: relative;
+}
+
+.logo {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Lobster Two', cursive;
+    font-family: 'Grand Hotel', cursive;
+    font-family: 'Pacifico', cursive;
+    text-decoration: none;
+    font-size: 1.4em;
+    color: rgb(199, 14, 147);
+}
+
+.logo:hover {
+    color: rgb(135, 6, 156);
+}
+
+header .login-section {
+    position: relative;
+    display: block;
+    float: right;
+    width: 30vw;
+}
+
+.group {
+    
+}

@@ -1,0 +1,18 @@
+
+
+{% if city%} 
+  {{city}}
+{% endif %}
+
+{% if restaurants %}
+	{% if promoted %}
+        <h2>Promoted Restaurants</h2>
+    {% endif %}
+    <ul>
+    {% for restaurant in restaurants %}
+    	<li><a href="{% url 'restaurants' restaurant.city%}"> {{restaurant.get_human_city}} </a>  {{restaurant.name}}  : {{restaurant.menu_description}}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No restaurants are available.</p>
+{% endif %}
