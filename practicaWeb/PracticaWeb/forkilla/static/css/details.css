@@ -1,0 +1,97 @@
+.container {
+    height: 81vh;
+    margin-top: 12vh;
+}
+
+.center {    
+    margin: auto;
+    text-align: center;
+    color: rgba(20, 20, 20);
+}
+
+.restaurant_name {
+    
+}
+
+.title {
+    font-family: 'Alex Brush', cursive;
+    font-size: 3.0em;
+}
+
+.restaurant_name h2 {
+    text-transform: uppercase;
+}
+
+.restaurant_name .title {
+    font-size: 7.0em;
+    color: rgb(199, 14, 147);
+}
+
+.restaurant_name p {
+    text-transform: uppercase;
+}
+
+#asterisk {
+    line-height: 2em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: black;
+    text-align: center;
+    height: 2.5em;
+    opacity: .5;
+}
+
+#asterisk::before {
+    content: '';
+    background: linear-gradient(to right, transparent, #818078, transparent);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+}
+ 
+#asterisk::after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+    padding: 0 .5em;
+    line-height: 2.5em;    
+    color: #818078;
+    background-color: #fcfcfa;
+}
+
+.card {
+    width: 100vw;
+    display: block;
+    float: left;
+    position: relative;
+    margin: auto;
+    margin-top: 7vh;
+}
+
+.card_text_div {
+    width: 55vw;
+    display: block;
+    position: relative;
+    float: left;
+    margin: auto;
+    text-align: center;
+    margin-left: 5vw;
+}
+
+.card_image {
+    width: 35vw;
+    display: block;
+    float: left;
+    margin: auto;
+    position: relative;
+    margin-right: 5vw;
+}
+
+.card_image  img {
+    width: 100%;
+    display: block;
+}

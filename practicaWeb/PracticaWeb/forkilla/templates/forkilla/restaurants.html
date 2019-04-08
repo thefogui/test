@@ -9,10 +9,16 @@
         <h2>Promoted Restaurants</h2>
     {% endif %}
     <ul>
-    {% for restaurant in restaurants %}
-    	<li><a href="{% url 'restaurants' restaurant.city%}"> {{restaurant.get_human_city}} </a>  {{restaurant.name}}  : {{restaurant.menu_description}}</li>
-    {% endfor %}
+        <form action="{% url 'reservation'%}" method="get">
+            {% for restaurant in restaurants %}
+               <a href="{% url 'restaurants' restaurant.category%}"> {{restaurant.get_human_category}}</a> <br>
+              <a href="{% url 'details' restaurant.restaurant_number%}"> {{restaurant.name}} </a> : {{restaurant.menu_description}}
+               <button type="submit" name="reservation" value={{restaurant.restaurant_number}}> Reserva</button>
+               <br>
+           {% endfor %}
+           </form>
     </ul>
 {% else %}
     <p>No restaurants are available.</p>
 {% endif %}
+
