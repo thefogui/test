@@ -52,12 +52,50 @@ header .header_logo {
 }
 
 header .login-section {
-    position: relative;
-    display: block;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
     float: right;
     width: 30vw;
 }
 
+header .login-section form {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    width: 100%;
+}
+
 .group {
+    position: relative;
+    height: auto;
+    width: 26%;
+    display: inline;
+    float: left;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.group input {
+    border: none;
+    border-bottom: 1px solid rgb(199, 14, 147);
+    display: inline;
+    background: black;
+    color: rgb(199, 14, 147);
+    margin-top: 4vh;
+    font-size: 0.8em;
+}
+
+.group input[type=submit] {
+    border: 1px solid rgb(199, 14, 147);
+    display: inline;
+    background: black;
+    color: rgb(199, 14, 147);
+    padding: 20px;
+    margin-top: 0;
+}
+
+.group input:focus {
+    outline: none;
     
 }
