@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Restaurant, ViewedRestaurants
+from django.db.models import Q
+from django.shortcuts import render_to_response
+from .models import Restaurant, ViewedRestaurants, Review
 
 # Create your views here.
 def index(request):
@@ -52,11 +54,18 @@ def reservation(request):
             if form.is_valid():
                     resv = form.save(commit=False)
                     restaurant_number = request.session["reserved_restaurant"]
+                    
+                    ##checks if the disponibility of the restaurant for the selected time slot
                     resv.restaurant = Restaurant.objects.get(restaurant_number=restaurant_number)
-                    resv.save()
-                    request.session["reservation"] = resv.id
-                    request.session["result"] = "OK"
-
+                    if checkDisponibility(resv.restaurant):
+                        resv.save()
+                        request.session["reservation"] = resv.id
+                        request.session["result"] = "OK"
+                    else:
+                        context = {
+                            'error' : "Not enough capacity"
+                        }
+                        render(request, 'forkilla/checkout.html', context)
             else:
                   request.session["result"] = form.errors
             return HttpResponseRedirect(reverse('checkout'))
@@ -74,7 +83,14 @@ def reservation(request):
             }
     except Restaurant.DoesNotExist:
         return HttpResponse("Restaurant Does not exists")
-    return render(request, 'forkilla/reservation.html', context)
+    return render(request, 'forkilla/checkout.html', context)
+    
+##checks if the disponibility of the restaurant for the selected time slot    
+def checkDisponibility(restaurant):
+    if restaurant.restaurant_capacity > 0:
+        restaurant.restaurant_capacity = restaurant.restaurant_capacity - 1
+        return True
+    return False
     
 def _check_session(request):
 
@@ -85,3 +101,29 @@ def _check_session(request):
     else:
         viewedrestaurants = ViewedRestaurants.objects.get(id_vr=request.session["viewedrestaurants"])
     return viewedrestaurants
+    
+    
+def review(request):
+    pass
+    
+def search_restaurant(request):
+    """ Search for the GET called q and return the string """
+    query = request.GET.get('q', '')
+    
+    if query:
+        """ icontains accept upper caser and down caser"""
+        qset = (
+            Q(restaurant_number__icontains=query) |
+            Q(name__icontains=query) |
+            Q(city__icontains=query)
+        )
+        
+        #distinct to get only one of the searched restaurant
+        results = Restaurant.objects.filter(qset).distinct()
+    else:
+        results = []
+    
+    return render_to_response("forkilla/search.html", {
+        "results" : results,
+        "query" : query
+    })        

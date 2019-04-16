@@ -1,0 +1,17 @@
+{% if query %}
+        <h2> results for "{{ query|escape }} "</h2>    
+    
+    {% if results %}
+        <ul>
+            {% for restaurant in results %}
+                <li>
+                    {{  restaurant|escape }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>
+            No results found.
+        </p>
+    {% endif %}
+{% endif %}

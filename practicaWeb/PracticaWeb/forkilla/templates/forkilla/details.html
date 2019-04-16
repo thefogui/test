@@ -50,17 +50,9 @@
         </div><!-- Closing div card_image -->
     </div><!-- Closing div card -->
     
-    Your last viewed Restaurants <br>
-    <form action="{% url 'reservation'%}" method="post">
-        {% csrf_token %}
-
-        {% for restaurant in viewedrestaurants.restaurant.all|slice:":5:-1"%}
-        <a href="{% url 'details' restaurant.restaurant_number%}"> {{restaurant.name}} </a> : {{restaurant.menu_description}}
-        <button type="submit" name="reservation" value={{restaurant.restaurant_number}}> Reserva</button>
-        <br>
-
-        {% endfor %}
-    </form>
+    <div class="comment">
+        
+    </div>
     
 </div><!-- Closing div container -->
 {% endblock %}

@@ -80,5 +80,11 @@ class Reservation(models.Model):
         return self._d_slots[self.time_slot]
         
 class ViewedRestaurants(models.Model):
-   		id_vr = models.AutoField(primary_key=True)
-   		restaurant = models.ManyToManyField(Restaurant)
+    id_vr = models.AutoField(primary_key=True)
+    restaurant = models.ManyToManyField(Restaurant)
+        
+class Review(models.Model):
+    reviews_id = models.CharField(max_length=10, unique=True)
+    restaurant_number = models.CharField(max_length=8)
+    message = models.TextField()
+    review_stars = models.PositiveIntegerField()

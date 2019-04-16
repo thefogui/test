@@ -1,0 +1,14 @@
+<p>
+    Your last viewed Restaurants
+</p> 
+<br>
+<form action="{% url 'reservation'%}" method="post">
+    {% csrf_token %}
+
+    {% for restaurant in viewedrestaurants.restaurant.all|slice:":5:-1"%}
+    <a href="{% url 'details' restaurant.restaurant_number%}"> {{restaurant.name}} </a> : {{restaurant.menu_description}}
+    <button type="submit" name="reservation" value={{restaurant.restaurant_number}}> Reserva</button>
+    <br>
+
+    {% endfor %}
+</form>
