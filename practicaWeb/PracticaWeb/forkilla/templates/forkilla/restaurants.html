@@ -1,29 +1,70 @@
 {% extends 'forkilla/base.html' %}
 
-{% block title %}Promoted Restaurants{% endblock %}
+{% block title %} Restaurants {% endblock %}
 
 {% block content %}
 
-{% if city%} 
-  {{city}}
-{% endif %}
+<link rel="stylesheet" href="/static/css/restaurants.css">
 
-{% if restaurants %}
-	{% if promoted %}
-        <h2>Promoted Restaurants</h2>
+<div class="restaurants_section">
+    {% if city %} 
+      <h3>
+          {{city}}
+          <br />
+          {% if category %}
+            <h3>{{city}}</h3>
+          {% endif %}
+      </h3>
     {% endif %}
-    <ul>
-        <form action="{% url 'reservation'%}" method="get">
-            {% for restaurant in restaurants %}
-               <a href="{% url 'restaurants' restaurant.category%}"> {{restaurant.get_human_category}}</a> <br>
-              <a href="{% url 'details' restaurant.restaurant_number%}"> {{restaurant.name}} </a> : {{restaurant.menu_description}}
-               <button type="submit" name="reservation" value={{restaurant.restaurant_number}}> Reserva</button>
-               <br>
-           {% endfor %}
-           </form>
-    </ul>
-{% else %}
-    <p>No restaurants are available.</p>
-{% endif %}
-{% endblock %}
+    
 
+    {% if restaurants %}
+    	{% if promoted %}
+            <h3>Promoted Restaurants</h3>
+        {% endif %}
+        
+            <form action="{% url 'reservation' %}" method="GET">
+                {% for restaurant in restaurants %}
+                   <div class="restaurant">
+                       <div class="restaurant_info">
+                           <!--   the Restaurant rating   -->
+                           <span class="hint-star star">
+                               <i class="fa fa-star" aria-hidden="true"></i>
+                               <i class="fa fa-star" aria-hidden="true"></i>
+                               <i class="fa fa-star" aria-hidden="true"></i>
+                               <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                               <i class="fa fa-star-o" aria-hidden="true"></i>
+                           </span>
+
+                           <h2>
+                               {{ restaurant.name }}
+                           </h2>
+                           <p class="information">
+                               <a href="{% url 'restaurants' restaurant.category %}"> 
+                                   {{restaurant.get_human_category}}
+                               </a>
+                               <br>
+                               <a href="{% url 'details' restaurant.restaurant_number%}"> 
+                                   {{restaurant.name}} 
+                               </a> : {{restaurant.menu_description}}
+                               <button type="submit" name="reservation" value="{{restaurant.restaurant_number}}"> 
+                                   Reserva 
+                               </button>
+                               <br>
+                               
+                               {{  restaurant|escape }}
+                           </p>
+                       </div>
+                       
+                       <div class="restaurant_image">
+                           <img src="https://sc01.alicdn.com/kf/HTB1Cic9HFXXXXbZXpXXq6xXFXXX3/200006212/HTB1Cic9HFXXXXbZXpXXq6xXFXXX3.jpg" alt="Omar Dsoky">
+                       </div>
+                   </div><!-- Closing div restaurants -->
+               {% endfor %}
+               </form>
+        
+    {% else %}
+        <p>No restaurants are available.</p>
+    {% endif %}
+    {% endblock %}
+</div>

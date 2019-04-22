@@ -3,10 +3,17 @@ from django.http import HttpResponse
 from django.db.models import Q
 from django.shortcuts import render_to_response
 from .models import Restaurant, ViewedRestaurants, Review
+from .forms import ReservationForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 def index(request):
-    return render(request, 'forkilla/index.html')
+    restaurants_by_promoted = Restaurant.objects.filter(is_promot="True")
+    context = {
+        'restaurants' : restaurants_by_promoted
+    }
+    return render(request, 'forkilla/index.html', context)
     
 def restaurants(request, city="", category=""):
     promoted = False
@@ -46,7 +53,10 @@ def details(request, restaurant_number=""):
     except Restaurant.DoesNotExist:
         raise Http404('This restaurant is not avaliable in this moment')
     return render(request, 'forkilla/details.html', context)
-    
+
+def checkout(request):
+    return render(request, 'forkilla/checkout.html')
+
 def reservation(request):
     try:
         if request.method == "POST":
@@ -74,6 +84,7 @@ def reservation(request):
             restaurant_number = request.GET["reservation"]
             restaurant = Restaurant.objects.get(restaurant_number=restaurant_number)
             request.session["reserved_restaurant"] = restaurant_number
+            viewedrestaurants = _check_session(request)
 
             form = ReservationForm()
             context = {
@@ -83,7 +94,7 @@ def reservation(request):
             }
     except Restaurant.DoesNotExist:
         return HttpResponse("Restaurant Does not exists")
-    return render(request, 'forkilla/checkout.html', context)
+    return render(request, 'forkilla/reservation.html', context)
     
 ##checks if the disponibility of the restaurant for the selected time slot    
 def checkDisponibility(restaurant):

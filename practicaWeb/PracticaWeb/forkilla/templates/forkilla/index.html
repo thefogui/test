@@ -9,5 +9,28 @@
         <h1>Enjoy your next meal!</h1>
         <h2>Live Life and Eat Happy</h2>
     </div>
+    
+    <div class="prommoted_restaurants_section">
+        <div class="title_promoted_restaurants">
+            <h3>Promoted Restaurants</h3>
+        </div><!-- Closing div title_promoted_restaurants -->
+        
+        <div class="body_promoted_restaurants">
+            
+            {% for restaurant in restaurants %}
+            <div class="restaurant">
+                <img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80"  alt="restaurant_image"/>
+            
+                <div>
+                    <h2>{{restaurant.name}}</h2>
+                    <p>
+                        {{restaurant.menu_description}}
+                    </p>
+                    <a href="{% url 'details' restaurant.restaurant_number%}"> View More </a>
+                </div>
+            </div><!-- Closing div restaurants -->
+            {% endfor %}
+        </div><!-- Closing div body_promoted_restaurants -->
+    </div><!-- Closing div prommoted_restaurants_section -->
 </div><!-- Closing div container -->
 {% endblock %}

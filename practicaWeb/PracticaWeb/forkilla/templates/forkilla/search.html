@@ -1,17 +1,55 @@
-{% if query %}
-        <h2> results for "{{ query|escape }} "</h2>    
-    
-    {% if results %}
-        <ul>
+{% extends 'forkilla/base.html' %}
+
+{% block title %}Results of the search{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/search.css">
+
+<div class="section_search">
+    {% if query %}
+        <h3> Results for "{{ query|escape }} "</h3>    
+        {% if results %}
             {% for restaurant in results %}
-                <li>
-                    {{  restaurant|escape }}
-                </li>
+                <div class="restaurant">
+                    <div class="restaurant_info">
+                        <!--   the Restaurant rating   -->
+                        <span class="hint-star star">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                        </span>
+                                
+                
+                        <h2>
+                            {{  restaurant.name }}
+                        </h2>
+                        <p class="information">
+                            {{  restaurant|escape }}
+                        </p>
+                    </div>
+                    
+                    <div class="restaurant_image">
+                        <img src="https://sc01.alicdn.com/kf/HTB1Cic9HFXXXXbZXpXXq6xXFXXX3/200006212/HTB1Cic9HFXXXXbZXpXXq6xXFXXX3.jpg" alt="Omar Dsoky">
+                    </div>
+                </div><!-- Closing div restaurants -->
             {% endfor %}
-        </ul>
-    {% else %}
-        <p>
-            No results found.
-        </p>
+            
+        {% else %}
+            <div class="no_results">
+                <div>
+                    <img class="img_sad" src="/static/img/sad.png"  alt="sad"/>
+
+                </div>
+                <div>
+                    <p>
+                        No results found.
+                    </p>
+                </div>
+            </div>
+        {% endif %}
     {% endif %}
-{% endif %}
+</div><!-- Closing div section_section -->
+{% endblock %}

@@ -1,14 +1,24 @@
 {% extends 'forkilla/base.html' %}
 
-{% block title %}Promoted Restaurants{% endblock %}
+{% block title %}Reserving Restaurant{% endblock %}
 
 {% block content %}
 
-<h2> Starting reservation for restaurant {{restaurant.name}}</h2>
-<form method="POST" >
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-</form>
+<link rel="stylesheet" href="/static/css/reservation.css">
 
+<div class="resevation_section">
+    <h3> 
+        Starting reservation for restaurant {{restaurant.name}}
+    </h3>
+    
+    <div class="reservation">
+        <div class="form">
+            <form method="POST" >
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Save</button>
+            </form>
+        </div><!-- Closing div reservation -->
+    </div><!-- Closing div form -->
+</div>
 {% endblock %}
