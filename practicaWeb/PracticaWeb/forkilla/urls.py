@@ -1,5 +1,4 @@
 from django.conf.urls import url
-
 from . import views
 
 urlpatterns = [
@@ -12,4 +11,5 @@ urlpatterns = [
     url(r'^review/$', views.review, name='review'),
     url(r'^checkout/$', views.checkout, name='checkout'),
     url(r'^search/$', views.search_restaurant, name='search'),
+    url(r'^register/$', views.register, name='register'),
 ]

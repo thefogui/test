@@ -6,6 +6,9 @@ from .models import Restaurant, ViewedRestaurants, Review
 from .forms import ReservationForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -56,7 +59,8 @@ def details(request, restaurant_number=""):
 
 def checkout(request):
     return render(request, 'forkilla/checkout.html')
-
+    
+@login_required
 def reservation(request):
     try:
         if request.method == "POST":
@@ -104,7 +108,6 @@ def checkDisponibility(restaurant):
     return False
     
 def _check_session(request):
-
     if "viewedrestaurants" not in request.session:
         viewedrestaurants = ViewedRestaurants()
         viewedrestaurants.save()
@@ -138,3 +141,15 @@ def search_restaurant(request):
         "results" : results,
         "query" : query
     })        
+    
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            new_user = form.save()
+            return HttpResponseRedirect(reverse("index"))
+    else:
+        form = UserCreationForm()
+    return render(request, "registration/register.html", {
+        'form': form,
+    })

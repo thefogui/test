@@ -1,0 +1,20 @@
+{% extends 'forkilla/base.html' %}
+
+{% block title %}Create an account{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/register.css">
+
+<div class="register_section">
+    <div class="register">
+        <div class="form">
+            <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+              <input type="submit" value="Create the account">
+            </form>
+        </div>
+    </div><!-- Closing div register -->
+</div>
+{% endblock %}

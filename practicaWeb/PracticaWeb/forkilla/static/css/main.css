@@ -124,13 +124,14 @@ header .login-section form {
 .body_mostViewed_restaurants {
     width: 100vw;
     margin: 0 auto;
-    height: 100vh;
+    height: 200vh;
     display: flex;
     flex-wrap: wrap;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
     padding: 5rem 0;
+    z-index: 1;
 }
 
 .body_mostViewed_restaurants > div {
@@ -183,7 +184,7 @@ header .login-section form {
     color: black;
 }
 
-.rrestaurant_card:hover > div {
+.restaurant_card:hover > div {
     position: absolute;
     height: 250px;
     background: rgba(255, 255, 255, 0.5);
