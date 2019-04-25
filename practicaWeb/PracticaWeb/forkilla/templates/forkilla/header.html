@@ -13,25 +13,20 @@
         </form>
     </div>
 
-    <!-- <div class="login-section">
-        <form>
-            <div class="group">
-                <input type="text" placeholder="Name" required />
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label>Name</label>
-            </div>Closing div group 
-            
-            <div class="group">
-                <input type="password" placeholder="Password" required />
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label>Password</label>
-            </div>Closing div group
-            
-            <div class="group">
-                <input type="submit" value="Log In" />
-            </div> Closing div group 
-        </form>
-    </div>-->
+    <div class="login-section">
+        {% if user.is_authenticated %}
+            <div class="user_ui">
+                <div class="user_menu_toggle">
+                    <div class="profile_img">
+                        
+                    </div>
+                </div><!-- Closing div user_menu_toggle -->
+                
+                <a class="nav-link navBar_Right_items" href="/accounts/logout/?next=/forkilla">Logout</a>
+            </div><!--  Closing div user_ui -->
+        {% else %}
+            <a class="nav-link navBar_Right_items" href="/accounts/login/?next=/forkilla">Login</a>
+            <a class="nav-link navBar_Right_items" href="{% url 'register' %}">Register</a>
+        {% endif %}
+    </div>
 </header>

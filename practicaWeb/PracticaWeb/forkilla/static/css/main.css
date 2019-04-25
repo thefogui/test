@@ -62,7 +62,7 @@ header .login-section {
     flex-flow: row wrap;
     align-items: center;
     float: right;
-    width: 30vw;
+    width: 20vw;
 }
 
 header .login-section form {
@@ -73,7 +73,53 @@ header .login-section form {
 }
 
 .search {
-    
+    display: block;
+    float: left;
+    width: 60vw;
+    align-items: center;
+}
+
+.search > form {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    width: 100%;
+}
+
+.search input {
+    display: block;
+    position: relative;
+    width: 20vw;
+    vertical-align: middle;
+    display: inline;
+    outline: 0;
+    background: #f2f2f2;
+    border: 0;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.search input[type='submit'] {
+    position: relative;
+    display: inline;
+    text-transform: uppercase;
+    outline: 0;
+    background: #c70e93;
+    width: 10vw;
+    margin-left: 20px;
+    border: 1px solid #c70e93;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.search input[type='submit']:hover {
+    background: #87069c;
+    border: 1px solid #87069c;
 }
 
 .group {
@@ -84,6 +130,10 @@ header .login-section form {
     float: left;
     margin-right: 15px;
     margin-left: 15px;
+}
+
+.profile_img {
+    background-image: url("https://images-na.ssl-images-amazon.com/images/I/8166xCVDGnL._SL1500_.jpg");
 }
 
 .group input {
@@ -107,7 +157,6 @@ header .login-section form {
 
 .group input:focus {
     outline: none;
-    
 }
 
 .section h2 {
