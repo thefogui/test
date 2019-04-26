@@ -39,7 +39,7 @@ header .header_logo {
     top: 0;
     display: block;
     float: left;
-    width: 70vw;
+    width: 20vw;
     position: relative;
 }
 
@@ -57,21 +57,6 @@ header .header_logo {
     color: rgb(135, 6, 156);
 }
 
-header .login-section {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    float: right;
-    width: 20vw;
-}
-
-header .login-section form {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    width: 100%;
-}
-
 .search {
     display: block;
     float: left;
@@ -83,7 +68,8 @@ header .login-section form {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    width: 100%;
+    width: 60%;
+    margin: 0 auto;
 }
 
 .search input {
@@ -122,41 +108,117 @@ header .login-section form {
     border: 1px solid #87069c;
 }
 
-.group {
-    position: relative;
-    height: auto;
-    width: 26%;
+/* USER TOGGLE */
+
+header .login-section {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    float: right;
+    width: 20vw;
+    margin-top: 3vh;
+}
+
+header .login-section form {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    width: 100%;
+}
+
+.user_ui {
+    position: absolute;
+    right: 0;
     display: inline-block;
-    float: left;
-    margin-right: 15px;
-    margin-left: 15px;
+    width: 7vw;
+}
+
+.user_menu_toggle {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
 }
 
 .profile_img {
     background-image: url("https://images-na.ssl-images-amazon.com/images/I/8166xCVDGnL._SL1500_.jpg");
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    background-size: cover;
 }
 
-.group input {
-    border: none;
-    border-bottom: 1px solid rgb(199, 14, 147);
-    display: inline;
-    background: black;
-    color: rgb(199, 14, 147);
-    margin-top: 4vh;
-    font-size: 0.8em;
+.simple_arrow {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+    font-size: 12px;
+    color: black;
 }
 
-.group input[type=submit] {
-    border: 1px solid rgb(199, 14, 147);
-    display: inline;
-    background: black;
-    color: rgb(199, 14, 147);
-    padding: 20px;
-    margin-top: 0;
+.user_menu {
+    width: 300px;
+    background: white;
+    position: absolute;
+    right: 40%;
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 15px;
 }
 
-.group input:focus {
-    outline: none;
+.user_menu::after {
+    display: block;
+    right: 0;
+    height: 0;
+    top: -10px;
+    width: 0;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid black;
+}
+
+.user_menu::before {
+    display: block;
+    right: -1px;
+    content: " ";
+    height: 0;
+    top: -11px;
+    width: 0;
+    position: absolute;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 11px solid white;
+}
+
+.user-info {
+    border-bottom: 1px solid white;
+    position: relative;
+}
+
+.user-info > .profile_img {
+    width: 45px;
+    height: 45px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.user_info > hr, .user_info > a {
+    margin: 10px;
+}
+
+h4 {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    color: gray;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 15px;
+    padding-left: 20px;
 }
 
 .section h2 {

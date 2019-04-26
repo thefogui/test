@@ -19,14 +19,30 @@
                 <div class="user_menu_toggle">
                     <div class="profile_img">
                         
-                    </div>
+                    </div><!-- Closing div profile_img -->
+                    
+                    <span class="simple_arrow fa fa-chevron-up"></span>
                 </div><!-- Closing div user_menu_toggle -->
                 
-                <a class="nav-link navBar_Right_items" href="/accounts/logout/?next=/forkilla">Logout</a>
+                <!-- USER MENU -->
+                
+                <div class="user_menu">
+                    <div class="user_info">
+                        <div class="profile_img">
+                            
+                        </div><!-- Closing div profile_img -->
+                        
+                        <h4>{{ user.get_username }}</h4>
+                        
+                        <hr />
+                        
+                        <a class="fa fa-power-off" href="/accounts/logout/?next=/forkilla">Logout</a>
+                    </div>
+                </div><!-- Closing div user_menu -->
             </div><!--  Closing div user_ui -->
         {% else %}
-            <a class="nav-link navBar_Right_items" href="/accounts/login/?next=/forkilla">Login</a>
-            <a class="nav-link navBar_Right_items" href="{% url 'register' %}">Register</a>
+            <a class="" href="/accounts/login/?next=/forkilla">Login</a>
+            <a class="" href="{% url 'register' %}">Register</a>
         {% endif %}
     </div>
 </header>
