@@ -3,12 +3,6 @@
     padding: 0;
 }
 
-/*body {
-    background-image: linear-gradient( 135deg, #c70e93 10%, #87069c 100%);
-    background-attachment: fixed;	
-    background-size: cover;
-}*/
-
 header {
     width: 100vw;
     float: left;
@@ -137,6 +131,8 @@ header .login-section form {
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
+    color: white;
+    padding-bottom: 20px;
 }
 
 .profile_img {
@@ -152,9 +148,9 @@ header .login-section form {
 .simple_arrow {
     display: inline-block;
     vertical-align: middle;
-    margin: 0 5px;
+    margin: 0 14px;
     font-size: 12px;
-    color: black;
+    color: white;
 }
 
 .user_menu {
@@ -165,6 +161,7 @@ header .login-section form {
     border: 1px solid black;
     border-radius: 2px;
     padding: 15px;
+    display: none;
 }
 
 .user_menu::after {
@@ -174,8 +171,8 @@ header .login-section form {
     top: -10px;
     width: 0;
     position: absolute;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
+    border-left: 10px solid black;
+    border-right: 10px solid black;
     border-bottom: 10px solid black;
 }
 
@@ -187,8 +184,8 @@ header .login-section form {
     top: -11px;
     width: 0;
     position: absolute;
-    border-left: 11px solid transparent;
-    border-right: 11px solid transparent;
+    border-left: 11px solid black;
+    border-right: 11px solid black;
     border-bottom: 11px solid white;
 }
 
@@ -221,6 +218,11 @@ h4 {
     padding-left: 20px;
 }
 
+/***************************************/
+/*
+    MOST VIEWED RESTAURANTS
+*/
+/***************************************/
 .section h2 {
     font-weight: 100;
     text-align: center;

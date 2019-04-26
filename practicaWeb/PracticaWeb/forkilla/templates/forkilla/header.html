@@ -6,9 +6,9 @@
     </div><!-- Closing div header_logo -->
 
     <div class="search">
-        <form action="search" method="GET">
+        <form action="/search/" method="GET">
             <label for="q">Search: </label>
-            <input type="text" name="q" value=" {{ query|escape }}"/>
+            <input type="text" name="q" value="{{query|escape}}"/>
             <input type="submit" value="search" />
         </form>
     </div>
