@@ -6,24 +6,27 @@
     <form action="{% url 'reservation' %}" method="post">
         {% csrf_token %}
         <div class="body_mostViewed_restaurants">
-        {% for restaurant in viewedrestaurants.restaurant.all|slice:":5:-1"%}
-            <div class="restaurant_card">
-                <img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80"  alt="restaurant_image"/>
-            
-                <div>
-                    <h3>{{restaurant.name}}</h3>
-                    
-                    <a href="{% url 'details' restaurant.restaurant_number%}"> {{restaurant.name}} </a> : {{restaurant.menu_description}}
-                    <button type="submit" name="reservation" value={{restaurant.restaurant_number}}> Reserva</button>
-                    <br>
-                    
-                    <p>
-                        {{restaurant.menu_description}}
-                    </p>
-                    <a href="{% url 'details' restaurant.restaurant_number%}"> View More </a>
-                </div>
-            </div><!-- Closing div restaurant_card -->
-        {% endfor %}
+            {% for restaurant in viewedrestaurants.restaurantinsertdate_set.all|slice:"5"%}
+                <div class="restaurant_card">
+                    <img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80"  alt="restaurant_image"/>
+                
+                    <div>
+                        <h3>{{restaurant.name}}</h3>
+                        
+                        <a href="{% url 'details' restaurant.restaurant_number%}"> {{restaurant.name}} </a> : {{restaurant.menu_description}}
+                        <button type="submit" name="reservation" value={{restaurant.restaurant_number}} class="reserva"> Reserva</button>
+                        <br>
+                        
+                        <p>
+                            {{restaurant.menu_description}}
+                        </p>
+                        <button type="submit" name="reservation" value={{restaurant.restaurant.restaurant_number}}>
+                            Reserva
+                        </button>
+                        <a href="{% url 'details' restaurant.restaurant_number%}"> View More </a>
+                    </div>
+                </div><!-- Closing div restaurant_card -->
+            {% endfor %}
         </div><!-- Closing div body_mostViewed_restaurants -->
     </form>
 </section>

@@ -220,6 +220,43 @@ h4 {
 
 /***************************************/
 /*
+    LOGIN/REGISTER DIV
+*/
+/***************************************/
+
+.user_options {
+    display: flex;
+    align-items: center;
+    float: right;
+    width: 100%;
+    position: relative;
+}
+
+.user_options ul {
+    list-style: none;
+    display: inline-block;
+}
+
+.user_options li {
+    list-style: none;
+    display: inline-block;
+}
+
+.user_options li  a {
+    text-decoration: none;
+    color: rgb(199, 14, 147);
+    font-size: 1.5em;
+    margin: 15px;
+}
+
+.user_options li  a:hover {
+    color: rgb(135, 6, 156);
+    border-bottom: 2px solid rgb(135, 6, 156);
+}
+
+
+/***************************************/
+/*
     MOST VIEWED RESTAURANTS
 */
 /***************************************/
@@ -301,4 +338,19 @@ h4 {
     position: absolute;
     height: 250px;
     background: rgba(255, 255, 255, 0.5);
+}
+
+.reserva {
+    padding: 10px 20px 10px 20px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.0em;
+    margin: 10px auto;
+}
+
+.reserva:hover {
+    border: 1px solid rgb(199, 14, 147);
+    background-color: rgb(199, 14, 147);
+    cursor: pointer;
+    color: white;
 }

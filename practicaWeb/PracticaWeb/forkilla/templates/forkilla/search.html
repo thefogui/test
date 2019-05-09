@@ -8,7 +8,7 @@
 
 <div class="section_search">
     {% if query %}
-        <h3> Results for "{{ query|escape }} "</h3>    
+        <h3> Results for "{{ query|escape }}"</h3>    
         {% if results %}
             {% for restaurant in results %}
                 <div class="restaurant">
@@ -21,14 +21,22 @@
                             <i class="fa fa-star-half-o" aria-hidden="true"></i>
                             <i class="fa fa-star-o" aria-hidden="true"></i>
                         </span>
-                                
-                
+
                         <h2>
                             {{  restaurant.name }}
                         </h2>
                         <p class="information">
                             {{  restaurant|escape }}
                         </p>
+                        
+                        <a href="{% url 'details' restaurant.restaurant_number%}"> View More </a>
+                        
+                        <form action="{% url 'reservation' %}" method="get">
+                            {% csrf_token %}
+                            <button type="submit" name="reservation" value="{{restaurant.restaurant_number}}" class="reserva"> 
+                                Reserva 
+                            </button>
+                        </form>
                     </div>
                     
                     <div class="restaurant_image">
@@ -41,7 +49,6 @@
             <div class="no_results">
                 <div>
                     <img class="img_sad" src="/static/img/sad.png"  alt="sad"/>
-
                 </div>
                 <div>
                     <p>
@@ -51,5 +58,7 @@
             </div>
         {% endif %}
     {% endif %}
-</div><!-- Closing div section_section -->
+    
+    {% include 'forkilla/mostViewedRestaurants.html' %}
+</div><!-- Closing div section_search -->
 {% endblock %}

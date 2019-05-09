@@ -2,18 +2,21 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.db.models import Q
 from django.shortcuts import render_to_response
-from .models import Restaurant, ViewedRestaurants, Review, Reservation
-from .forms import ReservationForm
+from .models import Restaurant, ViewedRestaurants, Review, Reservation, Comment
+from .forms import ReservationForm, CommentsForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django_comments.models import Comment # new
 
 # Create your views here.
 def index(request):
+    categories = Restaurant.CATEGORIES
     restaurants_by_promoted = Restaurant.objects.filter(is_promot="True")
     context = {
+        'categories' : categories,
         'restaurants' : restaurants_by_promoted
     }
     return render(request, 'forkilla/index.html', context)
@@ -39,6 +42,9 @@ def details(request, restaurant_number=""):
         viewedrestaurants = _check_session(request)
         restaurant = Restaurant.objects.get(restaurant_number=restaurant_number)
         viewedrestaurants.restaurant.add(restaurant)
+        comments = []
+        for comment in restaurant._meta.related_objects:
+            comments.append(comment)
         context = {
             'name' : restaurant.name,
             'restaurant_number' : restaurant.restaurant_number,
@@ -51,14 +57,16 @@ def details(request, restaurant_number=""):
             'country' : restaurant.country,
             'featured_photo' : restaurant.featured_photo,
             'category' : restaurant.category,
-            'viewedrestaurants' : viewedrestaurants
+            'viewedrestaurants' : viewedrestaurants,
+            'comments' : comments
         }
     except Restaurant.DoesNotExist:
         raise Http404('This restaurant is not avaliable in this moment')
     return render(request, 'forkilla/details.html', context)
 
 def checkout(request):
-    return render(request, 'forkilla/checkout.html')
+    context = {}
+    return render(request, 'forkilla/checkout.html', context)
 
 @login_required
 def reservation(request):
@@ -66,20 +74,20 @@ def reservation(request):
         if request.method == "POST":
             form = ReservationForm(request.POST)
             if form.is_valid():
-                    resv = form.save(commit=False)
-                    restaurant_number = request.session["reserved_restaurant"]
+                resv = form.save(commit=False)
+                restaurant_number = request.session["reserved_restaurant"]
 
-                    ##checks if the disponibility of the restaurant for the selected time slot
-                    resv.restaurant = Restaurant.objects.get(restaurant_number=restaurant_number)
-                    if checkDisponibility(resv.restaurant, resv):
-                        resv.save()
-                        request.session["reservation"] = resv.id
-                        request.session["result"] = "OK"
-                    else:
-                        context = {
-                            'error' : "Not enough capacity"
-                        }
-                        render(request, 'forkilla/checkout.html', context)
+                ##checks if the disponibility of the restaurant for the selected time slot
+                resv.restaurant = Restaurant.objects.get(restaurant_number=restaurant_number)
+                if checkDisponibility(resv.restaurant, resv):
+                    resv.save()
+                    request.session["reservation"] = resv.id
+                    request.session["result"] = "OK"
+                else:
+                    context = {
+                        'error' : "Not enough capacity"
+                    }
+                    render(request, 'forkilla/checkout.html', context)
             else:
                   request.session["result"] = form.errors
             return HttpResponseRedirect(reverse('checkout'))
@@ -99,6 +107,21 @@ def reservation(request):
     except Restaurant.DoesNotExist:
         return HttpResponse("Restaurant Does not exists")
     return render(request, 'forkilla/reservation.html', context)
+
+@login_required
+def add_comment(request):
+    try:
+        if request.method == "POST":
+            form = CommentsForm(request.POST)
+            if form.is_valid():
+                post = form.save(commit=False)
+                restaurant_number = request.session["reserved_restaurant"]
+                return details(request, restaurant_number)
+        else:
+            form = CommentForm()
+    except Exception:
+        return HttpResponse("Restaurant Does not exists")
+    return details(request, restaurant_number)
 
 ##checks if the disponibility of the restaurant for the selected time slot
 def checkDisponibility(restaurant, reservation):
@@ -139,7 +162,7 @@ def search_restaurant(request):
     else:
         results = []
 
-    return render_to_response("forkilla/search.html", {
+    return render(request, "forkilla/search.html", {
         "results" : results,
         "query" : query
     })

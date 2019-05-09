@@ -18,6 +18,17 @@
         <p>
             Restaurant specilized in {{category}}
         </p>
+        
+        <p>
+            <!-- the Restaurant rating -->
+            <span class="hint-star star">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+            </span>
+        </p>
     </div><!-- Closing div card restaurant_name -->
     
     <div class="card">
@@ -41,6 +52,33 @@
                     {{address}}
                     {{city}} 
                     {{country}}
+                    
+                    <form action="{% url 'reservation' %}" method="get">
+                        {% csrf_token %}
+                        <button type="submit" name="reservation" value="{{restaurant_number}}" class="reserva"> 
+                            Reserva 
+                        </button>
+                    </form>
+                    
+                    {% if user.is_authenticated %}
+                        <div class="rate_Section center">
+                            <h2>Rate this Restaurant:</h2>
+                            <form>
+                                <p class="clasificacion">
+                                <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                                --><label for="radio1">★</label><!--
+                                --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                                --><label for="radio2">★</label><!--
+                                --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                                --><label for="radio3">★</label><!--
+                                --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                                --><label for="radio4">★</label><!--
+                                --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                                --><label for="radio5">★</label>
+                                </p>
+                            </form>
+                        </div><!-- Closing div rate_Section -->
+                    {% endif %}
                 </p>
             </div><!-- Closing div card_text -->
         </div><!-- Closing div card_text_div -->
@@ -50,8 +88,32 @@
         </div><!-- Closing div card_image -->
     </div><!-- Closing div card -->
     
-    <div class="comment">
+    
+    <div class="comment_section">
+        <hr />
         
+        <h4>New Comment</h4>
+        <form class="comment-form" method="POST" >
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="submit-button">Send</button>
+        </form>
+        
+        <hr />
+        
+        {% for comment in comments %}
+            <div class="comment">
+                <div class="date">
+                    {{ comment.posted_date }}
+                </div><!-- Closing div date -->
+                
+                <strong>{{ comment.author }}</strong>
+                
+                <div class="comment_message">
+                    {{ comment.content }}
+                </div><!-- Closing div comment_message -->
+            </div><!-- Closing div comment -->
+        {% endfor %}
     </div>
     
     {% include 'forkilla/mostViewedRestaurants.html' %}

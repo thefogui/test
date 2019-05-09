@@ -1,5 +1,5 @@
 .container {
-    height: 81vh;
+    height: auto;
     margin-top: 12vh;
 }
 
@@ -94,4 +94,73 @@
 .card_image  img {
     width: 100%;
     display: block;
+}
+
+/******
+*
+*   FORM REVIEW RESTAURANT
+*
+******/
+
+.rate_Section {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 30px auto;
+    height: auto;
+}
+
+#form {
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+}
+
+#form p {
+    text-align: center;
+}
+
+#form label {
+    font-size: 20px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+     color: grey;
+}
+
+.clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+    color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+     color: orange;
+}
+
+/******
+*
+*   Comment section
+*
+******/
+
+.comment_section {
+    display: block;
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: auto;
+    border: 1px solid black;
+}
+
+.comment {
+    
 }

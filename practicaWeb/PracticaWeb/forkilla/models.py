@@ -2,6 +2,9 @@ from django.db import models
 from datetime import datetime
 from django.core.validators import MinValueValidator
 
+from django_comments.moderation import CommentModerator, moderator
+
+
 #########################################################
 #   Every time this class is changed follow these steps:#
 #                                                       #
@@ -88,3 +91,17 @@ class Review(models.Model):
     restaurant_number = models.CharField(max_length=8)
     message = models.TextField()
     review_stars = models.PositiveIntegerField()
+    
+class Comment(models.Model):
+    the_restaurant = models.ForeignKey('Restaurant', on_delete=models.CASCADE, null=False)
+    content = models.TextField()
+    author = models.CharField(max_length=200, default="Anonymous User")
+    posted_date = models.DateTimeField()
+    approved_comment = models.BooleanField(default=False)
+    
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+        
+    def __str__(self):
+        return self.message

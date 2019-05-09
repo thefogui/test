@@ -41,8 +41,16 @@
                 </div><!-- Closing div user_menu -->
             </div><!--  Closing div user_ui -->
         {% else %}
-            <a class="" href="/accounts/login/?next=/forkilla">Login</a>
-            <a class="" href="{% url 'register' %}">Register</a>
+            <div class="user_options">
+                <ul>
+                    <li>
+                        <a class="" href="/accounts/login/?next=/forkilla">Login</a>
+                    </li>
+                    <li>
+                        <a class="" href="{% url 'register' %}">Register</a>
+                    </li>
+                </ul>
+            </div>
         {% endif %}
     </div>
 </header>

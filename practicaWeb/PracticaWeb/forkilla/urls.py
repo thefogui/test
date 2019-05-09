@@ -1,5 +1,7 @@
 from django.conf.urls import url
+from django.conf.urls import include
 from . import views
+
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -12,4 +14,5 @@ urlpatterns = [
     url(r'^checkout/$', views.checkout, name='checkout'),
     url(r'^search/$', views.search_restaurant, name='search'),
     url(r'^register/$', views.register, name='register'),
+    url(r'^restaurant/(?P<restaurant_number>.*)/comment/$', views.add_comment, name='add_comment'),
 ]
