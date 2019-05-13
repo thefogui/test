@@ -1,0 +1,22 @@
+{% extends 'forkilla/base.html' %}
+
+{% block title %}Add comment{% endblock %}
+
+{% block content %}
+<div class="login">
+    <div class="form">
+        
+        <h1>Add new comments</h1>
+        
+        {% if form.errors %}
+            <p class="error">Sorry, that's not a valid comment</p>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </div><!-- Closing div login -->
+</div><!-- Closing div form -->
+{% endblock %}

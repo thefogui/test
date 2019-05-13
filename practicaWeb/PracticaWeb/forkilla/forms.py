@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Reservation, Comment
+from .models import Reservation, Comment, ReviewRestaurant
 
 class ReservationForm(forms.ModelForm):
 
@@ -11,4 +11,9 @@ class ReservationForm(forms.ModelForm):
 class CommentsForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ["author", "content", ]
+        fields = ["content", ]
+        
+class RateForm(forms.ModelForm):
+    class Meta:
+        model = ReviewRestaurant
+        fields = ('stars', )

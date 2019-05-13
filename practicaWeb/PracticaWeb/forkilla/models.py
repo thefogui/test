@@ -50,7 +50,7 @@ class Restaurant(models.Model):
     address = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
-    featured_photo = models.ImageField()
+    featured_photo = models.ImageField(upload_to ='images/', default='static/forkilla/img/1.jpeg')
     category = models.CharField(max_length=5, choices=CATEGORIES)
     restaurant_capacity = models.PositiveIntegerField()
 
@@ -78,6 +78,7 @@ class Reservation(models.Model):
     day = models.DateField(default=datetime.now)
     time_slot = models.CharField(max_length=15, choices=SLOTS)
     num_people = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1)])
+    user = models.CharField(max_length=200, default="Anonymous User")
 
     def get_human_slot(self):
         return self._d_slots[self.time_slot]
@@ -86,22 +87,21 @@ class ViewedRestaurants(models.Model):
     id_vr = models.AutoField(primary_key=True)
     restaurant = models.ManyToManyField(Restaurant)
         
-class Review(models.Model):
-    reviews_id = models.CharField(max_length=10, unique=True)
-    restaurant_number = models.CharField(max_length=8)
-    message = models.TextField()
-    review_stars = models.PositiveIntegerField()
+class ReviewRestaurant(models.Model):
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, null=True, related_name='reviews')
+    user = models.CharField(max_length=200, default="Anonymous User")
+    stars = models.PositiveIntegerField(default=0)
     
 class Comment(models.Model):
-    the_restaurant = models.ForeignKey('Restaurant', on_delete=models.CASCADE, null=False)
+    the_restaurant = models.ForeignKey('Restaurant', on_delete=models.CASCADE, null=False, related_name='comments')
+    user = models.CharField(max_length=200, default="Anonymous User")
+    posted_date = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
-    author = models.CharField(max_length=200, default="Anonymous User")
-    posted_date = models.DateTimeField()
     approved_comment = models.BooleanField(default=False)
     
-    def approve(self):
+    def approved(self):
         self.approved_comment = True
         self.save()
         
     def __str__(self):
-        return self.message
+        return self.content

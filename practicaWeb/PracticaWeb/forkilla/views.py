@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.db.models import Q
 from django.shortcuts import render_to_response
-from .models import Restaurant, ViewedRestaurants, Review, Reservation, Comment
-from .forms import ReservationForm, CommentsForm
+from .models import Restaurant, ViewedRestaurants, ReviewRestaurant, Reservation, Comment
+from .forms import ReservationForm, CommentsForm, RateForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django import forms
@@ -42,9 +42,19 @@ def details(request, restaurant_number=""):
         viewedrestaurants = _check_session(request)
         restaurant = Restaurant.objects.get(restaurant_number=restaurant_number)
         viewedrestaurants.restaurant.add(restaurant)
-        comments = []
-        for comment in restaurant._meta.related_objects:
-            comments.append(comment)
+        
+        stars = 0
+        reviews = 0
+        
+        for star in restaurant.reviews.all():
+            stars = stars + star.stars
+            reviews = reviews + 1
+                
+        form = CommentsForm()
+        
+        if reviews != 0:
+            stars = int(stars / reviews)
+        
         context = {
             'name' : restaurant.name,
             'restaurant_number' : restaurant.restaurant_number,
@@ -58,7 +68,9 @@ def details(request, restaurant_number=""):
             'featured_photo' : restaurant.featured_photo,
             'category' : restaurant.category,
             'viewedrestaurants' : viewedrestaurants,
-            'comments' : comments
+            'stars' : stars,
+            'restaurant' : restaurant,
+            'form' : form
         }
     except Restaurant.DoesNotExist:
         raise Http404('This restaurant is not avaliable in this moment')
@@ -76,9 +88,10 @@ def reservation(request):
             if form.is_valid():
                 resv = form.save(commit=False)
                 restaurant_number = request.session["reserved_restaurant"]
-
+                
                 ##checks if the disponibility of the restaurant for the selected time slot
                 resv.restaurant = Restaurant.objects.get(restaurant_number=restaurant_number)
+                resv.user = request.user
                 if checkDisponibility(resv.restaurant, resv):
                     resv.save()
                     request.session["reservation"] = resv.id
@@ -109,19 +122,25 @@ def reservation(request):
     return render(request, 'forkilla/reservation.html', context)
 
 @login_required
-def add_comment(request):
+def add_comment(request, slug):
+    restaurant = get_object_or_404(Post, slug=slug)
     try:
         if request.method == "POST":
             form = CommentsForm(request.POST)
             if form.is_valid():
-                post = form.save(commit=False)
-                restaurant_number = request.session["reserved_restaurant"]
-                return details(request, restaurant_number)
+                comment = form.save(commit=False)
+                comment.the_restaurant = restaurant
+                comment.user = request.user
+                comment.save()
+                return details(request, restaurant.restaurant_number)
         else:
             form = CommentForm()
+        template = 'forkilla/add_comment.html'
+        context = { 'form' : form}
+        return render(request, template, context)
     except Exception:
         return HttpResponse("Restaurant Does not exists")
-    return details(request, restaurant_number)
+    
 
 ##checks if the disponibility of the restaurant for the selected time slot
 def checkDisponibility(restaurant, reservation):
@@ -141,9 +160,14 @@ def _check_session(request):
         viewedrestaurants = ViewedRestaurants.objects.get(id_vr=request.session["viewedrestaurants"])
     return viewedrestaurants
 
-
 def review(request):
-    pass
+    if request.method == 'POST':
+        form = RateForm(request.POST)
+        if form.is_valid():
+            rate = form.save(commit=False)
+            # adding the user here.
+            rate.user = request.user
+            rate.save()
 
 def search_restaurant(request):
     """ Search for the GET called q and return the string """

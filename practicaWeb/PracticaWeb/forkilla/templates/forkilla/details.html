@@ -21,12 +21,46 @@
         
         <p>
             <!-- the Restaurant rating -->
+            
             <span class="hint-star star">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
+                {% if stars == 0 %}
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                {% elif stars == 1 %}
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                {% elif stars == 2 %}
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                {% elif stars == 3 %}
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                {% elif stars == 4 %}
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                {% else %}
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    
+                {% endif %}
             </span>
         </p>
     </div><!-- Closing div card restaurant_name -->
@@ -63,7 +97,7 @@
                     {% if user.is_authenticated %}
                         <div class="rate_Section center">
                             <h2>Rate this Restaurant:</h2>
-                            <form>
+                            <form action="." method="post">
                                 <p class="clasificacion">
                                 <input id="radio1" type="radio" name="estrellas" value="5"><!--
                                 --><label for="radio1">★</label><!--
@@ -84,7 +118,9 @@
         </div><!-- Closing div card_text_div -->
         
         <div class="card_image">
-            <img src="https://file.videopolis.com/D/9dc9f4ba-0b2d-4cbb-979f-fee7be8a4198/8485.11521.brussels.the-hotel-brussels.amenity.restaurant-AD3WAP2L-13000-853x480.jpeg" alt="not found"/>
+            {% if restaurant.featured_photo %}
+                <img src={{ restaurant.featured_photo.url }} alt="not found"/>
+            {% endif %}
         </div><!-- Closing div card_image -->
     </div><!-- Closing div card -->
     
@@ -92,22 +128,29 @@
     <div class="comment_section">
         <hr />
         
-        <h4>New Comment</h4>
-        <form class="comment-form" method="POST" >
+        {% if user.is_authenticated %}
+        <h1>Add new comments</h1>
+        
+        {% if form.errors %}
+            <p class="error">Sorry, that's not a valid comment</p>
+        {% endif %}
+
+        <form method="post" action=".">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="submit-button">Send</button>
+            <input  type="submit" value="Comment"/>
         </form>
+        {% endif %}
         
         <hr />
         
-        {% for comment in comments %}
+        {% for comment in restaurant.comments.all %}
             <div class="comment">
                 <div class="date">
                     {{ comment.posted_date }}
                 </div><!-- Closing div date -->
                 
-                <strong>{{ comment.author }}</strong>
+                <strong>{{ comment.user }}</strong>
                 
                 <div class="comment_message">
                     {{ comment.content }}
