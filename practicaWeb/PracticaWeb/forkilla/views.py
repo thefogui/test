@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.db.models import Q
 from django.shortcuts import render_to_response
 from .models import Restaurant, ViewedRestaurants, ReviewRestaurant, Reservation, Comment
@@ -122,8 +122,8 @@ def reservation(request):
     return render(request, 'forkilla/reservation.html', context)
 
 @login_required
-def add_comment(request, slug):
-    restaurant = get_object_or_404(Post, slug=slug)
+def add_comment(request, restaurant_number=""):
+    restaurant = Restaurant.objects.get(restaurant_number=restaurant_number)
     try:
         if request.method == "POST":
             form = CommentsForm(request.POST)
@@ -135,7 +135,7 @@ def add_comment(request, slug):
                 return details(request, restaurant.restaurant_number)
         else:
             form = CommentForm()
-        template = 'forkilla/add_comment.html'
+        template = 'forkilla/details.html'
         context = { 'form' : form}
         return render(request, template, context)
     except Exception:
@@ -159,15 +159,28 @@ def _check_session(request):
     else:
         viewedrestaurants = ViewedRestaurants.objects.get(id_vr=request.session["viewedrestaurants"])
     return viewedrestaurants
-
-def review(request):
-    if request.method == 'POST':
-        form = RateForm(request.POST)
-        if form.is_valid():
-            rate = form.save(commit=False)
-            # adding the user here.
-            rate.user = request.user
-            rate.save()
+    
+@login_required
+def review(request, restaurant_number=""):
+    try:
+        restaurant = Restaurant.objects.get(restaurant_number=restaurant_number)
+        if request.method == 'POST':
+            
+            stars = request.POST['estrellas']
+            user = request.user
+            
+            reviewRestaurant = ReviewRestaurant()
+            reviewRestaurant.restaurant = restaurant
+            reviewRestaurant.user = user
+            reviewRestaurant.stars = stars
+            
+            if not ReviewRestaurant.objects.filter(restaurant=restaurant, user=user).exists():
+                reviewRestaurant.save()
+            
+            return details(request, restaurant.restaurant_number)
+        return details(request, restaurant.restaurant_number)
+    except Exception:
+        return render(request, 'forkilla/error.html')
 
 def search_restaurant(request):
     """ Search for the GET called q and return the string """

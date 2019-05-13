@@ -34,12 +34,34 @@ $(document).ready(function() {
     
     $(function() {
         var windowWidth = $(window).width();
-        var slideCount = $('.slides li').length;
-        var slidesWidth = windowWidth * slideCount;
+        var slideCount = $('#slider li').length;
+        var slidesWidth = windowWidth;
+        var slides = windowWidth * slideCount;
+        $('#slider').css("width", slides)
+        $('#slider').css("margin-left", -windowWidth)
+        $('#slider li:last-child').prependTo('#slider');
         
-        $('.slides li')
+        $('.left').click( function() {
+            moveLeft();
+        });
         
-        $.global.item = 0;
-        var slideCount
+        $('.right').click( function() {
+            moveRight();
+        });
+        
+        function moveLeft() {
+            $('#slider').animate({left:slidesWidth}, 500, function(){
+                $("#slider li:last-child").prependTo('#slider');
+                $("#slider").css("left", "0");
+            });
+        }
+        
+        function moveRight() {
+            $('#slider').animate({left:-slidesWidth}, 500, function(){
+                $("#slider li:first-child").appendTo('#slider');
+                $("#slider").css("left", "0");
+            });
+        }
+        
     });
 });

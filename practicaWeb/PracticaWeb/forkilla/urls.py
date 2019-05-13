@@ -10,9 +10,9 @@ urlpatterns = [
     url(r'^restaurant/(?P<restaurant_number>.*)/$', views.details, name='details'),
     url(r'^restaurants/(?P<city>.*)/(?P<category>.*)$', views.restaurants, name='restaurants'),
     url(r'^reservation/$', views.reservation, name='reservation'),
-    url(r'^review/$', views.review, name='review'),
     url(r'^checkout/$', views.checkout, name='checkout'),
+    url(r'^restaurant/(?P<restaurant_number>.*)/comment$', views.add_comment, name='add_comment'),
+    url(r'^restaurant/(?P<restaurant_number>.*)/review$', views.review, name='review'),
     url(r'^search/$', views.search_restaurant, name='search'),
     url(r'^register/$', views.register, name='register'),
-    url(r'^restaurant/(?P<restaurant_number>.*)/comment/$', views.add_comment, name='add_comment'),
 ]

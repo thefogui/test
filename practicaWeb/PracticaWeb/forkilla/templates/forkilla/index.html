@@ -8,9 +8,9 @@
     <div class="prommoted_restaurants_section">
         <div class="body_promoted_restaurants">
             <div class="slide-window">
-                <ol class="slides" start="1">
+                <ul class="slides" id="slider">
                     {% for restaurant in restaurants %}
-                    <li class="slide color-0" style="background-image:url(https://images.unsplash.com/photo-1522336572468-97b06e8ef143?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80);">
+                    <li class="slide color-0" style="background-image:url({{ restaurant.featured_photo.url }});">
                         <a href="{% url 'details' restaurant.restaurant_number%}">
                             <h2>{{restaurant.name}}</h2>
                             <p>
@@ -19,10 +19,10 @@
                         </a>
                     </li>
                     {% endfor %}
-                </ol>
+                </ul>
                 
                 <span class="nav fa fa-chevron-left fa-3x left"></span>
-                <span class="nav fa fa-dhevron-right fa-3x right"></span>
+                <span class="nav fa fa-chevron-right fa-3x right"></span>
             </div><!-- Closing div slide-window -->
         </div><!-- Closing div body_promoted_restaurants -->
     </div><!-- Closing div prommoted_restaurants_section -->
