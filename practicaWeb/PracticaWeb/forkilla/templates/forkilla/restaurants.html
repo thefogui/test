@@ -27,48 +27,6 @@
                 {% for restaurant in restaurants %}
                    <div class="restaurant">
                        <div class="restaurant_info">
-                           <!--   the Restaurant rating   -->
-                           <span class="hint-star star">
-                               {% if stars == 0 %}
-                                   <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                   <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                   <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                   <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                   <i class="fa fa-star-o" aria-hidden="true"></i>
-                               {% elif stars == 1 %}
-                                   <i class="fa fa-star" aria-hidden="true"></i>
-                                   <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                   <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                   <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                   <i class="fa fa-star-o" aria-hidden="true"></i>
-                               {% elif stars == 2 %}
-                                   <i class="fa fa-star" aria-hidden="true"></i>
-                                   <i class="fa fa-star" aria-hidden="true"></i>
-                                   <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                   <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                   <i class="fa fa-star-o" aria-hidden="true"></i>
-                               {% elif stars == 3 %}
-                                   <i class="fa fa-star" aria-hidden="true"></i>
-                                   <i class="fa fa-star" aria-hidden="true"></i>
-                                   <i class="fa fa-star" aria-hidden="true"></i>
-                                   <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                   <i class="fa fa-star-o" aria-hidden="true"></i>
-                               {% elif stars == 4 %}
-                                   <i class="fa fa-star" aria-hidden="true"></i>
-                                   <i class="fa fa-star" aria-hidden="true"></i>
-                                   <i class="fa fa-star" aria-hidden="true"></i>
-                                   <i class="fa fa-star" aria-hidden="true"></i>
-                                   <i class="fa fa-star-o" aria-hidden="true"></i>
-                               {% else %}
-                                   <i class="fa fa-star" aria-hidden="true"></i>
-                                   <i class="fa fa-star" aria-hidden="true"></i>
-                                   <i class="fa fa-star" aria-hidden="true"></i>
-                                   <i class="fa fa-star" aria-hidden="true"></i>
-                                   <i class="fa fa-star" aria-hidden="true"></i>
-                                   
-                               {% endif %}
-                           </span>
-
                            <h2>
                                {{ restaurant.name }}
                            </h2>

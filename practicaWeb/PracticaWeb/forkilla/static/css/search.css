@@ -63,7 +63,7 @@
 	overflow: hidden;
 	margin: 5em auto;
 	height: 350px;
-	width: 700px;
+	width: 900px;
 }
 
 .restaurant_info {
@@ -73,7 +73,7 @@
 	padding: 30px;
 	height: 100%;
 	float: left;
-	width: 40%;
+	width: 30%;
 }
 
 .restaurant_info h2 {
@@ -107,7 +107,7 @@
 	overflow: hidden;
 	height: 100%;
 	float: right;
-	width: 50%;
+	width: 60%;
 	display: inline-block;
 }
 

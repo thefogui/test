@@ -7,11 +7,15 @@
 }
 
 h2 {
-    font-family: 'Bad Script', cursive;
+    font-family: 'Alex Brush', cursive; !important
     color: white;
+    font-size: 6.5em;
+    background: linear-gradient(to right, rgb(199, 14, 147) 0%, rgb(135, 6, 156) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-h3, h2, p, i, span {
+h3, p, i, span {
     font-family: "Lato", sans-sans-serif;
 }
 
@@ -27,12 +31,13 @@ h3, h2, p, i, span {
 ************************************************/
 
 .slide-window {
-    position: fixed;
+    position: relative;
     width: 100vw;
-    height: 100%;
-    overflow: hidden;
+    height: 100vh;
+    display:block;
     top: 0px;
     left: 0px;
+    z-index: 1;
 }
 
 .slides {
@@ -62,12 +67,8 @@ h3, h2, p, i, span {
     -webkit-transform-style: preserve-3d;
 }
 
-.alive {
-    visibility: visible;
-}
-
 .nav {
-    position: fixed;
+    position: absolute;
     z-index: 9;
     top: 50%;
     cursor: pointer;
@@ -87,4 +88,58 @@ h3, h2, p, i, span {
 
 .right {
     right: 3%;
+}
+
+.button {
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.6rem;
+  padding: 1rem 4rem;
+  color: white;
+  background: none;
+  border: 3px solid white;
+  text-decoration: none;
+}
+
+.cover {
+  position: relative;
+  left: -6.4rem;
+  bottom: 1rem;
+  width: 0;
+  height: 0;
+  border-bottom: 15px solid rgb(199, 14, 147);
+  border-right: 15px solid transparent;
+}
+
+.button:hover {
+  transition: all 0.3s ease;
+  color: white;
+  border: 3px solid rgb(135, 6, 156);
+}
+
+.button:active {
+  outline: none;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  background-color: rgb(135, 6, 156);
+  transform-origin: left bottom;
+  transition-property: width,height;
+  transition-duration: 0.3s;
+  z-index: -1;
+} 
+
+.button:hover::after {
+  width: 100%;
+  height: 100%;
 }

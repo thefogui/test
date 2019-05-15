@@ -8,63 +8,28 @@
         <div class="body_mostViewed_restaurants">
             {% for restaurant in viewedrestaurants.restaurantinsertdate_set.all|slice:"5"%}
                 <div class="restaurant_card">
-                    {% if restaurant.featured_photo %}
-                        <img src={{ restaurant.featured_photo.url }} alt="not found"/>
+                    {% if restaurant.restaurant.featured_photo %}
+                        <img src="{{ restaurant.restaurant.featured_photo.url }}" alt="not found"/>
                     {% endif %}                
                     <div>
-                        <h3>{{restaurant.name}}</h3>
+                        <h3>{{restaurant.restaurant.name}}</h3>
                         
-                        <a href="{% url 'details' restaurant.restaurant_number%}"> {{restaurant.name}} </a> : {{restaurant.menu_description}}
-                        <button type="submit" name="reservation" value={{restaurant.restaurant_number}} class="reserva"> Reserva</button>
+                        <a href="{% url 'details' restaurant.restaurant.restaurant_number%}"> {{restaurant.restaurant.name}} </a> : {{restaurant.restaurant.menu_description}}
+
                         <br>
                         
                         <p>
-                            {{restaurant.menu_description}}
-                            <span class="hint-star star">
-                                {% if stars == 0 %}
-                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                {% elif stars == 1 %}
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                {% elif stars == 2 %}
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                {% elif stars == 3 %}
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                {% elif stars == 4 %}
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                {% else %}
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    
-                                {% endif %}
-                            </span>
+                            {{restaurant.restaurant.menu_description}}
                         </p>
-                        <button type="submit" name="reservation" value={{restaurant.restaurant.restaurant_number}}>
-                            Reserva
-                        </button>
-                        <a href="{% url 'details' restaurant.restaurant_number%}"> View More </a>
+                        
+                        <!--<form action="{% url 'reservation' %}" method="get">
+                            {% csrf_token %}
+                            <button type="submit" name="reservation" value="{{restaurant.restaurant_number}}" class="reserva"> 
+                                Reserva 
+                            </button>
+                        </form>-->
+                        
+                        <a href="{% url 'details' restaurant.restaurant.restaurant_number%}"> View More </a>
                     </div>
                 </div><!-- Closing div restaurant_card -->
             {% endfor %}

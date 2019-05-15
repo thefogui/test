@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, Http404
 from django.db.models import Q
 from django.shortcuts import render_to_response
-from .models import Restaurant, ViewedRestaurants, ReviewRestaurant, Reservation, Comment
+from .models import Restaurant, ViewedRestaurants, ReviewRestaurant, Reservation, Comment, RestaurantInsertDate
 from .forms import ReservationForm, CommentsForm, RateForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -11,13 +11,26 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django_comments.models import Comment # new
 
+from django.contrib.auth.models import User, Group
+from rest_framework import viewsets
+from .serializers import RestaurantSerializer
+from django.contrib.auth import authenticate, login
+
 # Create your views here.
 def index(request):
-    categories = Restaurant.CATEGORIES
+    
+    restaurants = Restaurant.objects.order_by().values_list('city').distinct()
     restaurants_by_promoted = Restaurant.objects.filter(is_promot="True")
+    viewedrestaurants = _check_session(request)
+    
+    categories = []
+    for restaurant in restaurants:
+        categories.append(restaurant[0])
+
     context = {
         'categories' : categories,
-        'restaurants' : restaurants_by_promoted
+        'restaurants' : restaurants_by_promoted,
+        'viewedrestaurants' : viewedrestaurants,
     }
     return render(request, 'forkilla/index.html', context)
 
@@ -30,10 +43,20 @@ def restaurants(request, city="", category=""):
     else:
         restaurants_by_city =  Restaurant.objects.filter(is_promot="True")
         promoted = True
+    
+    viewedrestaurants = _check_session(request)
+    
+    categories = []
+    restaurants = Restaurant.objects.order_by().values_list('city').distinct()
+    for restaurant in restaurants:
+        categories.append(restaurant[0])
+    
     context = {
         'city': city,
         'restaurants': restaurants_by_city.order_by('category'),
-        'promoted': promoted
+        'promoted': promoted,
+        'categories' : categories,
+        'viewedrestaurants' : viewedrestaurants,
     }
     return render(request, 'forkilla/restaurants.html', context)
 
@@ -41,7 +64,8 @@ def details(request, restaurant_number=""):
     try:
         viewedrestaurants = _check_session(request)
         restaurant = Restaurant.objects.get(restaurant_number=restaurant_number)
-        viewedrestaurants.restaurant.add(restaurant)
+        lastviewed = RestaurantInsertDate(viewedrestaurants=viewedrestaurants,restaurant= restaurant)
+        lastviewed.save()
         
         stars = 0
         reviews = 0
@@ -54,6 +78,11 @@ def details(request, restaurant_number=""):
         
         if reviews != 0:
             stars = int(stars / reviews)
+        
+        categories = []
+        restaurants = Restaurant.objects.order_by().values_list('city').distinct()
+        for r in restaurants:
+            categories.append(r[0])
         
         context = {
             'name' : restaurant.name,
@@ -70,14 +99,24 @@ def details(request, restaurant_number=""):
             'viewedrestaurants' : viewedrestaurants,
             'stars' : stars,
             'restaurant' : restaurant,
-            'form' : form
+            'form' : form,
+            'categories' : categories
         }
     except Restaurant.DoesNotExist:
         raise Http404('This restaurant is not avaliable in this moment')
     return render(request, 'forkilla/details.html', context)
 
 def checkout(request):
-    context = {}
+    categories = []
+    restaurants = Restaurant.objects.order_by().values_list('city').distinct()
+    for restaurant in restaurants:
+        categories.append(restaurant[0])
+    
+    context = {
+        'categories' : categories
+    }
+    
+    
     return render(request, 'forkilla/checkout.html', context)
 
 @login_required
@@ -112,10 +151,17 @@ def reservation(request):
             viewedrestaurants = _check_session(request)
 
             form = ReservationForm()
+            
+            categories = []
+            restaurants = Restaurant.objects.order_by().values_list('city').distinct()
+            for restaurant in restaurants:
+                categories.append(restaurant[0])
+            
             context = {
                 'restaurant': restaurant,
                 'viewedrestaurants': viewedrestaurants,
-                'form': form
+                'form': form,
+                'categories' : categories
             }
     except Restaurant.DoesNotExist:
         return HttpResponse("Restaurant Does not exists")
@@ -199,9 +245,18 @@ def search_restaurant(request):
     else:
         results = []
 
+    viewedrestaurants = _check_session(request)
+    
+    categories = []
+    restaurants = Restaurant.objects.order_by().values_list('city').distinct()
+    for restaurant in restaurants:
+        categories.append(restaurant[0])
+
     return render(request, "forkilla/search.html", {
         "results" : results,
-        "query" : query
+        "query" : query,
+        "viewedrestaurants" : viewedrestaurants,
+        'categories' : categories
     })
 
 def register(request):
@@ -209,9 +264,71 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             new_user = form.save()
+            
+            username = request.POST.get('username', "")
+            password = request.POST.get('password', "")
+            
+            new_user = authenticate(username=form.cleaned_data['username'],
+                                    password=form.cleaned_data['password1'])
+            login(request, new_user)
+
             return HttpResponseRedirect(reverse("index"))
     else:
         form = UserCreationForm()
+        
+    categories = []
+    restaurants = Restaurant.objects.order_by().values_list('city').distinct()
+    for restaurant in restaurants:
+        categories.append(restaurant[0])
     return render(request, "registration/register.html", {
         'form': form,
+        'categories' : categories
     })
+
+@login_required
+def reservationlist(request):
+    template = 'forkilla/reservationlist.html'
+    categories = Restaurant.CATEGORIES
+    user = request.user
+    
+    reservations = []
+    
+    reservationList = Reservation.objects.filter(user=user)    
+    
+    for reservation in reservationList:
+        restaurant = Restaurant.objects.get(restaurant_number=reservation.restaurant.restaurant_number)
+        reservations.append((reservation, restaurant))
+        
+    viewedrestaurants = _check_session(request)
+    
+    restaurants = Restaurant.objects.order_by().values_list('city').distinct()
+    categories = []
+    for restaurant in restaurants:
+        categories.append(restaurant[0])
+    
+    context = { 
+        "viewedrestaurants" : viewedrestaurants,
+        'categories' : categories,
+        'reservationList' : reservations
+    }
+    return render(request, template, context)
+    
+def deleteReservation(request, id=""):
+    categories = Restaurant.CATEGORIES
+    viewedrestaurants = _check_session(request)
+    
+    user = request.user
+    template = 'forkilla/deleteReservation.html'
+    context = { 
+        "viewedrestaurants" : viewedrestaurants,
+        'categories' : categories,
+    }
+    return render(request, template, context)
+    
+class RestaurantViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Restaurants to be viewed or edited.
+    """
+    queryset = Restaurant.objects.all().order_by('category')
+    serializer_class = RestaurantSerializer
+

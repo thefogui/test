@@ -15,4 +15,6 @@ urlpatterns = [
     url(r'^restaurant/(?P<restaurant_number>.*)/review$', views.review, name='review'),
     url(r'^search/$', views.search_restaurant, name='search'),
     url(r'^register/$', views.register, name='register'),
+    url(r'^delete/(?P<id>.*)$', views.deleteReservation, name='deleteReservation'),
+    url(r'^reservationlist/$', views.reservationlist, name='reservationlist'),
 ]

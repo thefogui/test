@@ -1,4 +1,6 @@
 <header>
+    {% include 'forkilla/navbar.html' %}
+    
     <div class="header_logo">
         <h1 >
             <a class="logo" href="{% url 'index' %}">Forkilla</a>
@@ -7,8 +9,7 @@
 
     <div class="search">
         <form action="/search/" method="GET">
-            <label for="q">Search: </label>
-            <input type="text" name="q" value="{{query|escape}}"/>
+            <input type="text" name="q" value="{{query|escape}}" placeholder="Search Restaurant"/>
             <input type="submit" value="search" />
         </form>
     </div>
@@ -33,6 +34,10 @@
                         </div><!-- Closing div profile_img -->
                         
                         <h4>{{ user.get_username }}</h4>
+                        
+                        <br />
+                        
+                        <a class="" href="{% url 'reservationlist' %}">Tus Reservas</a>
                         
                         <hr />
                         

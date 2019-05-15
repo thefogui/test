@@ -16,14 +16,27 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
-from django.contrib.auth import views
+from django.contrib.auth import views as v
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url, include
+from rest_framework import routers
+from forkilla import views
+
+
+router = routers.DefaultRouter()
+router.register(r'restaurants', views.RestaurantViewSet)
+
+
+# Wire up our API using automatic URL routing.
+# Additionally, we include login URLs for the browsable API.
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^forkilla/', include('forkilla.urls')),
     url(r'', include('forkilla.urls')),
-    url(r'^accounts/login/$', views.LoginView.as_view(), name='login'),
-    url(r'^accounts/logout/$', views.LogoutView.as_view(), {'next_page': '/forkilla'}, name='logout'),
+    url(r'^accounts/login/$', v.LoginView.as_view(), name='login'),
+    url(r'^accounts/logout/$', v.LogoutView.as_view(), {'next_page': '/forkilla'}, name='logout'),
+    url(r'^api/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

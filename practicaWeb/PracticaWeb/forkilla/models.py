@@ -4,6 +4,10 @@ from django.core.validators import MinValueValidator
 
 from django_comments.moderation import CommentModerator, moderator
 
+from pygments.lexers import get_lexer_by_name
+from pygments.formatters.html import HtmlFormatter
+from pygments import highlight
+
 
 #########################################################
 #   Every time this class is changed follow these steps:#
@@ -83,9 +87,20 @@ class Reservation(models.Model):
     def get_human_slot(self):
         return self._d_slots[self.time_slot]
         
+    def __str__(self):
+        return "Reservation at: " + self.restaurant.name + " on " + str(self.day) + " for " + str(self.num_people) + " people, on " + str(self.time_slot)
+        
 class ViewedRestaurants(models.Model):
     id_vr = models.AutoField(primary_key=True)
     restaurant = models.ManyToManyField(Restaurant)
+    
+class RestaurantInsertDate(models.Model):
+    viewedrestaurants = models.ForeignKey(ViewedRestaurants, on_delete=models.CASCADE)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-date_added']
         
 class ReviewRestaurant(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, null=True, related_name='reviews')
@@ -105,3 +120,16 @@ class Comment(models.Model):
         
     def __str__(self):
         return self.content
+        
+class Snippet(models.Model):
+    owner = models.ForeignKey('auth.User', related_name='snippets', on_delete=models.CASCADE)
+    highlighted = models.TextField()
+    
+    def save(self, *args, **kwargs):
+        lexer = get_lexer_by_name(self.language)
+        linenos = 'table' if self.linenos else False
+        options = {'title': self.title} if self.title else {}
+        formatter = HtmlFormatter(style=self.style, linenos=linenos,
+                                  full=True, **options)
+        self.highlighted = highlight(self.code, lexer, formatter)
+        super(Snippet, self).save(*args, **kwargs)
