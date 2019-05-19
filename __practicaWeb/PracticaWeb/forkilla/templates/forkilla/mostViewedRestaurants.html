@@ -1,0 +1,41 @@
+<section>
+    <div class="center">
+        <h2>
+            Your last viewed Restaurants
+        </h2> 
+    </div>
+    
+    <br>
+    <form action="{% url 'reservation' %}" method="post">
+        {% csrf_token %}
+        <div class="body_mostViewed_restaurants">
+            {% for restaurant in viewedrestaurants.restaurantinsertdate_set.all|slice:"5"%}
+                <div class="restaurant_card">
+                    {% if restaurant.restaurant.featured_photo %}
+                        <img src="{{ restaurant.restaurant.featured_photo.url }}" alt="not found"/>
+                    {% endif %}                
+                    <div>
+                        <h3>{{restaurant.restaurant.name}}</h3>
+                        
+                        <a href="{% url 'details' restaurant.restaurant.restaurant_number%}"> {{restaurant.restaurant.name}} </a> : {{restaurant.restaurant.menu_description}}
+
+                        <br>
+                        
+                        <p>
+                            {{restaurant.restaurant.menu_description}}
+                        </p>
+                        
+                        <!--<form action="{% url 'reservation' %}" method="get">
+                            {% csrf_token %}
+                            <button type="submit" name="reservation" value="{{restaurant.restaurant_number}}" class="reserva"> 
+                                Reserva 
+                            </button>
+                        </form>-->
+                        
+                        <a href="{% url 'details' restaurant.restaurant.restaurant_number%}"> View More </a>
+                    </div>
+                </div><!-- Closing div restaurant_card -->
+            {% endfor %}
+        </div><!-- Closing div body_mostViewed_restaurants -->
+    </form>
+</section>

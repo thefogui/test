@@ -1,0 +1,20 @@
+{% extends 'forkilla/base.html' %}
+
+{% block title %} Checkout Reservation {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/css/login.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="login_section">
+    <div class="login">
+        <div class="form">
+            <h2>Thank you for your Reservation</h2>
+            {{reserva}}
+        </div><!-- Closing div login -->
+    </div><!-- Closing div form -->
+</div>
+
+{% endblock %}

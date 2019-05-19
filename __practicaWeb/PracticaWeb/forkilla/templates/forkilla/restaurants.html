@@ -1,0 +1,107 @@
+{% extends 'forkilla/base.html' %}
+
+{% block title %} Restaurants {% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/restaurants.css">
+
+<div class="restaurants_section">
+    {% if city %} 
+      <h3>
+          {{city}}
+          <br />
+          {% if category %}
+            <h3>{{cetgory}}</h3>
+          {% endif %}
+      </h3>
+    {% endif %}
+    
+    <div class="filter">
+        <ul class="links">
+            {% for c in categories_filter %}
+                <li>
+                    <a href="{% url 'restaurants' city c.0 %}">{{c.1}}</a>
+                </li>
+            {% endfor %}  
+        </ul>
+          
+    </div>
+    
+
+    {% if restaurants %}
+    	{% if promoted %}
+            <h3>Promoted Restaurants</h3>
+        {% endif %}
+        
+            <form action="{% url 'reservation' %}" method="GET">
+                {% for restaurant in restaurants %}
+                   <div class="restaurant">
+                       <div class="restaurant_info" class="center">
+                           <h2 class="center">
+                               <a href="{% url 'details' restaurant.restaurant_number%}"> 
+                                   {{restaurant.name}} 
+                               </a>
+                           </h2>
+                           
+                            <br />
+                            <br />
+                            <br />
+                           
+                           <p class="information">
+                               
+                               {{ restaurant.get_human_category }} : {{restaurant.menu_description}}
+                               
+                               <br>
+                               
+                          
+                               {{restaurant.menu_description}}
+                               Price average: 
+                               {{restaurant.price_average}}
+                               Rate: 
+                               {{restaurant.rate}}
+                               Address: 
+                               {{restaurant.address}}
+                               {{restaurant.city}} 
+                               {{restaurant.country}}
+                          
+                               
+                               <br />
+                               
+                               <a href="{% url 'details' restaurant.restaurant_number%}"> 
+                                   View More
+                               </a>
+                               
+                               <br />
+                               
+                               <button type="submit" name="reservation" value="{{restaurant.restaurant_number}}" class="reserva"> 
+                                   Reserva 
+                               </button>
+                           </p>
+                       </div>
+                       
+                       <div class="restaurant_image">
+                           {% if restaurant.featured_photo %}
+                               <img src={{ restaurant.featured_photo.url }} alt="not found"/>
+                           {% endif %}                       
+                       </div>
+                   </div><!-- Closing div restaurants -->
+               {% endfor %}
+               </form>
+        
+    {% else %}
+        <div class="no_results">
+            <div>
+                <img class="img_sad" src="/static/img/sad.png"  alt="sad"/>
+            </div>
+            <div>
+                <p>
+                    No results found.
+                </p>
+            </div>
+        </div>
+    {% endif %}
+    
+    {% include 'forkilla/mostViewedRestaurants.html' %}
+</div>
+{% endblock %}

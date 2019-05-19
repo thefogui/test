@@ -1,0 +1,39 @@
+{% extends 'forkilla/base.html' %}
+
+{% block title %} Yours Reservations {% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/css/search.css">
+
+<div class="content">
+    {% for reservation in reservationList %}
+        <div class="restaurant">
+            <div class="restaurant_info">
+                <h2>
+                    {{ reservation.1.name }}
+                </h2>
+                <p class="information">
+                    {{ reservation.1|escape }}
+                    {{ reservation.0|escape }}
+                </p>
+                
+                <form action="{% url 'deleteReservation' reservation.0.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{ reservation.1.restaurant_number }}" /> 
+                    <input type="hidden" value="{{ reservation.0.id }}" />
+                    <input type="submit" value="delete"/>
+                </form>
+                
+                <a href="{% url 'details' reservation.1.restaurant_number%}"> View More </a>
+            </div>
+            
+            <div class="restaurant_image">
+                {% if reservation.1.featured_photo %}
+                    <img src={{ reservation.1.featured_photo.url }} alt="not found"/>
+                {% endif %}
+            </div>
+        </div><!-- Closing div restaurants -->
+    {% endfor %}
+    {% include 'forkilla/mostViewedRestaurants.html' %}
+</div><!-- Closing div content -->
+{% endblock %}

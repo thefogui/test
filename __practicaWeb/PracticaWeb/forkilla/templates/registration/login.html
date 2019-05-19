@@ -1,0 +1,129 @@
+<!DOCTYPE html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Forkilla - {% block title %}{% endblock %}</title>
+        <meta name="author" content="Vitor Carvalho and Ivet Aymerich">
+        <meta name="copyright" content="2019 Registered">
+        <meta name="description" content="Under construction">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {% load static %}
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{% static 'img/logo.png' %}">
+
+        <!-- CSS STYLE -->
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" href="/static/css/login.css">
+
+        {% block css %}
+        {% endblock %}
+        <!-- THE ICON FONTS -->
+
+        <!-- GOOGLE FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Grand+Hotel|Lobster+Two|Pacifico|Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Farsan" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="{% static "js/header.js" %}"></script>
+    
+
+    </head>
+
+    <body onresize="myFunction()">
+        <header>
+            
+            <div class="header_logo">
+                <h1 >
+                    <a class="logo" href="{% url 'index' %}">Forkilla</a>
+                </h1>
+            </div><!-- Closing div header_logo -->
+
+            <div class="search">
+                <form action="/search/" method="GET">
+                    <input type="text" name="q" value="{{query|escape}}" placeholder="Search Restaurant"/>
+                    <input type="submit" value="search" />
+                </form>
+            </div>
+
+            <div class="login-section">
+                {% if user.is_authenticated %}
+                    <div class="user_ui">
+                        <div class="user_menu_toggle">
+                            <div class="profile_img">
+                                
+                            </div><!-- Closing div profile_img -->
+                            
+                            <span class="simple_arrow fa fa-chevron-up"></span>
+                        </div><!-- Closing div user_menu_toggle -->
+                        
+                        <!-- USER MENU -->
+                        
+                        <div class="user_menu">
+                            <div class="user_info">
+                                <div class="profile_img">
+                                    
+                                </div><!-- Closing div profile_img -->
+                                
+                                <h4>{{ user.get_username }}</h4>
+                                
+                                <br />
+                                
+                                <a class="" href="{% url 'reservationlist' %}">Tus Reservas</a>
+                                
+                                <hr />
+                                
+                                <a class="fa fa-power-off" href="/accounts/logout/?next=/forkilla">Logout</a>
+                            </div>
+                        </div><!-- Closing div user_menu -->
+                    </div><!--  Closing div user_ui -->
+                {% else %}
+                    <div class="user_options">
+                        <ul>
+                            <li>
+                                <a class="" href="/accounts/login/?next=/forkilla">Login</a>
+                            </li>
+                            <li>
+                                <a class="" href="{% url 'register' %}">Register</a>
+                            </li>
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+        </header>
+        
+        {% block content %}
+        <div class="login_section">
+
+            <div class="login">
+                <div class="form">
+                    {% if form.errors %}
+                        <p class="error">Sorry, that's not a valid username or password</p>
+                    {% endif %}
+
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <label for="username">User name:</label>
+                        <input type="text" name="username" value="" id="username">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" value="" id="password">
+                        <input type="hidden" name="next" value="{{ next|escape }}" />
+                        <input type="submit" value="login" />
+                    </form>
+                </div><!-- Closing div login -->
+            </div><!-- Closing div form -->
+        </div>
+        {% endblock %}
+
+        {% block scripts %}
+        {% endblock %}
+        
+    </body>
+</html>

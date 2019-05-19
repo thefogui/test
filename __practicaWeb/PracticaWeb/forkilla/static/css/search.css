@@ -1,0 +1,80 @@
+
+.section_search {
+    width: 100vw;
+    height: 93vh;
+    margin: 0 auto;    
+}
+
+.section_search > h3 {
+    font-weight: 100;
+    text-align: center;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin: 4em 0 0 0;
+    margin: 30px;
+    margin-top: 8vh;
+    color: black;
+    font-size: 1.8em;
+}
+
+
+.restaurant {
+    box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
+	background: rgba(255, 255, 255, 0.90);
+	text-align: center;
+	border-radius: 5px;
+	overflow: hidden;
+	margin: 5em auto;
+	height: 350px;
+	width: 900px;
+}
+
+.restaurant_info {
+    position: relative;
+	text-align: left;
+	overflow: hidden;
+	padding: 30px;
+	height: 100%;
+	float: left;
+	width: 30%;
+}
+
+.restaurant_info h2 {
+    font-family: 'Old Standard TT', serif;
+	display: inline-block;
+	position: relative;
+	font-size: 34px;
+	color: #344055;
+	margin: 0;
+}
+
+/*Product Rating  */
+.hint-star {
+	display: inline-block;
+	margin-left: 0.5em;
+	color: gold;
+	width: 50%;
+}
+
+.information {
+    font-family: 'Farsan', cursive;
+	text-align: center;
+	font-size: 20px;
+	color: #7d7d7d;    
+}
+
+.restaurant_image {
+    transition: all 0.3s ease-out;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	float: right;
+	width: 60%;
+	display: inline-block;
+}
+
+.restaurant_image img {
+    width: 100%;
+    height: 100%;
+}

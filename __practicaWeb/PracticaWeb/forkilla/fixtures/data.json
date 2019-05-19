@@ -1,0 +1,207 @@
+[
+  {
+    "model": "forkilla.Restaurant",
+    "pk": 1,
+    "fields": {
+      "restaurant_number": "09186777",
+      "name": "Only Tapas",
+      "menu_description" :"TAPAS",
+      "price_average" : "30",
+      "is_promot" : "False",
+      "rate" : "10",
+      "category" : "Medi",
+      "city": "Barcelona",
+      "address": "Les Rambles, 33",
+      "country": "Spain",
+      "restaurant_capacity": 40
+    }
+  },
+   {
+    "model": "forkilla.Restaurant",
+    "pk": 2,
+    "fields": {
+      "restaurant_number": "09186666",
+      "name": "Only Pinxos",
+      "menu_description" :"PINXOS",
+      "price_average" : "130.33",
+      "is_promot" : "True",
+      "rate" : "9.6",
+      "category" : "Basq",
+      "city": "Barcelona",
+      "address": "Gran Via de les Corts Catalanes, 495",
+      "country": "Spain",
+      "restaurant_capacity": 240
+    }
+  },
+   {
+    "model": "forkilla.Restaurant",
+    "pk": 3,
+    "fields": {
+      "restaurant_number": "09186390",
+      "name": "Barbitas",
+      "menu_description" :"BBQ",
+      "price_average" : "35.55",
+      "is_promot" : "True",
+      "rate" : "9.6",
+      "category" : "Basq",
+      "city": "Barcelona",
+      "address": "Gran Via de les Corts Catalanes, 495",
+      "country": "Spain",
+      "restaurant_capacity": 240
+    }
+  },
+   {
+    "model": "forkilla.Restaurant",
+    "pk": 4,
+    "fields": {
+      "restaurant_number": "09186543",
+      "name": "BelleBuon",
+      "menu_description" :"ITALIAN",
+      "price_average" : "25",
+      "is_promot" : "True",
+      "rate" : "9.4",
+      "category" : "Ital",
+      "city": "Barcelona",
+      "address": "Travessera de Gràcia, 441",
+      "country": "Spain",
+      "restaurant_capacity": 140
+    }
+  },
+   {
+    "model": "forkilla.Restaurant",
+    "pk": 5,
+    "fields": {
+      "restaurant_number": "09187934",
+      "name": "Lab Restaurant",
+      "menu_description" :"MEDITERRANIAN",
+      "price_average" : "44",
+      "is_promot" : "False",
+      "rate" : "8.4",
+      "category" : "Medi",
+      "city": "Barcelona",
+      "address": "Carrer de Rossend Arús, 12",
+      "country": "Spain",
+      "restaurant_capacity": 40
+    }
+  },
+   {
+    "model": "forkilla.Restaurant",
+    "pk": 6,
+    "fields": {
+      "restaurant_number": "09186783",
+      "name": "La Crepe",
+      "menu_description" :"CREPERI",
+      "price_average" : "10",
+      "is_promot" : "False",
+      "rate" : "7.4",
+      "category" : "Crep",
+      "city": "Madrid",
+      "address": "Calle Ayala, 34",
+      "country": "Spain",
+      "restaurant_capacity": 130
+    }
+  },
+
+   {
+    "model": "forkilla.Restaurant",
+    "pk": 7,
+    "fields": {
+      "restaurant_number": "09186620",
+      "name": "Ikibana",
+      "menu_description" :"JAPANES BRAZILIAN",
+      "price_average" : "34",
+      "is_promot" : "False",
+      "rate" : "8.8",
+      "category" : "Fusi",
+      "city": "Barcelona",
+      "address": "Carrer Arago, 57",
+      "country": "Spain",
+      "restaurant_capacity": 90
+    }
+  },
+   {
+    "model": "forkilla.Restaurant",
+    "pk": 8,
+    "fields": {
+      "restaurant_number": "09186443",
+      "name": "Tandoori Station",
+      "menu_description" :"INDIAN",
+      "price_average" : "38",
+      "is_promot" : "False",
+      "rate" : "6.4",
+      "category" : "Hind",
+      "city": "Madrid",
+      "address": "Calle de José Ortega y Gasset, 89",
+      "country": "Spain",
+      "restaurant_capacity": 230
+    }
+  },
+   {
+    "model": "forkilla.Restaurant",
+    "pk": 9,
+    "fields": {
+      "restaurant_number": "09186434",
+      "name": "Hanan",
+      "menu_description" :"ETIOPI",
+      "price_average" : "30",
+      "is_promot" : "False",
+      "rate" : "7.1",
+      "category" : "Afri",
+      "city": "Madrid",
+      "address": "Calle Ventura Rodriguez, 3",
+      "country": "Spain",
+      "restaurant_capacity": 40
+    }
+  },
+   {
+    "model": "forkilla.Restaurant",
+    "pk": 10,
+    "fields": {
+      "restaurant_number": "09187123",
+      "name": "Min Dou",
+      "menu_description" :"CHINESE",
+      "price_average" : "24",
+      "is_promot" : "True",
+      "rate" : "7.9",
+      "category" : "Chin",
+      "city": "Valencia",
+      "address": "Calle Pelayo, 31",
+      "country": "Spain",
+      "restaurant_capacity": 140
+    }
+  },
+   {
+    "model": "forkilla.Restaurant",
+    "pk": 11,
+    "fields": {
+      "restaurant_number": "09186309",
+      "name": "Ancón",
+      "menu_description" :"PERUAN",
+      "price_average" : "36",
+      "is_promot" : "False",
+      "rate" : "8.4",
+      "category" : "Peru",
+      "city": "Valencia",
+      "address": "Calle Adressadors, 10",
+      "country": "Spain",
+      "restaurant_capacity": 220
+    }
+  },
+   {
+    "model": "forkilla.Restaurant",
+    "pk": 12,
+    "fields": {
+      "restaurant_number": "09185678",
+      "name": "Las Noches de Moscu",
+      "menu_description" :"RUSSIAN",
+      "price_average" : "34",
+      "is_promot" : "True",
+      "rate" : "6.9",
+      "category" : "Russ",
+      "city": "Madrid",
+      "address": "Calle Marques de Santa Ana, 37",
+      "country": "Spain",
+      "restaurant_capacity": 40
+    }
+}
+]

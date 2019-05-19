@@ -1,0 +1,167 @@
+{% extends 'forkilla/base.html' %}
+
+{% block title %}
+    {% if name %}
+        {{name}}
+    {% else %}
+        not found
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/css/details.css">
+<div class="container">
+    <div class="restaurant_name center">
+        <h1 class="title">Welcome</h1>
+        <h3>{{name}}</h3>
+        <hr id="asterisk" data-content="*">
+        <p>
+            Restaurant specilized in {{category}}
+        </p>
+        
+        <p>
+            <!-- the Restaurant rating -->
+            <span class="hint-star star">
+                {% if stars == 0 %}
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                {% elif stars == 1 %}
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                {% elif stars == 2 %}
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                {% elif stars == 3 %}
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                {% elif stars == 4 %}
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                {% else %}
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    
+                {% endif %}
+            </span>
+        </p>
+    </div><!-- Closing div card restaurant_name -->
+    
+    <div class="card">
+        <div class="card_text_div">
+            <div class="card_title">
+                <h1 class="title">Discover</h1>
+            </div><!-- Closing div card_title -->
+            
+            <div class="card_sub_tittle">
+                <h3>*</h3>
+            </div><!-- Closing div card_sub_tittle -->
+            
+            <div class="card_text">
+                <p>
+                    {{menu_description}}
+                    Price average: 
+                    {{price_average}}
+                    Rate: 
+                    {{rate}}
+                    Address: 
+                    {{address}}
+                    {{city}} 
+                    {{country}}
+                </p>
+                
+                <form action="{% url 'reservation' %}" method="get">
+                    {% csrf_token %}
+                    <button type="submit" name="reservation" value="{{restaurant_number}}" class="reserva"> 
+                        Reserva 
+                    </button>
+                </form>
+                
+                {% if user.is_authenticated %}
+                    <div class="rate_Section center">
+                        <h3>Rate this Restaurant:</h3>
+                        <form action="{% url 'review' restaurant.restaurant_number %}" method="POST">
+                            {% csrf_token %}
+                            <p class="clasificacion">
+                                <input id="radio1" type="radio" name="estrellas" value="5">
+                                <label for="radio1">★</label>
+                                <input id="radio2" type="radio" name="estrellas" value="4">
+                                <label for="radio2">★</label>
+                                <input id="radio3" type="radio" name="estrellas" value="3">
+                                <label for="radio3">★</label>
+                                <input id="radio4" type="radio" name="estrellas" value="2">
+                                <label for="radio4">★</label>
+                                <input id="radio5" type="radio" name="estrellas" value="1">
+                                <label for="radio5">★</label>
+                            </p>
+                            
+                            <input  type="submit" value="Rate"/>
+                        </form>
+                    </div><!-- Closing div rate_Section -->
+                {% endif %}
+                
+            </div><!-- Closing div card_text -->
+        </div><!-- Closing div card_text_div -->
+        
+        <div class="card_image">
+            {% if restaurant.featured_photo %}
+                <img src={{ restaurant.featured_photo.url }} alt="not found"/>
+            {% endif %}
+        </div><!-- Closing div card_image -->
+    </div><!-- Closing div card -->
+    
+    
+    <div class="comment_section">
+        <hr />
+        
+        <div class="new_comment">
+            {% if user.is_authenticated %}
+                <h1>Leave a Comment in this Restaurant</h1>
+                
+                {% if form.errors %}
+                    <p class="error">Sorry, that's not a valid comment</p>
+                {% endif %}
+
+                <form method="POST" action="{% url 'add_comment' restaurant.restaurant_number %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="reserva" type="submit" value="Comment"/>
+                </form>
+            {% endif %}
+        </div>
+        
+        
+        <hr />
+        <ul class="timeline">
+        {% for comment in restaurant.comments.all %}
+            <li>
+                <p class="timeline-date">{{ comment.posted_date }}</p>
+                <div class="timeline-content">
+                    <h3>{{ comment.user }}</h3>
+                    <p>{{ comment.content }}</p>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+    
+    {% include 'forkilla/mostViewedRestaurants.html' %}
+</div><!-- Closing div container -->
+{% endblock %}
