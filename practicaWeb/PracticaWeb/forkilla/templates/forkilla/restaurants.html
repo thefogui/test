@@ -12,10 +12,21 @@
           {{city}}
           <br />
           {% if category %}
-            <h3>{{city}}</h3>
+            <h3>{{cetgory}}</h3>
           {% endif %}
       </h3>
     {% endif %}
+    
+    <div class="filter">
+        <ul class="links">
+            {% for c in categories_filter %}
+                <li>
+                    <a href="{% url 'restaurants' city c.0 %}">{{c.1}}</a>
+                </li>
+            {% endfor %}  
+        </ul>
+          
+    </div>
     
 
     {% if restaurants %}
@@ -26,24 +37,46 @@
             <form action="{% url 'reservation' %}" method="GET">
                 {% for restaurant in restaurants %}
                    <div class="restaurant">
-                       <div class="restaurant_info">
-                           <h2>
-                               {{ restaurant.name }}
-                           </h2>
-                           <p class="information">
-                               <a href="{% url 'restaurants' restaurant.category %}"> 
-                                   {{restaurant.get_human_category}}
-                               </a>
-                               <br>
+                       <div class="restaurant_info" class="center">
+                           <h2 class="center">
                                <a href="{% url 'details' restaurant.restaurant_number%}"> 
                                    {{restaurant.name}} 
-                               </a> : {{restaurant.menu_description}}
+                               </a>
+                           </h2>
+                           
+                            <br />
+                            <br />
+                            <br />
+                           
+                           <p class="information">
+                               
+                               {{ restaurant.get_human_category }} : {{restaurant.menu_description}}
+                               
+                               <br>
+                               
+                          
+                               {{restaurant.menu_description}}
+                               Price average: 
+                               {{restaurant.price_average}}
+                               Rate: 
+                               {{restaurant.rate}}
+                               Address: 
+                               {{restaurant.address}}
+                               {{restaurant.city}} 
+                               {{restaurant.country}}
+                          
+                               
+                               <br />
+                               
+                               <a href="{% url 'details' restaurant.restaurant_number%}"> 
+                                   View More
+                               </a>
+                               
+                               <br />
+                               
                                <button type="submit" name="reservation" value="{{restaurant.restaurant_number}}" class="reserva"> 
                                    Reserva 
                                </button>
-                               <br>
-                               
-                               {{  restaurant|escape }}
                            </p>
                        </div>
                        
@@ -57,9 +90,18 @@
                </form>
         
     {% else %}
-        <p>No restaurants are available.</p>
+        <div class="no_results">
+            <div>
+                <img class="img_sad" src="/static/img/sad.png"  alt="sad"/>
+            </div>
+            <div>
+                <p>
+                    No results found.
+                </p>
+            </div>
+        </div>
     {% endif %}
-    {% endblock %}
     
     {% include 'forkilla/mostViewedRestaurants.html' %}
 </div>
+{% endblock %}

@@ -15,7 +15,7 @@
                         <h2>{{ restaurant.name }}</h2>
                     
                         <a class="button" href="{% url 'details' restaurant.restaurant_number %}">View More</a>
-                        <div class="cover"></div>
+                    
                     </li>
                     {% endfor %}
                 </ul>
@@ -25,7 +25,10 @@
             </div><!-- Closing div slide-window -->
         </div><!-- Closing div body_promoted_restaurants -->
     </div><!-- Closing div prommoted_restaurants_section -->
+    
+    
+    {% include 'forkilla/mostViewedRestaurants.html' %}
 </div><!-- Closing div container -->
 
-{% include 'forkilla/mostViewedRestaurants.html' %}
+
 {% endblock %}

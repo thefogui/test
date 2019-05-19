@@ -20,7 +20,7 @@
                             {{ restaurant|escape }}
                         </p>
                         
-                        <a href="{% url 'details' restaurant.restaurant_number%}"> View More </a>
+                        <a  href="{% url 'details' restaurant.restaurant_number%}"> View More </a>
                         
                         <form action="{% url 'reservation' %}" method="get">
                             {% csrf_token %}

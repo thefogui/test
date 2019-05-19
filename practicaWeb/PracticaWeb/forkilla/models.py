@@ -2,11 +2,15 @@ from django.db import models
 from datetime import datetime
 from django.core.validators import MinValueValidator
 
+from django.contrib.auth.models import User
+
 from django_comments.moderation import CommentModerator, moderator
 
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters.html import HtmlFormatter
 from pygments import highlight
+
+from .global_vars import ROLES
 
 
 #########################################################
@@ -54,7 +58,7 @@ class Restaurant(models.Model):
     address = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
-    featured_photo = models.ImageField(upload_to ='images/', default='static/forkilla/img/1.jpeg')
+    featured_photo = models.ImageField(upload_to ='images/', default='images/1.jpeg')
     category = models.CharField(max_length=5, choices=CATEGORIES)
     restaurant_capacity = models.PositiveIntegerField()
 
@@ -133,3 +137,7 @@ class Snippet(models.Model):
                                   full=True, **options)
         self.highlighted = highlight(self.code, lexer, formatter)
         super(Snippet, self).save(*args, **kwargs)
+        
+class UserRole(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    role = models.CharField(max_length=15, choices=ROLES)

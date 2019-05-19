@@ -15,6 +15,12 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from .serializers import RestaurantSerializer
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+from rest_framework import generics
+from .serializers import UserSerializer
+
+from .permissions import UserHaveCommercialRole
+from rest_framework import permissions
 
 # Create your views here.
 def index(request):
@@ -57,11 +63,13 @@ def restaurants(request, city="", category=""):
         'promoted': promoted,
         'categories' : categories,
         'viewedrestaurants' : viewedrestaurants,
+        'categories_filter' : Restaurant.CATEGORIES
     }
     return render(request, 'forkilla/restaurants.html', context)
 
 def details(request, restaurant_number=""):
     try:
+        
         viewedrestaurants = _check_session(request)
         restaurant = Restaurant.objects.get(restaurant_number=restaurant_number)
         lastviewed = RestaurantInsertDate(viewedrestaurants=viewedrestaurants,restaurant= restaurant)
@@ -100,22 +108,21 @@ def details(request, restaurant_number=""):
             'stars' : stars,
             'restaurant' : restaurant,
             'form' : form,
-            'categories' : categories
+            'categories' : categories,
+            
         }
     except Restaurant.DoesNotExist:
         raise Http404('This restaurant is not avaliable in this moment')
     return render(request, 'forkilla/details.html', context)
 
-def checkout(request):
+def checkout(request, context=""):
     categories = []
+    
     restaurants = Restaurant.objects.order_by().values_list('city').distinct()
     for restaurant in restaurants:
         categories.append(restaurant[0])
     
-    context = {
-        'categories' : categories
-    }
-    
+    context['categories'] = categories
     
     return render(request, 'forkilla/checkout.html', context)
 
@@ -142,7 +149,10 @@ def reservation(request):
                     render(request, 'forkilla/checkout.html', context)
             else:
                   request.session["result"] = form.errors
-            return HttpResponseRedirect(reverse('checkout'))
+            context = {
+                "reserva" : resv
+            }
+            return checkout(request, context)
 
         elif request.method == "GET":
             restaurant_number = request.GET["reservation"]
@@ -237,6 +247,7 @@ def search_restaurant(request):
         qset = (
             Q(restaurant_number__icontains=query) |
             Q(name__icontains=query) |
+            Q(category__icontains=query) |
             Q(city__icontains=query)
         )
 
@@ -329,6 +340,35 @@ class RestaurantViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Restaurants to be viewed or edited.
     """
-    queryset = Restaurant.objects.all().order_by('category')
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly, UserHaveCommercialRole,)
     serializer_class = RestaurantSerializer
+    
+    def get_queryset(self):
+    
+        queryset = Restaurant.objects.all().order_by('restaurant_number')
+        
+        category = self.request.query_params.get('category', None)
+        
+        if category:
+            queryset = queryset.filter(category=category)
+            
+        city = self.request.query_params.get('city', None)
+        
+        if city:
+            queryset = queryset.filter(city=city)
+            
+        price = self.request.query_params.get('price', None)
+        
+        if price:
+            queryset = queryset.filter(price_average__level__lte=price)
+            
+        return queryset
+    
 
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

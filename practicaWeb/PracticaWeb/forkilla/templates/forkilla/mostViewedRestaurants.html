@@ -1,7 +1,10 @@
 <section>
-    <h2>
-        Your last viewed Restaurants
-    </h2> 
+    <div class="center">
+        <h2>
+            Your last viewed Restaurants
+        </h2> 
+    </div>
+    
     <br>
     <form action="{% url 'reservation' %}" method="post">
         {% csrf_token %}

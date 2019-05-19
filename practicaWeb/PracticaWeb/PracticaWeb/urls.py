@@ -23,9 +23,8 @@ from django.conf.urls import url, include
 from rest_framework import routers
 from forkilla import views
 
-
 router = routers.DefaultRouter()
-router.register(r'restaurants', views.RestaurantViewSet)
+router.register(r'restaurants', views.RestaurantViewSet, base_name="Restaurant")
 
 
 # Wire up our API using automatic URL routing.
@@ -38,5 +37,7 @@ urlpatterns = [
     url(r'^accounts/login/$', v.LoginView.as_view(), name='login'),
     url(r'^accounts/logout/$', v.LogoutView.as_view(), {'next_page': '/forkilla'}, name='logout'),
     url(r'^api/', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('users/', views.UserList.as_view()),
+    path('users/<int:pk>/', views.UserDetail.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
