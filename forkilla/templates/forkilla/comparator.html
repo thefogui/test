@@ -1,0 +1,144 @@
+{% extends "forkilla/base.html" %}
+{% load staticfiles %}
+
+{% block title %} Comparator {% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static "css/comparator.css" %}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="page_body">
+        <div class="center">
+            <h3>
+                Search your list of restaurants
+            </h3> 
+        </div>
+        
+        <div class="form_section center">
+            <ul>
+                <li>
+                    <select type="number" name="max_price" id="category" placeholder="Category">
+                        <option value="all" selected>All categories</option>
+                        {% for category in categories %}
+                            <option value="{{ category.0 }}">{{ category.1 }}</option>
+                        {% endfor %}
+                    </select>
+                </li>
+                
+                <li>
+                    <select type="text" name="city" id="city" placeholder="City">
+                        <option value="all" selected>All cities</option>
+                        {% for city in cities %}
+                            <option value="{{ city }}">{{ city }}</option>
+                        {% endfor %}
+                    </select>
+                </li>
+                
+                <li>
+                    <input type="number" name="max_price" id="max_price" class="form-control" step="any" placeholder="Price">
+                </li>
+                
+                <li>
+                    <button type="button" class="compare">Compare</button>
+                </li>
+            </ul>
+        </div><!-- Closing div form_section -->
+        
+        <div class="results">
+            <div class="error_container">
+                
+            </div><!-- clsoing div error_container -->
+            
+            
+            <div class="body_mostViewed_restaurants" style="width:100% !important;">
+                
+            </div>
+        </div><!-- clsoing div results -->
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $('.compare').on('click', function() {
+            
+            var ips = {{ ips | safe }};
+            var restaurants = $('.body_mostViewed_restaurants');
+            restaurants.empty();
+            var params = '?';
+            var restaurants_dict = [];
+            
+            const cat = $('#category');
+            if (cat.val() !== "all") {
+                params += 'category=' + cat.val();
+            }
+            
+            const city = $('#city');
+            if (city.val() !== 'all') {
+                params.length > 2 ? params += '&city=' + city.val() : params += 'city=' + city.val();
+            }
+            
+            const m_price = $('#max_price');
+            if (m_price.val() !== '') {
+                params.length > 2 ? params += '&price=' + m_price.val() : params += 'price=' + m_price.val();
+            }
+                
+            $.ajax({
+                url: ips[0] + '/api/restaurants/' + params,
+                type: 'GET', //Allowed without auth
+                dataType: 'json',
+                error: function () {
+                   console.log('ERROR with ip ---' + ips[i]);
+                   $('.error_container').append('<span class="error"> There has been an error with this filters on the following api:' + ikea_ips[i] + '</span>')
+                },
+                success: function (data) {
+                    data.results.forEach(function(restaurant) {
+                        
+                        card = '<div class="restaurant_card">' +
+                                    '<img src="' + restaurant.featured_photo + '" ' + 'alt="not found"/>' +
+                                    '<h3>' + restaurant.name + '</h3>' +
+                                    '<p>' +
+                                        restaurant.price_average + '$' +
+                                    '</p>' +
+                                    '<div>' +
+                                        '<p>' +
+                                            restaurant.menu_description +
+                                        '</p>' +
+                                        
+                                        '<p> Rate: ' +
+                                            restaurant.rate + ' ' +
+                                            'Address: ' +
+                                            restaurant.address + ' ' +
+                                            restaurant.city + ' ' +
+                                            restaurant.country + ' ' +
+                                        '</p>' +
+                                        
+                                        '<br>' +
+                                        
+                                        '<p>' +
+                                            restaurant.restaurant_capacity +
+                                        '</p>' +
+                                    '</div>' +
+                                '</div>';
+                        
+                        /*restaurants_dict.push(card);*/
+                        restaurants.append(card);
+                        
+                    });
+                }
+            });
+            
+            /*restaurants_dict.sort(function(restaurant1, restaurant2) {
+                return restaurant1.price - restaurant2.price;
+            });
+            
+            console.log(restaurants_dict);
+            
+            for (var i = 0; i < restaurants_dict.length; i++) {
+                console.log("1");
+            }
+            
+            console.log(restaurants_dict);*/
+        });
+    </script>
+{% endblock %}

@@ -360,10 +360,23 @@ class RestaurantViewSet(viewsets.ModelViewSet):
         price = self.request.query_params.get('price', None)
         
         if price:
-            queryset = queryset.filter(price_average__level__lte=price)
+            queryset = queryset.filter(price_average__lte=price)
             
         return queryset
     
+
+def comparator(request, ips):
+    cities = []
+    restaurants = Restaurant.objects.order_by().values_list('city').distinct()
+    for restaurant in restaurants:
+        cities.append(restaurant[0])
+    
+    context = {
+        'ips' : ips,
+        'cities' : cities,
+        'categories' : Restaurant.CATEGORIES
+    }
+    return render(request, 'forkilla/comparator.html', context)
 
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()

@@ -26,7 +26,7 @@ from forkilla import views
 router = routers.DefaultRouter()
 router.register(r'restaurants', views.RestaurantViewSet, base_name="Restaurant")
 
-listOfAddresses = ["161.116.56.65","161.116.56.165"]
+listOfAddresses = ['http://localhost:8000', "localhost"]
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

@@ -1,0 +1,87 @@
+.page_body {
+    display: block;
+    width: 95vw;
+    height: auto;
+    margin-top: 8vh;
+    margin: 0 auto;
+}
+
+.page_body .center{
+    text-align: center;
+}
+
+.page_body .center h3 {
+    font-weight: 100;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 4em 0 0 0;
+    margin: 30px;
+    margin-top: 8vh;
+    color: black;
+    font-size: 1.8em;
+}
+
+.page_body .form_section {
+    display: block;
+    width: 100%;
+}
+
+.page_body .form_section ul {
+    border: 1px solid #ccc;
+    border-width:1px 0;
+    list-style:none;
+    margin:0;
+    padding:0;
+    text-align:center;
+    color: #ccc;
+    padding: 3px;
+}
+
+.page_body .form_section ul li {
+    display:inline;
+    color: #ccc;
+    padding: 10px;
+    
+}
+
+.page_body .form_section ul li input, select {
+    display: block;
+    position: relative;
+    width: 15vw;
+    vertical-align: middle;
+    display: inline;
+    outline: 0;
+    background: #f2f2f2;
+    border: 0;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.page_body .form_section ul li select {
+    height: 45px;
+    border-radius: 0%;
+}
+
+.page_body .form_section ul li button {
+    position: relative;
+    display: inline;
+    text-transform: uppercase;
+    outline: 0;
+    background: #ccc;
+    width: 15vw;
+    border: 1px solid #ccc;
+    padding: 15px;
+    color: black;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.page_body .form_section ul li button:hover {
+    background: #c70e93;
+    border: 1px solid #c70e93;
+    color: white;
+}
