@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from decouple import config
+import django_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,7 +27,7 @@ SECRET_KEY = 'bw&!+4wxt_+3ftfrb1=#mrus9p2=sk6p4u!em*mic)4_9=jn#3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 # Application definition
 
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_comments',
     'rest_framework',
+    'django_heroku'
 ]
 
 SITE_ID = 1
@@ -52,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'PracticaWeb.urls'
@@ -79,12 +83,26 @@ WSGI_APPLICATION = 'PracticaWeb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if config('ENV_NAME') == 'DEV':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+if config('ENV_NAME') == 'PROD':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'sd2018-ykeaa07',
+            'USER': 'user',
+            'PASSWORD': '',
+            'HOST': 'localhost',
+            'PORT': '',
+            'CONN_MAX_AGE': 500
+
+        }
+    }
 
 
 # Password validation
@@ -128,6 +146,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
@@ -139,3 +159,6 @@ REST_FRAMEWORK = {
       'PAGE_SIZE': 20,
       'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination'
 }
+
+
+django_heroku.settings(locals())
