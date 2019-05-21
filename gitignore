@@ -4,3 +4,10 @@ practica1ClienteServidor/AppServer/out/*
 practica1ClienteServidor/AppClient/out/*
 practica1ClienteServidor/AppClient/.idea/workspace.xml
 practica1ClienteServidor/AppClient/out/production/AppClient/Controller/*.class
+1__practica1ClienteServidor/
+1__practicaWeb/
+PracticaWeb/__pycache__/
+PracticaWeb/__init__.py
+db.sqlite3
+.DS_Store
+.env
